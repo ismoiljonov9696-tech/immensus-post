@@ -368,18 +368,28 @@ def stash_media(secrets, bot: Bot, post: dict, media: Path | None, kind: str) ->
     """
     if not media or kind == "text":
         return
-    chat = secrets.admins[0] if secrets.admins else None
-    if not chat:
+    if not secrets.admins:
         LOG.warning("Admin chat ID yo'q — rasm saqlanmadi, post matn bilan chiqadi")
         return
-    try:
-        res = (bot.send_video(chat, media) if kind == "video"
-               else bot.send_photo(chat, media))
-        post["file_id"] = extract_file_id(res)
-        bot.delete_message(chat, res["message_id"])
-        LOG.info("Media Telegram'ga saqlandi (%s) — chiqarishda tayyor turadi", kind)
-    except Exception as exc:                              # noqa: BLE001
-        LOG.error("Media saqlanmadi (%s) — post matn bilan chiqishi mumkin", exc)
+
+    # Bir nechta admin bo'lsa, birinchisi botga /start yubormagan yoki ID xato
+    # bo'lishi mumkin. Media uchun birinchi ISHLAYDIGAN chatni topamiz; aks holda
+    # bitta noto'g'ri ID qolgan barcha adminlarni ham bloklab qo'yardi.
+    errors: list[str] = []
+    for chat in secrets.admins:
+        try:
+            res = (bot.send_video(chat, media) if kind == "video"
+                   else bot.send_photo(chat, media))
+            post["file_id"] = extract_file_id(res)
+            bot.delete_message(chat, res["message_id"])
+            LOG.info("Media Telegram'ga saqlandi (%s) — chiqarishda tayyor turadi", kind)
+            return
+        except Exception as exc:                          # noqa: BLE001
+            errors.append(f"{chat}: {_short_reason(exc)}")
+            LOG.warning("Media bu admin chatiga saqlanmadi (%s): %s", chat, exc)
+
+    LOG.error("Media hech bir admin chatiga saqlanmadi (%s) — post matn bilan "
+              "chiqishi mumkin", "; ".join(errors))
 
 
 def preview_header(cfg: dict, post: dict, verdict: dict, when: datetime,
@@ -421,6 +431,7 @@ def cmd_check(cfg: dict) -> int:
 
     secrets = load_secrets(strict=False)
     ok = True
+    bot: Bot | None = None
 
     def report(label: str, good: bool, detail: str = "") -> None:
         nonlocal ok
@@ -449,10 +460,18 @@ def cmd_check(cfg: dict) -> int:
     else:
         report("Telegram bot", False, "TELEGRAM_BOT_TOKEN yo'q")
 
-    need_admin = mode_of(cfg) != "off"
     n = len(secrets.admins)
-    report("Admin chat ID", bool(n) or not need_admin,
-           f"{n} ta admin" if n else "TELEGRAM_ADMIN_CHAT_ID yo'q — ko'rsatish ishlamaydi")
+    valid_admins = 0
+    if bot:
+        for chat_id in secrets.admins:
+            try:
+                bot._call("getChat", data={"chat_id": chat_id})
+                valid_admins += 1
+            except TelegramError:
+                pass
+    report("Admin chat ID", valid_admins > 0,
+           (f"{valid_admins}/{n} ta admin chat ishlaydi" if n
+            else "TELEGRAM_ADMIN_CHAT_ID yo'q — media va xabarnoma ishlamaydi"))
 
     if secrets.gemini_key:
         try:
