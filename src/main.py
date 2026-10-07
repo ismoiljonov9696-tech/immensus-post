@@ -465,7 +465,11 @@ def cmd_check(cfg: dict) -> int:
     if bot:
         for chat_id in secrets.admins:
             try:
-                bot._call("getChat", data={"chat_id": chat_id})
+                # getChat mavjud foydalanuvchini topishi mumkin, ammo bu bot
+                # unga yozishi mumkin degani emas. sendChatAction ko'rinadigan
+                # xabar qoldirmasdan aynan yozish ruxsatini tekshiradi.
+                bot._call("sendChatAction", data={"chat_id": chat_id,
+                                                   "action": "typing"})
                 valid_admins += 1
             except TelegramError:
                 pass
