@@ -1,0 +1,197 @@
+# ============================================================
+#  Avtomatik Telegram post tizimi — sozlamalar
+#  API kalitlari BU YERDA EMAS. Ular .env / GitHub Secrets ichida.
+# ============================================================
+
+channel:
+  # Kanal manzili: "@kanal_nomi" yoki raqamli ID (-100...)
+  id: "@immensuspost"
+  language: "uz"          # uz | ru | en
+  timezone: "Asia/Tashkent"
+
+# Rubrikalar. Har safar navbatdagisi olinadi (rotation).
+# Bittasini qoldirsangiz — doim shu ishlatiladi.
+rubrics:
+  - name: "Xitoydan onlayn buyurtma va foydali maslahatlar"
+    brief: >
+      Xitoyning Taobao, 1688, Pinduoduo, Alibaba va AliExpress kabi onlayn
+      platformalaridan buyurtma berayotgan O'zbekistonliklar uchun amaliy
+      maslahatlar. Mavzu doirasi: mahsulot va ishonchli sotuvchi tanlash,
+      reyting va sharhlarni tekshirish, kupon va aksiyalardan foydalanish,
+      sotuvchi bilan yozishish, to'lov xavfsizligi, buyurtmani Xitoy omboriga
+      yuborish, qadoqlash, vazn va hajmni kamaytirish, taqiqlangan yoki xavfli
+      tovarlarni oldindan aniqlash, keng tarqalgan xatolar va firibgarlikdan
+      himoyalanish.
+
+      Har post — bitta aniq maslahat: o'quvchi bugun qo'llay oladigan narsa,
+      umumiy "Xitoy bilan ishlash foydali" turidagi gap emas.
+
+      MUHIM CHEKLOV: bojxona stavkalari, limitlar, soliq foizlari va rasmiy
+      talablar tez-tez o'zgaradi. Aniq raqam faqat manbada bo'lsa yoziladi va
+      yoniga manba sanasi qo'shiladi. Manbada yo'q raqamni O'YLAB TOPMANG —
+      uning o'rniga jarayonni va nimaga e'tibor berishni tushuntiring.
+    audience: >
+      Xitoydan ilk bor buyurtma berayotganlar, shaxsiy xaridorlar, kichik
+      biznes egalari va marketplace sotuvchilari. Matn yangi boshlovchiga
+      tushunarli, tajribali sotuvchiga esa amaliy foydali bo'lsin.
+    # 1-agent faqat shu domenlardan izlaydi. Bo'sh qoldirsangiz — cheklovsiz.
+    # Kargo/bojxona mavzusi uchun cheklovsiz qoldirish tavsiya etiladi:
+    # o'zbek tilidagi manbalar oz, tor ro'yxat mavzu topilmasligiga olib keladi.
+    allowed_domains: []
+
+post:
+  min_chars: 600
+  max_chars: 1000
+  # Telegram caption limiti 1024 belgi. Undan oshsa matn alohida yuboriladi.
+  emoji_level: "medium"   # none | low | medium | high
+
+  # Xitoycha iyerogliflar. Tovar, sayt va bozor nomlari uchun ruxsat
+  # (义乌, 阿里巴巴, 拼多多 kabi) — nazoratchi ularni rad etmaydi.
+  # Lekin post butunlay xitoychaga aylanib ketmasligi kerak.
+  #   max_chinese_chars — postdagi iyerogliflar soni shundan oshmasin
+  #   max_chinese_ratio — barcha harflarga nisbatan ulushi shundan oshmasin
+  # Ikkalasidan biri buzilsa — post rad etiladi va qayta yoziladi.
+  # Butunlay o'chirish uchun ikkalasini ham null qiling.
+  max_chinese_chars: 40
+  max_chinese_ratio: 0.15
+  cta: >
+    📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
+    🚗 Avto kargo: $6.2/kg
+    ✈️ Avia kargo — tez kunda
+  hashtags: ["#ImmensusPost", "#XitoydanBuyurtma", "#FoydaliMaslahat"]
+
+image:
+  # DIQQAT: rasm modellari matn modellaridan boshqacha nomlanadi.
+  # "gemini-3.6-flash-image" kabi nom YO'Q — faqat quyidagilar mavjud.
+  model: "gemini-3.1-flash-image"
+  # Asosiy model 404 bersa, shu ro'yxatdan navbat bilan sinaladi.
+  # Bitta noto'g'ri nom butun rasmni yo'qotmasligi uchun.
+  fallback_models:
+    - "gemini-3.1-flash-lite-image"
+    - "gemini-3-pro-image"
+    - "gemini-2.5-flash-image"
+  aspect_ratio: "4:5"               # 1:1 | 4:5 | 16:9
+
+  # Sahnada odam bo'lsinmi: never | sometimes | often
+  #   sometimes — TAVSIYA ETILADI. Odam faqat dars inson harakati haqida
+  #               bo'lsa chiqadi (o'lchash, tekshirish, savdolashish).
+  #               Hujjat, raqam yoki predmet haqidagi postlarda odam chiqmaydi.
+  #   often     — deyarli har rasmda odam. Lenta bir xil bo'lib qoladi.
+  #   never     — faqat predmetlar.
+  people: "sometimes"
+
+  # Brend ranglari — rasm shu palitrada chiziladi
+  brand_colors: >
+    Immensus Post brand palette: deep navy blue and vivid warm orange as the
+    primary colors, clean off-white highlights, soft neutral shadows
+
+  # REALISTIK FOTOSURAT. Illyustratsiya, klipart yoki 3D render emas.
+  style: >
+    Realistic documentary photograph, shot on a full-frame camera with a
+    35mm or 50mm lens. Natural available light, believable shadows, real
+    materials and honest textures — kraft cardboard, steel, packing tape,
+    worn concrete, dusty fabric, scuffed floors. Shallow but not extreme
+    depth of field. Slight imperfection is good: it should look like a real
+    moment someone photographed, not a staged studio shot and not a
+    render or illustration. No plastic-smooth surfaces, no glossy CGI look.
+
+  # Logotip. Rasm chizilgach ustiga QO'YILADI — AI ga chizdirilmaydi,
+  # chunki u har safar buzuq va boshqacha chiqadi.
+  # Faylni repoga qo'ying: assets/logo.png (shaffof fonli PNG eng yaxshisi)
+  logo:
+    enabled: true
+    # Fayl shu yo'lda topilmasa, tizim o'zi qidiradi:
+    # assets/logo.png, logo.png, logo.jpg — reponing ildizidan ham.
+    # Ya'ni faylni qayerga qo'ysangiz ham topiladi.
+    path: "assets/logo.png"
+    position: "bottom-right"   # bottom-right | bottom-left | top-right | top-left
+    width_percent: 23          # rasm kengligiga nisbatan logo kengligi
+    margin_percent: 4          # chetdan masofa
+    opacity: 0.95
+
+    # Sahnada odam bo'lsa, logotip uning kiyimiga chizilsin (ko'krak qismiga).
+    # Bu burchakka yopishtirishdan tabiiyroq ko'rinadi, LEKIN qo'shimcha
+    # AI rasm-tahrirlash chaqiruvi kerak bo'ladi — narxni deyarli 2 baravar
+    # oshiradi. Video zumidagi burchak-logo muammosi tuzatilgani uchun
+    # (endi doim ko'rinadi) bu endi shart emas — tejash uchun o'chirilgan.
+    on_clothing: false
+    # Logo ostidagi oq plashka. Shaffof fonli logo uchun KERAK EMAS —
+    # u ramka bo'lib ko'rinadi. Faqat logo ko'rinmay qolsa true qiling.
+    backdrop: true
+
+audio:
+  # O'CHIRILGAN. Azure Speech ishlatilmaydi — post rasm va matn bilan chiqadi.
+  # Keyinchalik ovoz kerak bo'lsa: true qiling va AZURE_SPEECH_KEY bilan
+  # AZURE_SPEECH_REGION ni GitHub Secrets'ga qo'shing.
+  enabled: false
+  voice: "uz-UZ-SardorNeural"   # yoki uz-UZ-MadinaNeural
+  rate: "+0%"
+  pitch: "+0%"
+  # Audio matni: post matnining o'zi (havola va hashtaglarsiz tozalanadi)
+
+video:
+  # Rasm -> qisqa MP4 (Ken Burns). O'CHIRILGAN — post rasmning o'zi
+  # bilan chiqadi, video kerak emas.
+  enabled: false
+  silent_seconds: 6        # ovozsiz video necha soniya davom etsin
+  fade_seconds: 0.4        # kirish va chiqishdagi yumshoq o'tish
+  tail_seconds: 0.8        # ovoz yoqilganda: audio tugagach shuncha davom etadi
+
+llm:
+  # Matn agentlari (1, 2, 5) uchun model.
+  # gemini-2.5-flash eskirgan va 404 qaytaradi — 3.6 yoki 3.7 ishlating.
+  model: "gemini-3.8-flash"
+  qc_model: "gemini-3.8-flash"
+  max_rewrites: 2          # 5-agent rad etsa, 2-agent necha marta qayta yozadi
+
+  # Sifat chegaralari (1–10).
+  # qc_min_score      — oddiy urinishda o'tish uchun kerakli ball
+  # qc_last_chance    — OXIRGI urinishda shu balldan yuqori bo'lsa qabul qilinadi
+  #                     va adminga "past ball" belgisi bilan yuboriladi.
+  #                     null qilsangiz — eski qat'iy rejim, post umuman chiqmaydi.
+  # Chegara pasaytirildi: post umuman chiqmagandan ko'ra, kamchiligi
+  # bilan chiqib sizga belgilangan holda kelgani yaxshiroq.
+  qc_min_score: 8
+  qc_last_chance: 7
+
+schedule:
+  # Post chiqish vaqtlari (Toshkent vaqti). Kuniga 2 ta post.
+  publish_times: ["09:00", "19:00"]
+
+  # --- Quyidagilar faqat ichki jadval (src.scheduler) uchun ---
+  # Post chiqishidan necha soat oldin tayyorlansin va tasdiqqa yuborilsin.
+  # 13 = 09:00 chiqadigan post kechqurun 20:00 da tayyorlanadi, tasdiqqa tun qoladi.
+  generate_lead_hours: 13
+  # Yoki aniq soatlarni o'zingiz belgilang (bunda generate_lead_hours hisobga olinmaydi):
+  # generate_times: ["20:00"]
+
+approval:
+  # opt_out — post chiqishidan oldin sizga ko'rsatiladi. HECH NARSA BOSMASANGIZ
+  #           belgilangan vaqtda o'zi chiqadi. Faqat "Qayta ishlash" bosilsa
+  #           to'xtatiladi va qaytadan yoziladi.
+  # opt_in  — post faqat siz "Chiqarish" tugmasini bossangiz chiqadi.
+  # off     — hech qanday tasdiq yo'q, post belgilangan vaqtda o'zi chiqadi.
+  #           Chiqqach bot sizga "📤 Kanalga chiqdi" deb xabar beradi.
+  #
+  # HOZIRGI REJIM: off — tasdiqlash shart emas, post o'zi chiqadi.
+  # Tasdiqlashni qaytarmoqchi bo'lsangiz: "opt_out" qiling.
+  mode: "off"
+
+  # Post chiqishidan necha daqiqa oldin sizga yuborilsin.
+  # Ko'rib chiqish uchun shuncha vaqtingiz bo'ladi.
+  preview_minutes: 10
+
+  # Postni tayyorlash (rasm + ovoz + video) uchun qo'shimcha zaxira vaqt.
+  # Tizim ko'rsatishdan shuncha oldin ishga tushadi, shunda post aynan
+  # preview_minutes qolganda emas, undan sal oldinroq yetib boradi.
+  generate_buffer_minutes: 5
+
+  # "Qayta ishlash" bosilgandan keyin yangi variant necha daqiqada chiqadi.
+  # Asl chiqish vaqti o'tib ketgan bo'lsa ham post baribir chiqadi.
+  rewrite_review_minutes: 10
+
+  # Bir post uchun qayta ishlash chegarasi. Chegaraga yetganda tizim
+  # oxirgi variantni baribir chiqaradi va sizga xabar beradi.
+  # 2-marta bosilganda tizim mavzuni ham almashtiradi — demak muammo
+  # matnda emas, mavzuning o'zida.
+  max_rewrites: 3
