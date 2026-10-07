@@ -33,9 +33,10 @@
     "qc_score": 10,
     "soft_pass": false,
     "rewrites": 0,
-    "publish_at": "2026-10-07T19:12:30.997645+05:00",
-    "created_at": "2026-10-07T13:57:30+00:00",
+    "publish_at": "2026-10-07T22:12:30.997645+08:00",
+    "created_at": "2026-10-07T21:57:30+08:00",
     "est_cost_usd": 0.0935,
-    "status": "ready"
+    "status": "cancelled",
+    "cancel_reason": "admin_chat_not_started"
   }
 ]
