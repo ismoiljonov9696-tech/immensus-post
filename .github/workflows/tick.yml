@@ -1,0 +1,78 @@
+name: Postlarni vaqtida chiqarish
+
+# Toshkent vaqti UTC+5:
+# 09:00 = 04:00 UTC, kuzatuvchi 02:00/03:00 UTC da ishga tushadi.
+# 19:00 = 14:00 UTC, kuzatuvchi 12:00/13:00 UTC da ishga tushadi.
+on:
+  schedule:
+    - cron: "0 2,3,12,13 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: chiqarish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Kutubxonalar
+        run: pip install -r requirements.txt
+
+      - name: Kutish va chiqarish
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          git config user.name "immensus-post-bot"
+          git config user.email "actions@users.noreply.github.com"
+          END=$(( $(date +%s) + 9600 ))
+          while [ "$(date +%s)" -lt "$END" ]; do
+            python -m src.main tick || echo "tick xatosi — davom etamiz"
+            if [ -n "$(git status --porcelain data/)" ]; then
+              git add data/
+              git commit -q -m "navbat $(date -u +%Y-%m-%dT%H:%M)" || true
+              git pull --rebase --autostash -q origin "${GITHUB_REF_NAME}" || true
+              git push -q || true
+            fi
+            if ! python -m src.main due --within 180; then
+              echo "Yaqin 3 soatda post yo'q — kuzatuv tugadi"
+              break
+            fi
+            sleep 60
+          done
+
+      - name: Xato bo'lsa Telegramga xabar
+        if: failure()
+        env:
+          TG: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+        run: |
+          TEXT="⚠️ Immensus Post chiqarish workflow'i yiqildi.
+          Loglar: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -sS -X POST "https://api.telegram.org/bot${TG}/sendMessage" \
+            -d chat_id="${CHAT}" --data-urlencode text="${TEXT}" > /dev/null || true
+
+      - name: Holatni saqlash
+        if: always()
+        run: |
+          git config user.name "immensus-post-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet && exit 0
+          git commit -m "navbat yangilandi $(date -u +%Y-%m-%dT%H:%M)"
+          git pull --rebase --autostash origin ${{ github.ref_name }} || true
+          git push
+
