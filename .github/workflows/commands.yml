@@ -9,11 +9,13 @@ name: Buyruqlarni o'qish
 #  Bu ish `tick` ni HECH QANDAY kutishsiz, bir marta chaqiradi —
 #  faqat Telegram xabarlarini o'qib javob berish va (agar postning
 #  chiqish vaqti allaqachon yetgan bo'lsa) uni chiqarish uchun.
-#  Har 15 daqiqada ishlaydi, bir necha soniyada tugaydi.
+#  Har soatda ishlaydi, bir necha soniyada tugaydi. Post chiqarish vaqtlarida
+#  esa tick.yml alohida zaxira tekshiruvlarni bajaradi.
 # ============================================================
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    # Soat boshidagi GitHub Actions tirbandligini chetlab o'tish uchun :17.
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 concurrency:
