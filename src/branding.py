@@ -89,8 +89,9 @@ def apply_logo(image_path: Path, cfg: dict, root: Path) -> Path:
 
         layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
 
-        # Logo ostiga yumshoq plashka — rang-barang fonda ham o'qiladigan bo'lsin
-        if logo_cfg.get("backdrop", True):
+        # Shaffof PNG o'z alfa-kanali bilan qo'yiladi. Oq plashka faqat
+        # sozlamada ataylab yoqilgandagina chiziladi.
+        if logo_cfg.get("backdrop", False):
             pad = max(int(target_w * 0.12), 8)
             box = (x - pad, y - pad, x + target_w + pad, y + target_h + pad)
             shade = Image.new("RGBA", base.size, (0, 0, 0, 0))
