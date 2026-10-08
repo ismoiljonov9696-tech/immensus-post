@@ -22,7 +22,7 @@ import hashlib
 import logging
 from pathlib import Path
 
-from ..branding import apply_logo, find_logo
+from ..branding import apply_logo, apply_platform_logo, find_logo
 from ..config import ROOT
 from ..gemini import edit_image, generate_image, generate_json
 
@@ -275,6 +275,7 @@ def run(cfg: dict, post_text: str, out_path: Path, api_key: str,
     out_path.write_bytes(data)
     LOG.info("Rasm saqlandi: %s (%.0f KB, model: %s)", out_path.name, len(data) / 1024, used)
 
+    apply_platform_logo(out_path, cfg, f"{topic_title}\n{post_text}")
     on_clothing = _logo_on_clothing(cfg, out_path, has_person, api_key)
     if not on_clothing:
         apply_logo(out_path, cfg, ROOT)      # burchakka qo'yish — kafolatlangan yo'l
