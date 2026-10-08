@@ -541,8 +541,9 @@ def manual_publish_time(cfg: dict) -> datetime:
 
 def slot_rubric(cfg: dict, rubric: dict, when: datetime) -> dict:
     """Chiqish vaqtiga mos muharrirlik vazifasini rubrikaga qo'shadi."""
+    slot = os.getenv("CONTENT_SLOT") or when.strftime("%H:%M")
     focus = (cfg.get("schedule", {}).get("slot_content") or {}).get(
-        when.strftime("%H:%M"), ""
+        slot, ""
     )
     if not focus:
         return rubric
@@ -606,7 +607,8 @@ def generate_one(cfg: dict, force: bool = False, now_flag: bool = False,
                 else next_publish_time(cfg))
         focused_rubric = slot_rubric(cfg, rubric, when)
         LOG.info("═══ Post %s | rubrika: %s ═══", post_id, rubric["name"])
-        LOG.info("Chiqish vaqti uchun yo'nalish: %s", when.strftime("%H:%M"))
+        LOG.info("Chiqish vaqti uchun yo'nalish: %s",
+                 os.getenv("CONTENT_SLOT") or when.strftime("%H:%M"))
 
         stage = "mavzu izlash (1-agent)"
         topic = a1_topics.run(cfg, focused_rubric, secrets.gemini_key) if not MOCK else {
