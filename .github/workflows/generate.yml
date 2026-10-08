@@ -5,6 +5,9 @@ name: Postlarni tayyorlash
 # 07:37 va 08:17 dagi zaxira ishlar navbat yetishmasa uni 2 taga to'ldiradi.
 # Daqiqalar ataylab :00 emas — GitHub Actions soat boshida ko'proq kechikadi.
 on:
+  push:
+    paths:
+      - "data/generate-trigger.txt"
   schedule:
     - cron: "17 15 * * *"      # 20:17 Toshkent — ertangi 2 post
     - cron: "37 2 * * *"       # 07:37 Toshkent — zaxira
