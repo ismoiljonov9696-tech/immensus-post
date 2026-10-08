@@ -5,6 +5,9 @@ name: Postlarni vaqtida chiqarish
 # oldin va keyingi bir soat davomida 5 daqiqalik zaxira tekshiruvlar bor.
 # Har bir ish faqat bir marta tick qiladi; allaqachon chiqqan post takrorlanmaydi.
 on:
+  push:
+    paths:
+      - "data/publish-trigger.txt"
   schedule:
     - cron: "52,57 3,13 * * *"
     - cron: "2,7,12,17,22,27,32,37,42,47,52,57 4,14 * * *"
