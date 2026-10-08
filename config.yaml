@@ -16,7 +16,15 @@ rubrics:
     brief: >
       Xitoyning Taobao, 1688, Pinduoduo, Alibaba va AliExpress kabi onlayn
       platformalaridan buyurtma berayotgan O'zbekistonliklar uchun amaliy
-      maslahatlar. Mavzu doirasi: mahsulot va ishonchli sotuvchi tanlash,
+      maslahatlar. Kontentning ASOSIY YO'NALISHI — platformaning o'zidan
+      foydalanishni o'rgatish: ro'yxatdan o'tish, akkauntni sozlash va
+      tasdiqlash, Xitoy ombori manzilini kiritish, mahsulot qidirish, filtrlar,
+      rasm orqali qidiruv, savatcha, kuponlar, sotuvchi bilan chat, buyurtma,
+      to'lov, trek-kod, qaytarish/refund va ilovadagi foydali funksiyalar.
+      Har postda qaysi tugma yoki menyuga kirish hamda amallar ketma-ketligi
+      yangi boshlovchiga tushunarli qilib berilsin.
+
+      Qo'shimcha mavzu doirasi: mahsulot va ishonchli sotuvchi tanlash,
       reyting va sharhlarni tekshirish, kupon va aksiyalardan foydalanish,
       sotuvchi bilan yozishish, to'lov xavfsizligi, buyurtmani Xitoy omboriga
       yuborish, qadoqlash, vazn va hajmni kamaytirish, taqiqlangan yoki xavfli
@@ -119,6 +127,23 @@ image:
     # u ramka bo'lib ko'rinadi. Faqat logo ko'rinmay qolsa true qiling.
     backdrop: false
 
+  # Postda platforma nomi tilga olinsa, AI chizgan taxminiy belgi emas,
+  # shu platformaning haqiqiy logo fayli rasmning yuqori chapiga qo'yiladi.
+  # Manbalar editorial identifikatsiya uchun Wikimedia'dagi rasmiy wordmarklar.
+  platform_logos:
+    enabled: true
+    position: "top-left"
+    width_percent: 28
+    margin_percent: 4
+    backdrop: true
+    brands:
+      alipay: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alipay_logo_(2024).svg?width=512"
+      taobao: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taobao_Logo.svg?width=512"
+      pinduoduo: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pinduoduologo.png?width=512"
+      aliexpress: "https://commons.wikimedia.org/wiki/Special:Redirect/file/AliExpress_2024.svg?width=512"
+      alibaba: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alibaba_en_logo.svg?width=512"
+      "1688": "https://www.1688.com/favicon.ico"
+
 audio:
   # O'CHIRILGAN. Azure Speech ishlatilmaydi — post rasm va matn bilan chiqadi.
   # Keyinchalik ovoz kerak bo'lsa: true qiling va AZURE_SPEECH_KEY bilan
@@ -157,6 +182,21 @@ llm:
 schedule:
   # Post chiqish vaqtlari (Toshkent vaqti). Kuniga 2 ta post.
   publish_times: ["09:00", "19:00"]
+
+  # Har vaqt uchun alohida muharrirlik vazifasi.
+  slot_content:
+    "09:00": >
+      KUNDUZGI AMALIY QO'LLANMA. Faqat Xitoy onlayn platformasidan qanday
+      foydalanish haqida yozing: ro'yxatdan o'tish, akkaunt/verifikatsiya,
+      manzil kiritish, qidiruv va filtrlar, rasm bilan qidirish, kupon,
+      savatcha, sotuvchi bilan chat, buyurtma, to'lov, kuzatuv yoki refund.
+      Bitta aniq funksiyani tanlang va 3–6 bosqichda qayerni bosishgacha
+      tushuntiring. Platforma nomi sarlavhada aniq bo'lsin.
+    "19:00": >
+      KECHKI FOYDALI POST. Xitoy platformalaridagi bitta foydali imkoniyat,
+      mahsulot/sotuvchi tekshiruvi, tejash usuli yoki xavfsizlik xatosini
+      amaliy misol bilan tushuntiring. Imkon qadar Taobao, 1688, Pinduoduo,
+      Alibaba yoki AliExpress ichidagi aniq funksiya va menyuga bog'lang.
 
   # --- Quyidagilar faqat ichki jadval (src.scheduler) uchun ---
   # Post chiqishidan necha soat oldin tayyorlansin va tasdiqqa yuborilsin.
