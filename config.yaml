@@ -117,7 +117,7 @@ image:
     on_clothing: false
     # Logo ostidagi oq plashka. Shaffof fonli logo uchun KERAK EMAS —
     # u ramka bo'lib ko'rinadi. Faqat logo ko'rinmay qolsa true qiling.
-    backdrop: true
+    backdrop: false
 
 audio:
   # O'CHIRILGAN. Azure Speech ishlatilmaydi — post rasm va matn bilan chiqadi.
