@@ -4,6 +4,7 @@ Buyruqlar:
   python -m src.main check      — kalitlar va ulanishlarni tekshiradi
   python -m src.main generate   — postni tayyorlaydi va ko'rish uchun yuboradi
   python -m src.main tick       — tugmalarni o'qiydi, qayta ishlaydi, vaqti kelganini chiqaradi
+  python -m src.main repost --id POST_ID — o'sha matnni yangi rasm bilan qayta chiqaradi
   python -m src.main status     — navbatdagi postlarni ko'rsatadi
 
 Sinov uchun:
@@ -1106,11 +1107,45 @@ def cmd_status(cfg: dict) -> int:
     return 0
 
 
+def cmd_repost(cfg: dict, post_id: str | None) -> int:
+    """Mavjud post matnini o'zgartirmay, rasmini yangidan chizib qayta chiqaradi."""
+    if not post_id:
+        raise ConfigError("repost uchun --id POST_ID kerak")
+
+    item = store.find_pending(post_id)
+    if not item:
+        raise ConfigError(f"Post topilmadi: {post_id}")
+    if not item.get("text"):
+        raise ConfigError(f"Post matni saqlanmagan: {post_id}")
+
+    secrets = load_secrets()
+    bot = Bot(secrets.telegram_token)
+    topic_title = (item.get("topic") or {}).get("title") or item.get("title", "")
+    repost_id = f"{post_id}-repost-{datetime.now():%Y%m%d%H%M%S}"
+    workdir = WORK / repost_id
+    image_path, _ = a3_image.run(
+        cfg,
+        item["text"],
+        workdir / "image.png",
+        secrets.gemini_key,
+        topic_title,
+    )
+
+    post = {**item, "id": repost_id, "kind": "photo", "file_id": None}
+    a6_publish.send_draft(bot, cfg["channel"]["id"], post, image_path, "photo", None)
+    notify(secrets, f"♻️ <b>Yangilangan rasm bilan qayta chiqarildi</b>\n{topic_title}")
+    LOG.info("Yangi rasm bilan qayta chiqarildi: %s", post_id)
+    return 0
+
+
 # --------------------------------------------------------------------------- #
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Telegram avtomatik post tizimi")
     parser.add_argument("command",
-                        choices=["check", "generate", "tick", "publish", "status", "due"])
+                        choices=["check", "generate", "tick", "publish", "status", "due",
+                                 "repost"])
+    parser.add_argument("--id", dest="post_id",
+                        help="repost: qayta chiqariladigan post ID raqami")
     parser.add_argument("--within", type=int, default=180,
                         help="due: shuncha daqiqa ichida chiqadigan post bormi")
     parser.add_argument("--force", action="store_true",
@@ -1144,6 +1179,8 @@ def main(argv: list[str] | None = None) -> int:
             return cmd_status(cfg)
         if args.command == "due":
             return cmd_due(cfg, args.within)
+        if args.command == "repost":
+            return cmd_repost(cfg, args.post_id)
     except ConfigError as exc:
         LOG.error("%s", exc)
         return 1
