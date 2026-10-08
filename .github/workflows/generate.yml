@@ -1,12 +1,14 @@
 name: Postlarni tayyorlash
 
 # Kuniga 2 post: 09:00 va 19:00 (Asia/Tashkent).
-# 20:00 Toshkentda ertangi ikki post oldindan tayyorlanadi.
-# 08:00 dagi zaxira ish navbat yetishmasa uni 2 taga to'ldiradi.
+# 20:17 Toshkentda ertangi ikki post oldindan tayyorlanadi.
+# 07:37 va 08:17 dagi zaxira ishlar navbat yetishmasa uni 2 taga to'ldiradi.
+# Daqiqalar ataylab :00 emas — GitHub Actions soat boshida ko'proq kechikadi.
 on:
   schedule:
-    - cron: "0 15 * * *"       # 20:00 Toshkent — ertangi 2 post
-    - cron: "0 3 * * *"        # 08:00 Toshkent — zaxira
+    - cron: "17 15 * * *"      # 20:17 Toshkent — ertangi 2 post
+    - cron: "37 2 * * *"       # 07:37 Toshkent — zaxira
+    - cron: "17 3 * * *"       # 08:17 Toshkent — ikkinchi zaxira
   workflow_dispatch:
     inputs:
       count:
@@ -49,10 +51,10 @@ jobs:
           COUNT: ${{ inputs.count }}
           FORCE: ${{ inputs.force }}
         run: |
-          if [ "$CRON" = "0 15 * * *" ]; then
+          if [ "$CRON" = "17 15 * * *" ]; then
             FLAGS="--count 2"
             echo "Asosiy ish: ertangi 2 ta post tayyorlanadi"
-          elif [ "$CRON" = "0 3 * * *" ]; then
+          elif [ "$CRON" = "37 2 * * *" ] || [ "$CRON" = "17 3 * * *" ]; then
             FLAGS="--top-up 2"
             echo "Zaxira ish: navbat 2 taga to'ldiriladi"
           else
