@@ -1,0 +1,39 @@
+name: Postni yangi rasm bilan qayta chiqarish
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "Qayta chiqariladigan post ID raqami"
+        required: true
+        type: string
+
+concurrency:
+  group: qayta-chiqarish
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  repost:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Kutubxonalar
+        run: pip install -r requirements.txt
+
+      - name: Yangi rasm bilan qayta chiqarish
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          POST_ID: ${{ inputs.post_id }}
+        run: python -m src.main repost --id "$POST_ID"
