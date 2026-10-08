@@ -19,6 +19,10 @@ on:
         description: "Sifat nazoratidan o'tmasa ham davom etsinmi"
         type: boolean
         default: false
+      content_slot:
+        description: "Namuna uchun kontent turi: 09:00 yoki 19:00 (ixtiyoriy)"
+        type: string
+        default: ""
 
 concurrency:
   group: tayyorlash
@@ -50,6 +54,7 @@ jobs:
           CRON: ${{ github.event.schedule }}
           COUNT: ${{ inputs.count }}
           FORCE: ${{ inputs.force }}
+          CONTENT_SLOT: ${{ inputs.content_slot }}
         run: |
           if [ "$CRON" = "17 15 * * *" ]; then
             FLAGS="--count 2"
