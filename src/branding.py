@@ -7,11 +7,86 @@ ustiga qo'yiladi — har safar bir xil, aniq va o'zgarmas.
 from __future__ import annotations
 
 import logging
+from io import BytesIO
 from pathlib import Path
+
+import requests
 
 LOG = logging.getLogger("branding")
 
 POSITIONS = ("bottom-right", "bottom-left", "top-right", "top-left")
+
+
+def _position(base_size: tuple[int, int], item_size: tuple[int, int],
+              position: str, margin: int) -> tuple[int, int]:
+    base_w, base_h = base_size
+    item_w, item_h = item_size
+    x = margin if "left" in position else base_w - item_w - margin
+    y = margin if "top" in position else base_h - item_h - margin
+    return x, y
+
+
+def apply_platform_logo(image_path: Path, cfg: dict, text: str) -> str | None:
+    """Matnda platforma bo'lsa, uning haqiqiy wordmarkini rasmga qo'yadi.
+
+    AI logoni o'zi chizmaydi: konfiguratsiyadagi logo fayli yuklanadi va
+    o'zgartirilmasdan kompozitsiyaga qo'shiladi. Yuklash ishlamasa asosiy rasm
+    baribir saqlanadi — post logo xatosi sabab to'xtab qolmaydi.
+    """
+    brand_cfg = (cfg.get("image") or {}).get("platform_logos") or {}
+    if not brand_cfg.get("enabled", True):
+        return None
+
+    haystack = text.casefold()
+    # Uzun nomlar avval: "alibaba" so'zi "aliexpress"ni noto'g'ri tutmasin.
+    brands = brand_cfg.get("brands") or {}
+    match = next((name for name in sorted(brands, key=len, reverse=True)
+                  if name.casefold() in haystack), None)
+    if not match:
+        return None
+
+    try:
+        response = requests.get(brands[match], timeout=25,
+                                headers={"User-Agent": "ImmensusPost/1.0"})
+        response.raise_for_status()
+
+        from PIL import Image, ImageDraw, ImageFilter
+
+        base = Image.open(image_path).convert("RGBA")
+        logo = Image.open(BytesIO(response.content)).convert("RGBA")
+        width_pct = float(brand_cfg.get("width_percent", 28)) / 100
+        target_w = max(int(base.width * width_pct), 48)
+        target_h = max(int(logo.height * target_w / logo.width), 24)
+        max_h = int(base.height * 0.16)
+        if target_h > max_h:
+            target_h = max_h
+            target_w = max(int(logo.width * target_h / logo.height), 48)
+        logo = logo.resize((target_w, target_h), Image.LANCZOS)
+
+        margin = int(base.width * float(brand_cfg.get("margin_percent", 4)) / 100)
+        position = brand_cfg.get("position", "top-left")
+        if position not in POSITIONS:
+            position = "top-left"
+        x, y = _position(base.size, logo.size, position, margin)
+
+        layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
+        if brand_cfg.get("backdrop", True):
+            pad = max(int(target_h * 0.35), 10)
+            shade = Image.new("RGBA", base.size, (0, 0, 0, 0))
+            ImageDraw.Draw(shade).rounded_rectangle(
+                (x - pad, y - pad, x + target_w + pad, y + target_h + pad),
+                radius=pad,
+                fill=(255, 255, 255, 235),
+            )
+            shade = shade.filter(ImageFilter.GaussianBlur(1.2))
+            layer = Image.alpha_composite(layer, shade)
+        layer.paste(logo, (x, y), logo)
+        Image.alpha_composite(base, layer).convert("RGB").save(image_path, "PNG")
+        LOG.info("Haqiqiy platforma logosi qo'yildi: %s", match)
+        return match
+    except Exception as exc:                              # noqa: BLE001
+        LOG.warning("%s logosi qo'yilmadi: %s", match, exc)
+        return None
 
 
 def find_logo(cfg: dict, root: Path) -> Path | None:
@@ -84,8 +159,7 @@ def apply_logo(image_path: Path, cfg: dict, root: Path) -> Path:
             logo.putalpha(alpha)
 
         margin = int(base.width * margin_pct)
-        x = margin if "left" in position else base.width - target_w - margin
-        y = margin if "top" in position else base.height - target_h - margin
+        x, y = _position(base.size, logo.size, position, margin)
 
         layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
 
