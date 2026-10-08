@@ -5,8 +5,10 @@ so'ng ustiga kompaniya logotipini qo'yadi.
 
 Rasm mavzudan kelib chiqadi, mavzu esa rasmdan emas:
   1. Avval postning ASOSIY DARSI ajratiladi — post aynan nimani o'rgatyapti.
-  2. Shu darsni ko'rsatadigan UCHTA turli g'oya o'ylab topiladi va
-     "kutilmaganlik" bo'yicha baholanadi. Eng kutilmagani tanlanadi.
+  2. Mavzuni bir qarashda tanitadigan 2–4 ta vizual tayanch ajratiladi.
+  3. Shu darsni ko'rsatadigan UCHTA turli g'oya o'ylab topiladi va
+     "aniqlik" hamda "kutilmaganlik" bo'yicha baholanadi. Avval aniqlik,
+     keyin kutilmaganlik hisobga olinadi.
      Bitta so'rovda tavsif so'ralsa, model doim eng zerikarlisini beradi.
   3. Klishelar aniq taqiqlangan: quti uyumi, dunyo xaritasi, globus,
      qo'l siqish, o'suvchi diagramma.
@@ -34,9 +36,14 @@ bir xil qutilar, dunyo xaritasi ustidagi punktir chiziq, konteyner uyumi
 umumiy planda, kompas, globus, qo'l siqish, ko'tarilayotgan diagramma,
 sun'iy tabassumli ofis xodimi.
 
-Yaxshi rasm bitta aniq g'oyani ko'rsatadi va uni kutilmagan burchakdan
-ko'rsatadi. Tavsifda hech qachon matn, harf, raqam, iyeroglif yoki
-logotip bo'lishini so'ramang."""
+Yaxshi rasm bitta aniq g'oyani ko'rsatadi: tomoshabin post matnini o'qimasdan
+ham mavzuni taxmin qila olishi kerak. Kutilmaganlik hech qachon mavzuning
+aniqligidan ustun emas.
+
+Odatda matn, harf, raqam, iyeroglif va logotip so'ramang. Faqat post aynan
+Alipay, Taobao, 1688, Pinduoduo, Alibaba yoki boshqa platforma haqida bo'lsa,
+shu platformaning tanish ilova belgisi yoki interfeysini tahririy kontekstda
+ko'rsatish mumkin. Boshqa tasodifiy brendlar va logolar bo'lmasin."""
 
 # Kompozitsiya uslublari — har post uchun bittasi tanlanadi.
 # Shuning uchun kanal lentasi bir xil rasmlar qatoriga aylanmaydi.
@@ -65,6 +72,10 @@ IDEA_SCHEMA = {
     "type": "OBJECT",
     "properties": {
         "lesson": {"type": "STRING"},
+        "visual_anchors": {
+            "type": "ARRAY",
+            "items": {"type": "STRING"},
+        },
         "ideas": {
             "type": "ARRAY",
             "items": {
@@ -72,16 +83,19 @@ IDEA_SCHEMA = {
                 "properties": {
                     "concept": {"type": "STRING"},
                     "why_it_works": {"type": "STRING"},
+                    "clarity": {"type": "INTEGER"},
                     "surprise": {"type": "INTEGER"},
                 },
-                "required": ["concept", "why_it_works", "surprise"],
+                "required": ["concept", "why_it_works", "clarity", "surprise"],
             },
         },
         "chosen": {"type": "STRING"},
+        "context_test": {"type": "STRING"},
         "prompt": {"type": "STRING"},
         "has_person": {"type": "BOOLEAN"},
     },
-    "required": ["lesson", "ideas", "chosen", "prompt", "has_person"],
+    "required": ["lesson", "visual_anchors", "ideas", "chosen", "context_test",
+                 "prompt", "has_person"],
 }
 
 
@@ -122,7 +136,7 @@ PEOPLE_RULES = {
 
 
 def _describe(post_text: str, topic_title: str, cfg: dict,
-              composition: str, api_key: str, model: str) -> tuple[str, str, str, bool]:
+              composition: str, api_key: str, model: str) -> tuple[str, str, str, list[str], str, bool]:
     """Rasm tavsifini tuzadi.
 
     Bir bosqichda emas, uch bosqichda:
@@ -150,6 +164,14 @@ Post o'quvchiga QANDAY BITTA aniq narsani o'rgatyapti? Bir jumlada yozing.
 Umumiy emas, aniq: "to'lovni 30/70 ga bo'lish", "qutining kubini o'lchash",
 "sotuvchi litsenziyasini tekshirish".
 
+BOSQICH 1B — visual_anchors
+Rasmni ko'rgan odam mavzuni MATNSIZ ham anglashi uchun 2–4 ta majburiy vizual
+tayanch yozing. Postda platforma nomi bo'lsa uning tanish ilova belgisi yoki
+interfeysi birinchi tayanch bo'lsin. Hujjat mavzusi bo'lsa hujjatning o'zi ham
+ko'rinsin. Masalan Alipay xavfsizligi uchun: Alipay ko'k ilova belgisi/UI,
+smartfon, shaxsni tasdiqlash uchun generik pasport, xavfsizlik qalqoni/qulf.
+Pasportdagi ism, raqam va surat real bo'lmasin, shaxsiy ma'lumot o'qilmasin.
+
 BOSQICH 2 — ideas (3 ta, BIR-BIRIDAN KESKIN FARQ QILSIN)
 Shu darsni ko'rsatadigan uchta turli vizual g'oya. Ular turli yo'ldan borsin:
   · biri — jarayonning aniq lahzasi (qo'l, predmet, harakat)
@@ -160,25 +182,38 @@ Shu darsni ko'rsatadigan uchta turli vizual g'oya. Ular turli yo'ldan borsin:
 Har biriga:
   concept — sahna nima (2-3 jumla, aniq predmetlar bilan)
   why_it_works — nega u aynan shu darsni ko'rsatadi
+  clarity — 1..10, rasmni post matnisiz ko'rgan odam mavzuni qanchalik tez
+            va to'g'ri tushunadi. Kamida ikkita visual_anchors katta va aniq
+            ko'rinsa 8–10 ball, umumiy quti/konteyner sahnasi 1–3 ball.
   surprise — 1..10, qanchalik kutilmagan. Konteyner, quti uyumi, dunyo
              xaritasi, o'q-yo'nalish chizig'i kabi klishelar 1-3 ball oladi.
 
-BOSQICH 3 — chosen va prompt
-surprise eng yuqori bo'lganini tanlang (agar u darsni ham aniq ko'rsatsa).
+BOSQICH 3 — chosen, context_test va prompt
+Avval clarity eng yuqori (kamida 8) bo'lgan g'oyani tanlang; shular ichida
+surprise yuqorisini oling. Chiroyli metafora mavzuni yashirib yubormasin.
 chosen — qaysi g'oya tanlanganini bir jumlada yozing.
+context_test — odam captionni ko'rmasdan rasm nimani anglatishini qanday
+bilishini bir jumlada yozing; qaysi ikki tayanch ko'rinishini ayting.
 has_person — tanlangan sahnada odam bormi (yuz, gavda yoki qo'l). true/false.
 prompt — o'sha g'oyaning INGLIZ TILIDAGI rasm tavsifi, 60-95 so'z.
 
 prompt uchun talablar:
 - Aniq jismoniy predmetlar: tarozi, hujjat, plomba, tasma, telefon ekrani,
   pul, javon, o'lchov lentasi, quti. Mavhum tasvir emas.
+- visual_anchors ichidan kamida IKKITASI kadrning asosiy, katta va ravshan
+  elementlari bo'lsin; fon bezagiga aylanib qolmasin.
+- Postda nomi aytilgan platforma bo'lsa, uning tanish ilova belgisi yoki UI
+  telefonda ravshan ko'rinsin. Boshqa brendlar qo'shilmasin.
+- Pasport yoki ID kerak bo'lsa generik bo'lsin: o'qiladigan ism, raqam, tug'ilgan
+  sana yoki real odam rasmi bo'lmasin.
 - Muhit: {CHINA_CUES}
 - Kompozitsiya (majburiy): {composition}
 - Uslub: {img.get('style', '').strip()}
 - Ranglar: {img.get('brand_colors', '')}
 - Odamlar: {people}
-- Rasmda MATN, HARF, RAQAM, IYEROGLIF, LOGOTIP yoki BAYROQ bo'lmasin —
-  buni tavsifda aniq yozing
+- Rasmda o'qiladigan matn, raqam, iyeroglif, bayroq yoki watermark bo'lmasin.
+  Faqat mavzuda nomi aniq aytilgan platformaning ilova belgisi/UI bundan
+  mustasno; boshqa logolar bo'lmasin.
 - Pastki o'ng burchakda logotip uchun toza joy qoldiring"""
 
     data = generate_json(prompt, api_key, IDEA_SCHEMA, model=model,
@@ -186,13 +221,15 @@ prompt uchun talablar:
 
     ideas = data.get("ideas") or []
     for i in ideas:
-        LOG.info("  g'oya (%s ball): %s", i.get("surprise"), str(i.get("concept"))[:88])
+        LOG.info("  g'oya (aniqlik %s, kutilmaganlik %s): %s",
+                 i.get("clarity"), i.get("surprise"), str(i.get("concept"))[:88])
 
     desc = (data.get("prompt") or "").strip().strip('"').strip()
     if not desc:
         raise ValueError("Rasm tavsifi bo'sh qaytdi")
-    return (desc, data.get("lesson", ""), data.get("chosen", ""),
-            bool(data.get("has_person")))
+    anchors = [str(x).strip() for x in (data.get("visual_anchors") or []) if str(x).strip()]
+    return (desc, data.get("lesson", ""), data.get("chosen", ""), anchors,
+            data.get("context_test", ""), bool(data.get("has_person")))
 
 
 def run(cfg: dict, post_text: str, out_path: Path, api_key: str,
@@ -201,11 +238,13 @@ def run(cfg: dict, post_text: str, out_path: Path, api_key: str,
     composition = _pick_composition(out_path.parent.name + topic_title)
     LOG.info("Kompozitsiya: %s", composition[:60])
 
-    desc, lesson, chosen, has_person = _describe(
+    desc, lesson, chosen, anchors, context_test, has_person = _describe(
         post_text, topic_title or post_text[:80], cfg,
         composition, api_key, cfg["llm"]["model"])
     LOG.info("Post darsi   : %s", lesson[:100])
     LOG.info("Tanlangan    : %s", chosen[:100])
+    LOG.info("Tayanchlar   : %s", "; ".join(anchors)[:180])
+    LOG.info("Kontekst testi: %s", context_test[:160])
     LOG.info("Rasm tavsifi : %s", desc[:140])
     LOG.info("Odam bormi   : %s", "ha" if has_person else "yo'q")
 
@@ -214,9 +253,14 @@ def run(cfg: dict, post_text: str, out_path: Path, api_key: str,
         f"Composition: {composition}.\n"
         f"Style: {img_cfg.get('style', '').strip()}\n"
         f"Color palette: {img_cfg.get('brand_colors', '')}\n"
+        f"Mandatory topic-recognition anchors: {'; '.join(anchors)}. At least two "
+        f"must be large, clear, and visually dominant so the subject is obvious "
+        f"without reading the caption. Context check: {context_test}\n"
         f"Natural documentary lighting, believable human proportions and hands. "
-        f"Absolutely no text, letters, numbers, Chinese characters, watermarks, "
-        f"flags or logos anywhere in the image. No resemblance to any real or "
+        f"No readable personal data, arbitrary text, numbers, Chinese characters, "
+        f"watermarks or flags. If and only if the named topic is a specific app "
+        f"or marketplace, show its recognizable app icon/interface clearly in an "
+        f"editorial context; include no unrelated brand logos. No resemblance to any real or "
         f"famous person. Leave the bottom-right corner visually calm and uncluttered."
     )
 
