@@ -539,6 +539,16 @@ def manual_publish_time(cfg: dict) -> datetime:
     return datetime.now(tz_of(cfg)) + timedelta(minutes=minutes)
 
 
+def slot_rubric(cfg: dict, rubric: dict, when: datetime) -> dict:
+    """Chiqish vaqtiga mos muharrirlik vazifasini rubrikaga qo'shadi."""
+    focus = (cfg.get("schedule", {}).get("slot_content") or {}).get(
+        when.strftime("%H:%M"), ""
+    )
+    if not focus:
+        return rubric
+    return {**rubric, "brief": f"{rubric.get('brief', '').strip()}\n\n{focus.strip()}"}
+
+
 def cmd_generate(cfg: dict, force: bool = False, now_flag: bool = False,
                  if_empty: bool = False, count: int = 1,
                  top_up: int = 0) -> int:
@@ -592,16 +602,20 @@ def generate_one(cfg: dict, force: bool = False, now_flag: bool = False,
     try:
         rubric = pick_rubric(cfg)
         post_id = store.new_post_id()
+        when = (manual_publish_time(cfg) if (first and _is_manual_run(now_flag))
+                else next_publish_time(cfg))
+        focused_rubric = slot_rubric(cfg, rubric, when)
         LOG.info("═══ Post %s | rubrika: %s ═══", post_id, rubric["name"])
+        LOG.info("Chiqish vaqti uchun yo'nalish: %s", when.strftime("%H:%M"))
 
         stage = "mavzu izlash (1-agent)"
-        topic = a1_topics.run(cfg, rubric, secrets.gemini_key) if not MOCK else {
+        topic = a1_topics.run(cfg, focused_rubric, secrets.gemini_key) if not MOCK else {
             "title": "Mock mavzu", "angle": "", "why_now": "",
             "research": "(mock)", "sources": [],
         }
 
         stage = "matn va media (2–5-agentlar)"
-        built = build_post(cfg, secrets, rubric, topic, post_id, force=force)
+        built = build_post(cfg, secrets, focused_rubric, topic, post_id, force=force)
         warnings = built[4] if built else []
     except QCFailed as exc:
         bullets = "\n".join(f"  • {p}" for p in exc.problems[:6]) or "  • sabab yozilmagan"
@@ -624,8 +638,6 @@ def generate_one(cfg: dict, force: bool = False, now_flag: bool = False,
         return 2
     text, verdict, media, kind, warnings = built
 
-    when = (manual_publish_time(cfg) if (first and _is_manual_run(now_flag))
-            else next_publish_time(cfg))
     post = {
         "id": post_id,
         "rubric": rubric["name"],
