@@ -134,10 +134,12 @@ def _mechanical(cfg: dict, text: str) -> list[str]:
     return problems
 
 
-def _content_prompt(cfg: dict, topic: dict, text: str) -> str:
+def _content_prompt(cfg: dict, topic: dict, text: str,
+                    rubric: dict | None = None) -> str:
     examples = style_examples()
     style_block = f"STIL ETALONI:\n{examples[:2500]}" if examples else "Stil namunasi berilmagan."
     p = cfg["post"]
+    rubric = rubric or {}
 
     return f"""Siz muharrirsiz. Quyidagi post kanalga chiqishga tayyormi — tekshiring.
 Talabchan bo'ling, lekin ADOLATLI: kamchilik postni haqiqatan yaroqsiz
@@ -164,6 +166,10 @@ TADQIQOT MATERIALI (postdagi faktlar faqat shundan kelib chiqishi kerak):
 TEKSHIRILAYOTGAN POST:
 {text}
 
+TANLANGAN RUBRIKA: {rubric.get('name', '(ko\'rsatilmagan)')}
+RUBRIKA TAVSIFI: {rubric.get('brief', '').strip()}
+AUDITORIYA: {rubric.get('audience', '').strip()}
+
 Quyidagilarni tekshiring:
 1. FAKT — postdagi har bir dalil, raqam, nom tadqiqot materialida bormi?
    Materialda yo'q narsa yozilgan bo'lsa — bu jiddiy xato, rad eting.
@@ -174,14 +180,24 @@ Quyidagilarni tekshiring:
    yetkazadi. Umumiy metodika (masalan, hajmli vaznni hisoblash formulasi)
    bunga kirmaydi — cheklov rasmiy stavka va limitlarga tegishli.
 2. FOYDA — o'quvchi postni o'qib bugun aniq nima qila oladi? Javob noaniq bo'lsa — rad eting.
-2a. YO'NALISH — post donalik yoki kichik hajmdagi shaxsiy onlayn xarid haqida
-   bo'lishi shart. Katta partiya, zavod, MOQ muzokarasi, konteyner, packing
+2a. YO'NALISH — post aynan TANLANGAN RUBRIKAGA mos bo'lishi shart. Boshqa
+   rubrikaga o'tib ketsa rad eting. Katta partiya, zavod, MOQ muzokarasi, konteyner, packing
    list, broker, bojxona, sertifikat, import hujjati, hajmli vazn yoki
    professional logistika bo'lsa — rad eting.
-2b. SODDALIK — yangi boshlovchi telefonda takrorlay oladigan 3–5 qisqa qadam
-   bormi? Keraksiz termin, murakkab tahlil yoki biznes tili bo'lsa — rad eting.
-2c. PLATFORMALAR — asosiy e'tibor Pinduoduo, Taobao, 1688 yoki Poizon/Dewu'ga
-   qaratilsin. Kargo mavzusi faqat yakuniy xizmat taklifida qisqa bo'lsin.
+2b. SODDALIK — yangi boshlovchi tushunadigan qisqa amallar bormi? Keraksiz
+   termin va murakkab tahlil bo'lsa — rad eting.
+2c. AUDITORIYA — auditoriyaning 75 foizi ayollar. Mavzu mos bo'lsa ayollar
+   ehtiyoji yoki hayotiy misoli tabiiy hisobga olinsin. Neytral postning o'zi
+   xato emas; stereotip, kamsitish yoki sun'iy murojaat bo'lsa rad eting.
+2d. KICHIK BIZNES — shu rubrika tanlangan bo'lsa $100–$500 doirasida, kichik
+   sinov savati va onlayn platforma bilan boshlansin; kafolatlangan daromad,
+   qarzga undash yoki yirik import bo'lsa rad eting.
+2e. MOTIVATSIYA — shu rubrika tanlangan bo'lsa quruq shior emas, bugun
+   bajariladigan aniq amal bo'lsin; statistikaning manbasi, hududi va yili
+   aniq ko'rsatilsin, uydirma muvaffaqiyat hikoyasi bo'lmasin.
+2f. KITOB — shu rubrika tanlangan bo'lsa kitob va muallif aniq ko'rsatilsin,
+   g'oya parafraz qilinsin va kanalga tatbiqi berilsin. Uzun yoki uydirma
+   iqtibos bo'lsa rad eting.
 3. QARMOQ — birinchi qator to'xtatib qoladimi yoki bo'sh gapmi?
 4. STIL — etalon namunalarga ohangi va tuzilishi mos keladimi?
 5. TIL — o'zbek tilida tabiiy jumlalarmi, tarjima hidi kelmayaptimi?
@@ -201,7 +217,7 @@ fix_instructions: rad etilsa — 2-agentga aniq va qisqa tuzatish ko'rsatmasi.""
 
 
 def run(cfg: dict, topic: dict, text: str, api_key: str,
-        last_attempt: bool = False) -> dict:
+        last_attempt: bool = False, rubric: dict | None = None) -> dict:
     """Postni tekshiradi.
 
     last_attempt=True bo'lsa (oxirgi qayta yozish urinishi) yumshoqroq chegara
@@ -212,7 +228,7 @@ def run(cfg: dict, topic: dict, text: str, api_key: str,
     mech = _mechanical(cfg, text)
 
     verdict = generate_json(
-        _content_prompt(cfg, topic, text),
+        _content_prompt(cfg, topic, text, rubric),
         api_key,
         SCHEMA,
         model=cfg["llm"].get("qc_model", cfg["llm"]["model"]),
