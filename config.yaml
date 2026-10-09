@@ -55,10 +55,13 @@ rubrics:
       beradigan yangi boshlovchilar; ularning 75 foizi ayollar. Murakkab termin
       ishlatmang; 12–14 yoshli o'quvchi ham tushunadigan sodda o'zbek tilida yozing.
     slot_content:
-      "09:00": >
-        KUNDUZGI FOYDALI MASLAHAT. Donalik xaridda mahsulot, o'lcham, sharh,
+      "07:00": >
+        ERTALABKI FOYDALI MASLAHAT. Donalik xaridda mahsulot, o'lcham, sharh,
         sotuvchi, narx, kupon yoki kichik vazndan bittasini sodda misol bilan
         tushuntiring. Platforma nomi sarlavhada aniq bo'lsin.
+      "13:00": >
+        KUNDUZGI AMALIY MASLAHAT. Donalik yoki kichik buyurtmada pul va vaqtni
+        tejaydigan bitta usulni qisqa tekshiruv ro'yxati bilan tushuntiring.
       "19:00": >
         KECHKI FOYDALI MASLAHAT. Donalik xaridda o'lcham, real suratli sharh,
         kupon, sotuvchi, bekor qilish yoki refunddan faqat bittasini sodda
@@ -89,9 +92,12 @@ rubrics:
       75 foizi ayollar. Juda sodda o'zbek tilida, ekrandagi amallarga tayangan
       holda yozing; stereotip ishlatmang.
     slot_content:
-      "09:00": >
+      "07:00": >
         Platformadagi bitta vazifani boshidan oxirigacha 3–6 bosqichda
         tushuntiring. Platforma nomi va dars raqami sarlavhada bo'lsin.
+      "13:00": >
+        Platformadagi bitta kundalik amalni ekrandagi tugma nomlari bilan
+        sodda va to'liq tushuntiring.
       "19:00": >
         Platformadagi muhim bitta funksiya yoki xatoni to'liq amaliy yo'riqnoma
         shaklida tushuntiring. Tugma nomlari va ularning ma'nosini ko'rsating.
@@ -113,9 +119,12 @@ rubrics:
       orasida talab bo'lishi mumkin bo'lgan mahsulotlardan ko'proq olinsin,
       lekin stereotipsiz va barcha uchun foydali bo'lsin.
     slot_content:
-      "09:00": >
+      "07:00": >
         $100–$500 bilan boshlashning bitta aniq bosqichini sodda hisob yoki
         kichik tekshiruv ro'yxati bilan tushuntiring.
+      "13:00": >
+        Kichik budjet bilan mahsulotni sinash yoki talabni tekshirishning
+        bitta xavfsiz usulini amaliy misol bilan yozing.
       "19:00": >
         Kichik budjetni asrashga yordam beradigan bitta xato va uning amaliy
         yechimini yozing. Foydani kafolatlamang.
@@ -290,21 +299,25 @@ llm:
   qc_last_chance: 7
 
 schedule:
-  # Post chiqish vaqtlari (Toshkent vaqti). Kuniga 2 ta post.
-  publish_times: ["09:00", "19:00"]
+  # Post chiqish vaqtlari (Toshkent vaqti). Kuniga 3 ta post.
+  publish_times: ["07:00", "13:00", "19:00"]
 
   # Har vaqt uchun alohida muharrirlik vazifasi.
   slot_content:
-    "09:00": >
-      KUNDUZGI JUDA SODDA QO'LLANMA. Pinduoduo, Taobao, 1688 yoki Poizon'da
+    "07:00": >
+      ERTALABKI JUDA SODDA QO'LLANMA. Pinduoduo, Taobao, 1688, Poizon yoki Tmall'da
       yangi boshlovchi telefonda bajaradigan bitta oddiy amalni tanlang:
       mahsulot qidirish, rang/o'lcham tanlash, savatchaga qo'shish, manzil
       kiritish, to'lash, trek-kodni topish yoki refund. 3–5 qisqa qadamda
       aynan qayerni bosishni ayting. Katta savdo va murakkab logistika yo'q.
       Platforma nomi sarlavhada aniq bo'lsin.
+    "13:00": >
+      KUNDUZGI AMALIY POST. Donalik yoki kichik buyurtma uchun mahsulot tanlash,
+      sharh, sotuvchi, narx, kupon, o'lcham yoki kichik vazndan bitta foydali
+      mavzuni sodda misol va qisqa ro'yxat bilan tushuntiring.
     "19:00": >
       KECHKI SODDA MASLAHAT. Donalik yoki kichik buyurtma qiladigan odam uchun
-      Pinduoduo, Taobao, 1688 yoki Poizon'dagi bitta foydali imkoniyatni
+      Pinduoduo, Taobao, 1688, Poizon yoki Tmall'dagi bitta foydali imkoniyatni
       tushuntiring: o'lcham adashmaslik, real suratli sharh topish, kupon,
       sotuvchini tekshirish, buyurtmani bekor qilish yoki pulni qaytarish.
       Oddiy hayotiy misol va 3–5 qisqa qadam bo'lsin. Zavod, katta partiya,
@@ -312,7 +325,7 @@ schedule:
 
   # --- Quyidagilar faqat ichki jadval (src.scheduler) uchun ---
   # Post chiqishidan necha soat oldin tayyorlansin va tasdiqqa yuborilsin.
-  # 13 = 09:00 chiqadigan post kechqurun 20:00 da tayyorlanadi, tasdiqqa tun qoladi.
+  # 13 = 07:00 chiqadigan post avvalgi kuni 18:00 da tayyorlanadi.
   generate_lead_hours: 13
   # Yoki aniq soatlarni o'zingiz belgilang (bunda generate_lead_hours hisobga olinmaydi):
   # generate_times: ["20:00"]
