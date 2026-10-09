@@ -1,25 +1,22 @@
 # Immensus Post uslub namunalari
 
-Agentlar quyidagi namunalardan ohang, qisqa abzatslar, emoji miqdori va
-ro'yxat tuzilishini o'rganadi. Faktlar har safar internetdan qayta tekshiriladi;
-namunadagi fakt yoki sana yangi postga ko'r-ko'rona ko'chirilmaydi.
+Bu kanal oddiy xaridorlar uchun: donalik, mayda va kichik hajmdagi buyurtmalar.
+Jumla qisqa, qadamlar sodda, mavzu telefonda darhol bajariladigan bo'lsin.
 
 ---
 
-🌕🇨🇳 <b>PINDUODUO’DA AKSIYADAN TO‘G‘RI FOYDALANISH</b>
+🎨🇨🇳 <b>PINDUODUO’DA RANG VA O‘LCHAMNI ADASHTIRMANG</b>
 
-Pinduoduo’da mahsulot narxi arzon ko‘rinsa ham, buyurtmadan oldin kupon va aksiya shartlarini albatta tekshiring. 🛍
+Rasmdagi bosh narx siz tanlagan rang yoki o‘lchamga tegishli bo‘lmasligi mumkin. Buyurtmadan oldin variantni alohida tekshiring.
 
-🎁 <b>Nimalarga e’tibor berish kerak?</b>
-▫️ “优惠券” — chegirma kuponlari
-▫️ “满减” — belgilangan summadan oshganda chegirma
-▫️ Sotuvchi reytingi va xaridor suratlari
-▫️ Mahsulot varianti, o‘lchami va soni
-▫️ Aksiya tugash vaqti va foydalanish shartlari
+📌 <b>Qanday tekshiriladi?</b>
+1️⃣ Mahsulot sahifasida <b>“选择规格”</b> tugmasini bosing.
+2️⃣ Kerakli rangni tanlang.
+3️⃣ O‘lchamni belgilang.
+4️⃣ Soni va yakuniy narxini qayta ko‘ring.
+5️⃣ Shundan keyin savatchaga qo‘shing.
 
-✅ Bir xil mahsulotni kamida 2–3 sotuvchida solishtiring.
-✅ Faqat bosh narxga emas, tanlangan variantning yakuniy narxiga qarang.
-✅ Buyurtmani tasdiqlashdan oldin Xitoy ichki yetkazib berish haqini tekshiring.
+💡 Tanlangan variant rasmi mahsulot rasmiga mos kelmasa, to‘lovni shoshirmang.
 
 📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
 🚗 Avto kargo: $6.2/kg
@@ -29,18 +26,36 @@ Pinduoduo’da mahsulot narxi arzon ko‘rinsa ham, buyurtmadan oldin kupon va a
 
 ---
 
-🔍🇨🇳 <b>1688’DA SOTUVCHINI TANLASHDA FAQAT NARXGA QARAMANG</b>
+📷🇨🇳 <b>TAOBAO’DA RASM ORQALI MAHSULOT QIDIRISH</b>
 
-Eng arzon taklif har doim eng foydali taklif emas. Buyurtmadan oldin sotuvchini bir necha mezon bo‘yicha tekshiring.
+Mahsulot nomini xitoycha bilmasangiz ham, uning rasmi orqali o‘xshash variantlarni topishingiz mumkin.
 
-📌 <b>Tekshiruv ro‘yxati:</b>
-▫️ Do‘kon faoliyati va reytingini ko‘ring
-▫️ Xaridorlarning real suratli sharhlarini o‘qing
-▫️ Mahsulot tavsifi bilan tanlangan variantni solishtiring
-▫️ Sotuvchidan real foto yoki video so‘rang
-▫️ Katta partiyadan oldin namuna buyurtma qiling
+📌 <b>3 ta oddiy qadam:</b>
+1️⃣ Taobao qidiruv qatoridagi kamera belgisini bosing.
+2️⃣ Telefoningizdan mahsulot rasmini tanlang.
+3️⃣ Natijalardan narx, rang va xaridorlarning real suratlarini solishtiring.
 
-💡 Shoshilmasdan tekshirilgan bitta buyurtma keyingi katta xarajatning oldini olishi mumkin.
+✅ Birinchi chiqqan mahsulotni darhol olmang. Kamida 2–3 variantni ko‘rib, sizga mosini tanlang.
+
+📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
+🚗 Avto kargo: $6.2/kg
+✈️ Avia kargo — tez kunda
+
+#ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat
+
+---
+
+👟🇨🇳 <b>POIZON’DA OYOQ KIYIM O‘LCHAMINI TEKSHIRING</b>
+
+Poizon’da buyurtma berishda faqat odatda kiyadigan raqamingizga tayanmang. Turli brendlarning o‘lchami farq qilishi mumkin.
+
+📌 <b>Nima qilish kerak?</b>
+1️⃣ Mahsulot sahifasidan o‘lcham jadvalini oching.
+2️⃣ Oyog‘ingiz uzunligini santimetrda o‘lchang.
+3️⃣ Natijani jadvaldagi ko‘rsatkich bilan solishtiring.
+4️⃣ Xaridorlarning o‘lcham haqidagi izohlarini ham o‘qing.
+
+💡 Ikki o‘lcham orasida qolsangiz, to‘lovdan oldin jadvalni yana bir marta tekshiring.
 
 📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
 🚗 Avto kargo: $6.2/kg
