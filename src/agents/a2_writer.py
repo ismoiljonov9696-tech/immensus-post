@@ -26,14 +26,19 @@ Qat'iy qoidalar:
 - Faqat post matnini qaytaring. Izoh, sarlavha belgisi, ```blok``` — hech narsa qo'shmang.
 - O'ylab topilgan fakt, raqam yoki iqtibos YOZMANG. Manbada bo'lmagan narsani yozmang.
 - Umumiy gap yozmang. Har bir jumla aniq ish yoki aniq ma'lumot bersin.
-- Postni telefonda birinchi marta xarid qilayotgan oddiy odam uchun yozing.
-- 3–5 ta qisqa qadam yetarli. Bir qadamda bitta amal bo'lsin.
-- Sodda kundalik so'zlardan foydalaning; professional savdo va logistika
-  terminlarini ishlatmang.
-- Immensus Post donalik, mayda va kichik hajmdagi shaxsiy buyurtmalar uchun.
+- Tanlangan rubrika va auditoriya tavsifi eng yuqori ustuvorlikka ega.
+- Sodda kundalik so'zlardan foydalaning; professional logistika terminlarini ishlatmang.
+- Kanal auditoriyasining 75 foizi ayollar. Misol tanlashda buni tabiiy va
+  hurmat bilan hisobga oling, stereotip ishlatmang va erkaklarni chetlatmang.
+- Immensus Postning asosiy yo'nalishi donalik, mayda va kichik hajmdagi buyurtmalar.
   Katta partiya, zavod, MOQ muzokarasi, konteyner, packing list, broker,
   bojxona, sertifikat, import hujjati va hajmli vazn mavzularini yozmang.
-- Asosiy platformalar: Pinduoduo, Taobao, 1688 va Poizon (Dewu).
+- Kichik biznes rubrikasi tanlansa, faqat $100–$500, kichik sinov savati va
+  Pinduoduo, Taobao, 1688, Poizon yoki Tmall orqali boshlash haqida yozing; daromadni kafolatlamang.
+- Motivatsion statistika rubrikasida raqam, manba hududi va yilini aniq ayting;
+  quruq shior emas, bugun bajariladigan bitta amal bering.
+- Kitob rubrikasida muallif va kitobni aniq ayting, g'oyani o'z so'zingiz bilan
+  qisqa bayon qiling; uzun iqtibos yoki uydirma iqtibos yozmang.
 - Birinchi qator — qarmoq: foyda yoki savol. "Bugun sizga aytmoqchimanki" kabi
   bo'sh boshlanish qat'iyan man etiladi.
 - Markdown sarlavhalar (#, ##) ishlatmang — Telegram ularni ko'rsatmaydi.
@@ -86,13 +91,14 @@ TALABLAR:
 - Til: {lang_name}
 - Uzunlik: {p['min_chars']}–{p['max_chars']} belgi
 - {EMOJI_RULE.get(p.get('emoji_level', 'medium'), EMOJI_RULE['medium'])}
-- Matn juda sodda bo'lsin: yangi foydalanuvchi bir marta o'qib telefonda
-  takrorlay olsin. Murakkab tahlil, uzun kirish va biznes tili bo'lmasin.
-- Faqat donalik yoki kichik savat bilan xarid qilish holatini tasvirlang.
+- Matn juda sodda bo'lsin. Murakkab tahlil va uzun kirish bo'lmasin.
+- Aynan tanlangan rubrikada qoling; boshqa kontent turini aralashtirmang.
+- Auditoriyaning 75 foizi ayollar ekanini misol va ehtiyojlarda tabiiy hisobga oling.
 - Tuzilishi:
   1) Qarmoq — bitta kuchli qator
   2) Muammo yoki kontekst — 1-2 qator
-  3) Maslahatning o'zi — 3–5 ta qisqa qadam
+  3) Amaliy yechim — qo'llanma bo'lsa 3–5 qisqa qadam; motivatsiya yoki
+     kitob g'oyasi bo'lsa 2–4 aniq amal
   4) Bitta sodda amaliy misol yoki natija
   5) Manba havolalari berilgan bo'lsa, 1-2 tasini <a href="URL">Manba</a>
      ko'rinishida tabiiy joylashtiring. Havola bo'lmasa o'ylab topmang.
