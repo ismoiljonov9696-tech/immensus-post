@@ -21,18 +21,21 @@ class ImmensusConfigTests(unittest.TestCase):
 
     def test_channel_schedule_and_image(self) -> None:
         self.assertEqual(self.cfg["channel"]["id"], "@immensuspost")
-        self.assertEqual(self.cfg["schedule"]["publish_times"], ["09:00", "19:00"])
+        self.assertEqual(
+            self.cfg["schedule"]["publish_times"],
+            ["07:00", "13:00", "19:00"],
+        )
         self.assertEqual(self.cfg["image"]["aspect_ratio"], "4:5")
         self.assertTrue((ROOT / "assets" / "logo.png").exists())
 
     def test_generate_times_honours_lead_hours(self) -> None:
         cfg = {
             "schedule": {
-                "publish_times": ["09:00", "19:00"],
+                "publish_times": ["07:00", "13:00", "19:00"],
                 "generate_lead_hours": 13,
             }
         }
-        self.assertEqual(generate_times(cfg), ["20:00", "06:00"])
+        self.assertEqual(generate_times(cfg), ["18:00", "00:00", "06:00"])
 
     def test_rubric_distribution_is_exact(self) -> None:
         self.assertEqual(
