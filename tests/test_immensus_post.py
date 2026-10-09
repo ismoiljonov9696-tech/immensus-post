@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+from collections import Counter
 from pathlib import Path
 
 from PIL import Image, ImageChops
@@ -9,6 +10,8 @@ from PIL import Image, ImageChops
 from src.agents import a2_writer, a5_qc
 from src.branding import apply_logo
 from src.config import ROOT, load_config
+from src.scheduler import generate_times
+from src.main import weighted_rubric_sequence
 
 
 class ImmensusConfigTests(unittest.TestCase):
@@ -21,6 +24,24 @@ class ImmensusConfigTests(unittest.TestCase):
         self.assertEqual(self.cfg["schedule"]["publish_times"], ["09:00", "19:00"])
         self.assertEqual(self.cfg["image"]["aspect_ratio"], "4:5")
         self.assertTrue((ROOT / "assets" / "logo.png").exists())
+
+    def test_generate_times_honours_lead_hours(self) -> None:
+        cfg = {
+            "schedule": {
+                "publish_times": ["09:00", "19:00"],
+                "generate_lead_hours": 13,
+            }
+        }
+        self.assertEqual(generate_times(cfg), ["20:00", "06:00"])
+
+    def test_rubric_distribution_is_exact(self) -> None:
+        self.assertEqual(
+            [rubric["weight"] for rubric in self.cfg["rubrics"]],
+            [80, 11, 3, 3, 3],
+        )
+        sequence = weighted_rubric_sequence(self.cfg["rubrics"])
+        self.assertEqual(len(sequence), 100)
+        self.assertEqual(Counter(sequence), Counter({0: 80, 1: 11, 2: 3, 3: 3, 4: 3}))
 
     def test_brand_rules_reject_old_values(self) -> None:
         bad = (
@@ -56,4 +77,5 @@ class ImmensusConfigTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
