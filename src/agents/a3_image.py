@@ -60,12 +60,11 @@ COMPOSITIONS = [
 # Xitoy konteksti — MAJBURIY emas, sahna tabiiy talab qilgandagina.
 # Har rasmni bozorga tiqishtirish aynan bir xillikka olib keladi.
 CHINA_CUES = (
-    "If the scene naturally involves a place, make it read as the Chinese trade "
-    "world — Yiwu-style wholesale aisles, a container terminal, a factory floor, "
-    "a packing warehouse. Subtle cues only: roof lines, lanterns, signage shapes "
-    "with NO readable characters, red and gold used sparingly. "
-    "If the idea is better told on a desk, in a hand, or against a plain "
-    "background, do that instead — do not force a market into every picture."
+    "Show personal mobile shopping and a small individual parcel: a smartphone, "
+    "one pair of shoes, one garment, one accessory, or one compact package. "
+    "Do not show factories, containers, pallets, wholesale markets, cargo trucks, "
+    "large box piles, business negotiations, or industrial logistics. "
+    "Keep the setting relatable to an ordinary shopper using an app at home."
 )
 
 IDEA_SCHEMA = {
@@ -161,8 +160,8 @@ POST MATNI:
 
 BOSQICH 1 — lesson
 Post o'quvchiga QANDAY BITTA aniq narsani o'rgatyapti? Bir jumlada yozing.
-Umumiy emas, aniq: "to'lovni 30/70 ga bo'lish", "qutining kubini o'lchash",
-"sotuvchi litsenziyasini tekshirish".
+Umumiy emas, aniq: "Pinduoduo'da rangni tanlash", "Taobao'da savatchaga
+qo'shish", "Poizon'da oyoq kiyim o'lchamini tekshirish".
 
 BOSQICH 1B — visual_anchors
 Rasmni ko'rgan odam mavzuni MATNSIZ ham anglashi uchun 2–4 ta majburiy vizual
@@ -331,3 +330,4 @@ def _logo_on_clothing(cfg: dict, image_path: Path, has_person: bool,
     image_path.write_bytes(result)
     LOG.info("Logotip kiyimga joylashtirildi")
     return True
+
