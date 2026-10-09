@@ -1,7 +1,7 @@
 # Immensus Post — avtomatik Telegram kontent tizimi
 
-Bu loyiha `@immensuspost` kanaliga har kuni Toshkent vaqti bilan **09:00** va
-**19:00** da post chiqaradi.
+Bu loyiha `@immensuspost` kanaliga har kuni Toshkent vaqti bilan **07:00**,
+**13:00** va **19:00** da post chiqaradi.
 
 Jarayon:
 
@@ -40,10 +40,10 @@ Shaxsiy xabar olishingiz uchun botga avval `/start` yuboring.
 1. GitHub'da `Actions → Tekshirish → Run workflow` ni ishga tushiring.
 2. Barcha tekshiruvlar muvaffaqiyatli bo'lsa, `Actions → Postlarni tayyorlash`
    ichida workflow'ni qo'lda ishga tushiring.
-3. `data/pending.json` ichida 2 ta tayyor post paydo bo'ladi.
+3. `data/pending.json` ichida 3 ta tayyor post paydo bo'ladi.
 4. Sinov postini darhol chiqarish kerak bo'lsa botga `/holat` yuboring yoki
    `Postlarni vaqtida chiqarish` workflow'ini ishga tushiring. Oddiy rejimda
-   ular 09:00 va 19:00 ni kutadi.
+   ular 07:00, 13:00 va 19:00 ni kutadi.
 
 ## Bot buyruqlari
 
@@ -71,7 +71,8 @@ Secretlarni `.env` faylida ishlatsangiz, bu faylni GitHub'ga yuklamang.
 - `config.yaml` — kanal, narx, jadval, model va vizual sozlamalar
 - `style/examples.md` — Immensus Post yozish uslubi
 - `assets/logo.png` — yuborilgan Immensus Post logosi
-- `.github/workflows/generate.yml` — kunlik 2 post tayyorlash
-- `.github/workflows/tick.yml` — 09:00 va 19:00 da nashr qilish
+- `.github/workflows/generate.yml` — kunlik 3 post tayyorlash
+- `.github/workflows/tick.yml` — 07:00, 13:00 va 19:00 da nashr qilish
 - `data/` — mavzu arxivi va navbat
+
 
