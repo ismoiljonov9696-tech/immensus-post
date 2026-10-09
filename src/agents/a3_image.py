@@ -41,7 +41,7 @@ ham mavzuni taxmin qila olishi kerak. Kutilmaganlik hech qachon mavzuning
 aniqligidan ustun emas.
 
 Odatda matn, harf, raqam, iyeroglif va logotip so'ramang. Faqat post aynan
-Alipay, Taobao, 1688, Pinduoduo, Alibaba yoki boshqa platforma haqida bo'lsa,
+Alipay, Taobao, 1688, Pinduoduo, Poizon/Dewu, Tmall yoki boshqa platforma haqida bo'lsa,
 shu platformaning tanish ilova belgisi yoki interfeysini tahririy kontekstda
 ko'rsatish mumkin. Boshqa tasodifiy brendlar va logolar bo'lmasin."""
 
@@ -60,8 +60,9 @@ COMPOSITIONS = [
 # Xitoy konteksti — MAJBURIY emas, sahna tabiiy talab qilgandagina.
 # Har rasmni bozorga tiqishtirish aynan bir xillikka olib keladi.
 CHINA_CUES = (
-    "Show personal mobile shopping and a small individual parcel: a smartphone, "
-    "one pair of shoes, one garment, one accessory, or one compact package. "
+    "Show personal mobile shopping, a small individual parcel, or a simple "
+    "home-based microbusiness desk, depending on the actual post: a smartphone, "
+    "one pair of shoes, one garment, one accessory, a book, or one compact package. "
     "Do not show factories, containers, pallets, wholesale markets, cargo trucks, "
     "large box piles, business negotiations, or industrial logistics. "
     "Keep the setting relatable to an ordinary shopper using an app at home."
