@@ -55,17 +55,19 @@ Har bir mavzu bitta amaliy maslahatga aylantirilishi mumkin bo'lsin — umumiy
 "AI foydali" turidagi gaplar emas, balki o'quvchi bugun qo'llay oladigan narsa.
 
 MAJBURIY YO'NALISH:
-- Avvalo Pinduoduo, Taobao, 1688 yoki Poizon (Dewu) ichidagi oddiy xarid amalini tanlang.
-- Foydalanuvchi 1 dona yoki kichik savat bilan o'zi/oilasi uchun xarid qilyapti.
-- Mavzu 3–5 sodda qadamda tushuntiriladigan darajada oson bo'lsin.
-- Ro'yxatdan o'tish, qidirish, rang/o'lcham, savatcha, kupon, manzil, to'lov,
-  buyurtma holati, trek-kod, bekor qilish yoki refund kabi kundalik amallarni afzal ko'ring.
+- Aynan yuqorida berilgan RUBRIKA tavsifiga amal qiling. Boshqa rubrikaga
+  tegishli mavzuni aralashtirmang.
+- Auditoriyaning 75 foizi ayollar. Kiyim, poyabzal, aksessuar, uy-ro'zg'or,
+  bolalar mahsulotlari, sovg'a va kundalik ehtiyojlardan foydali misollarni
+  ko'proq tanlang, lekin stereotip va faqat ayollarga qaratilgan ohangdan qoching.
+- Mavzu yangi boshlovchiga sodda va darhol qo'llanadigan bo'lsin.
 
 TAQIQLANGAN YO'NALISH:
 - Immensus Cargo'ga o'xshash professional logistika kontenti;
 - katta partiya, zavod, MOQ muzokarasi, konteyner, packing list, broker,
-  bojxona, sertifikat, import hujjati, hajmli vazn yoki biznes importi;
-- marketplace sotuvchilari va ulgurji tadbirkorlar uchun murakkab maslahatlar.
+  bojxona, sertifikat, import hujjati, hajmli vazn yoki professional import;
+- murakkab logistika va yirik ulgurji savdo. Kichik budjetli biznes faqat
+  shu nomdagi rubrika tanlanganda, $100–$500 va kichik sinov savati doirasida mumkin.
 
 QUYIDAGI MAVZULAR ALLAQACHON YOZILGAN — ularni va ularga juda yaqin variantlarni TAKLIF QILMANG:
 {avoid_block}
@@ -91,11 +93,13 @@ Talablar:
 - angle: qaysi burchakdan yoritiladi (1-2 jumla)
 - why_now: nega hozir dolzarb (1 jumla)
 - value_score: 1–10 oralig'ida butun son, o'quvchi uchun amaliy foydasi
-- Faqat Pinduoduo, Taobao, 1688 yoki Poizon'da donalik/kichik xarid qiladigan
-  yangi boshlovchiga mos mavzularni qoldiring.
+- Aynan tanlangan rubrika va uning auditoriyasiga mos mavzularni qoldiring.
+- Auditoriyaning 75 foizi ayollar ekanini foydali, tabiiy misollar orqali hisobga oling.
 - Zavod, katta partiya, MOQ, konteyner, bojxona, sertifikat, import hujjati,
   hajmli vazn va professional logistika mavzularini TASHLAB YUBORING.
-- Eng sodda, telefonda darhol bajariladigan mavzularga yuqori ball bering.
+- Kitob rubrikasida faqat manbasi aniq g'oyani o'z so'zingiz bilan bayon
+  qiladigan mavzuni qoldiring; uzun iqtibos va uydirma gaplarni tashlang.
+- Eng sodda, amaliy va kanalga mos mavzularga yuqori ball bering.
 
 KANAL YO'NALISHI:
 {rubric.get('brief', '').strip()}
