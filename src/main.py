@@ -67,11 +67,27 @@ def mode_of(cfg: dict) -> str:
     return (cfg.get("approval") or {}).get("mode", "opt_out")
 
 
+def weighted_rubric_sequence(rubrics: list[dict]) -> list[int]:
+    """Rubrikalarni vazniga mos, lekin bir tekis tarqatilgan navbatga aylantiradi."""
+    weights = [max(1, int(r.get("weight", 1))) for r in rubrics]
+    total = sum(weights)
+    current = [0] * len(rubrics)
+    sequence: list[int] = []
+    for _ in range(total):
+        for idx, weight in enumerate(weights):
+            current[idx] += weight
+        chosen = max(range(len(rubrics)), key=lambda idx: current[idx])
+        current[chosen] -= total
+        sequence.append(chosen)
+    return sequence
+
+
 def pick_rubric(cfg: dict) -> dict:
     rubrics = cfg.get("rubrics") or []
     if not rubrics:
         raise ConfigError("config.yaml da kamida bitta rubrika bo'lishi kerak")
-    return rubrics[len(store.archive()) % len(rubrics)]
+    sequence = weighted_rubric_sequence(rubrics)
+    return rubrics[sequence[len(store.archive()) % len(sequence)]]
 
 
 def publish_slots(cfg: dict, days: int = 4) -> list[datetime]:
@@ -251,7 +267,10 @@ def build_post(cfg: dict, secrets, rubric: dict, topic: dict, post_id: str,
             a2_writer.run(cfg, rubric, topic, secrets.gemini_key, feedback)
         verdict = {"approved": True, "score": 9, "soft_pass": False,
                    "problems": [], "fix_instructions": ""} if MOCK else \
-            a5_qc.run(cfg, topic, text, secrets.gemini_key, last_attempt=last)
+            a5_qc.run(
+                cfg, topic, text, secrets.gemini_key,
+                last_attempt=last, rubric=rubric,
+            )
 
         if verdict["approved"]:
             if verdict.get("soft_pass"):
@@ -542,9 +561,11 @@ def manual_publish_time(cfg: dict) -> datetime:
 def slot_rubric(cfg: dict, rubric: dict, when: datetime) -> dict:
     """Chiqish vaqtiga mos muharrirlik vazifasini rubrikaga qo'shadi."""
     slot = os.getenv("CONTENT_SLOT") or when.strftime("%H:%M")
-    focus = (cfg.get("schedule", {}).get("slot_content") or {}).get(
-        slot, ""
-    )
+    # Rubrika o'z slot vazifasini bersa, global vazifa bilan aralashtirilmaydi.
+    slot_content = rubric.get("slot_content")
+    if slot_content is None:
+        slot_content = cfg.get("schedule", {}).get("slot_content") or {}
+    focus = slot_content.get(slot, "")
     if not focus:
         return rubric
     return {**rubric, "brief": f"{rubric.get('brief', '').strip()}\n\n{focus.strip()}"}
@@ -1210,3 +1231,4 @@ cmd_publish = cmd_tick
 
 if __name__ == "__main__":
     sys.exit(main())
+
