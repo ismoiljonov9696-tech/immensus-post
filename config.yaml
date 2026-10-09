@@ -14,42 +14,48 @@ channel:
 rubrics:
   - name: "Xitoydan onlayn buyurtma va foydali maslahatlar"
     brief: >
-      Xitoyning Taobao, 1688, Pinduoduo, Alibaba va AliExpress kabi onlayn
-      platformalaridan buyurtma berayotgan O'zbekistonliklar uchun amaliy
-      maslahatlar. Kontentning ASOSIY YO'NALISHI — platformaning o'zidan
-      foydalanishni o'rgatish: ro'yxatdan o'tish, akkauntni sozlash va
-      tasdiqlash, Xitoy ombori manzilini kiritish, mahsulot qidirish, filtrlar,
-      rasm orqali qidiruv, savatcha, kuponlar, sotuvchi bilan chat, buyurtma,
-      to'lov, trek-kod, qaytarish/refund va ilovadagi foydali funksiyalar.
-      Har postda qaysi tugma yoki menyuga kirish hamda amallar ketma-ketligi
-      yangi boshlovchiga tushunarli qilib berilsin.
+      Immensus Post — Xitoydan DONALIK, MAYDA va KICHIK HAJMDAGI buyurtmalar
+      qiladigan oddiy xaridorlar uchun kanal. Asosiy platformalar: Pinduoduo,
+      Taobao, 1688 va Poizon (Dewu). Alibaba, katta ulgurji savdo va biznes
+      importi asosiy mavzu emas.
 
-      Qo'shimcha mavzu doirasi: mahsulot va ishonchli sotuvchi tanlash,
-      reyting va sharhlarni tekshirish, kupon va aksiyalardan foydalanish,
-      sotuvchi bilan yozishish, to'lov xavfsizligi, buyurtmani Xitoy omboriga
-      yuborish, qadoqlash, vazn va hajmni kamaytirish, taqiqlangan yoki xavfli
-      tovarlarni oldindan aniqlash, keng tarqalgan xatolar va firibgarlikdan
-      himoyalanish.
+      Kontent faqat kundalik onlayn xaridni juda sodda tushuntirsin: ilovani
+      o'rnatish, ro'yxatdan o'tish, mahsulot topish, rasm bilan qidirish,
+      rang/o'lcham/son tanlash, sharh va real rasmlarni ko'rish, savatchaga
+      qo'shish, kupon ishlatish, Xitoy ombori manzilini kiritish, to'lash,
+      buyurtma holatini ko'rish, trek-kodni topish, bekor qilish va refund.
+      1688 haqida yozilganda ham katta partiya emas, 1 dona yoki kichik savat
+      bilan xarid qilishga mos imkoniyat tanlansin. Poizon'da krossovka,
+      kiyim va aksessuar tanlash, o'lcham va autentifikatsiya jarayoni sodda
+      tilda tushuntirilsin.
 
-      Har post — bitta aniq maslahat: o'quvchi bugun qo'llay oladigan narsa,
-      umumiy "Xitoy bilan ishlash foydali" turidagi gap emas.
+      Har post bitta juda oddiy savolga javob bersin va 3–5 qisqa qadamdan
+      oshmasin. O'quvchi postni bir marta o'qib, telefonda darhol takrorlay
+      olishi kerak.
+
+      QAT'IY CHEKLOV: Immensus Cargo kontentiga o'xshamang. Konteyner,
+      katta partiya, zavod qidirish, MOQ muzokarasi, packing list, bojxona,
+      sertifikat, broker, import hujjatlari, tijoriy logistika, hajmli vazn,
+      qadoqlash texnologiyasi va katta sotuvchilar uchun biznes maslahatlari
+      mavzu bo'lmasin. Kargo faqat yakuniy CTA'da kichik yukni O'zbekistonga
+      yetkazish xizmati sifatida qisqa tilga olinsin.
 
       MUHIM CHEKLOV: bojxona stavkalari, limitlar, soliq foizlari va rasmiy
       talablar tez-tez o'zgaradi. Aniq raqam faqat manbada bo'lsa yoziladi va
       yoniga manba sanasi qo'shiladi. Manbada yo'q raqamni O'YLAB TOPMANG —
       uning o'rniga jarayonni va nimaga e'tibor berishni tushuntiring.
     audience: >
-      Xitoydan ilk bor buyurtma berayotganlar, shaxsiy xaridorlar, kichik
-      biznes egalari va marketplace sotuvchilari. Matn yangi boshlovchiga
-      tushunarli, tajribali sotuvchiga esa amaliy foydali bo'lsin.
+      Xitoydan o'zi va oilasi uchun 1 dona yoki kichik savat bilan buyurtma
+      beradigan yangi boshlovchilar. Murakkab termin ishlatmang; 12–14 yoshli
+      o'quvchi ham tushunadigan sodda va qisqa o'zbek tilida yozing.
     # 1-agent faqat shu domenlardan izlaydi. Bo'sh qoldirsangiz — cheklovsiz.
     # Kargo/bojxona mavzusi uchun cheklovsiz qoldirish tavsiya etiladi:
     # o'zbek tilidagi manbalar oz, tor ro'yxat mavzu topilmasligiga olib keladi.
     allowed_domains: []
 
 post:
-  min_chars: 600
-  max_chars: 1000
+  min_chars: 450
+  max_chars: 850
   # Telegram caption limiti 1024 belgi. Undan oshsa matn alohida yuboriladi.
   emoji_level: "medium"   # none | low | medium | high
 
@@ -143,6 +149,8 @@ image:
       aliexpress: "https://commons.wikimedia.org/wiki/Special:Redirect/file/AliExpress_2024.svg?width=512"
       alibaba: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alibaba_en_logo.svg?width=512"
       "1688": "https://www.1688.com/favicon.ico"
+      poizon: "https://www.poizon.com/favicon.ico"
+      dewu: "https://www.poizon.com/favicon.ico"
 
 audio:
   # O'CHIRILGAN. Azure Speech ishlatilmaydi — post rasm va matn bilan chiqadi.
@@ -186,17 +194,19 @@ schedule:
   # Har vaqt uchun alohida muharrirlik vazifasi.
   slot_content:
     "09:00": >
-      KUNDUZGI AMALIY QO'LLANMA. Faqat Xitoy onlayn platformasidan qanday
-      foydalanish haqida yozing: ro'yxatdan o'tish, akkaunt/verifikatsiya,
-      manzil kiritish, qidiruv va filtrlar, rasm bilan qidirish, kupon,
-      savatcha, sotuvchi bilan chat, buyurtma, to'lov, kuzatuv yoki refund.
-      Bitta aniq funksiyani tanlang va 3–6 bosqichda qayerni bosishgacha
-      tushuntiring. Platforma nomi sarlavhada aniq bo'lsin.
+      KUNDUZGI JUDA SODDA QO'LLANMA. Pinduoduo, Taobao, 1688 yoki Poizon'da
+      yangi boshlovchi telefonda bajaradigan bitta oddiy amalni tanlang:
+      mahsulot qidirish, rang/o'lcham tanlash, savatchaga qo'shish, manzil
+      kiritish, to'lash, trek-kodni topish yoki refund. 3–5 qisqa qadamda
+      aynan qayerni bosishni ayting. Katta savdo va murakkab logistika yo'q.
+      Platforma nomi sarlavhada aniq bo'lsin.
     "19:00": >
-      KECHKI FOYDALI POST. Xitoy platformalaridagi bitta foydali imkoniyat,
-      mahsulot/sotuvchi tekshiruvi, tejash usuli yoki xavfsizlik xatosini
-      amaliy misol bilan tushuntiring. Imkon qadar Taobao, 1688, Pinduoduo,
-      Alibaba yoki AliExpress ichidagi aniq funksiya va menyuga bog'lang.
+      KECHKI SODDA MASLAHAT. Donalik yoki kichik buyurtma qiladigan odam uchun
+      Pinduoduo, Taobao, 1688 yoki Poizon'dagi bitta foydali imkoniyatni
+      tushuntiring: o'lcham adashmaslik, real suratli sharh topish, kupon,
+      sotuvchini tekshirish, buyurtmani bekor qilish yoki pulni qaytarish.
+      Oddiy hayotiy misol va 3–5 qisqa qadam bo'lsin. Zavod, katta partiya,
+      bojxona, hujjat va professional kargo mavzularini yozmang.
 
   # --- Quyidagilar faqat ichki jadval (src.scheduler) uchun ---
   # Post chiqishidan necha soat oldin tayyorlansin va tasdiqqa yuborilsin.
@@ -235,3 +245,4 @@ approval:
   # 2-marta bosilganda tizim mavzuni ham almashtiradi — demak muammo
   # matnda emas, mavzuning o'zida.
   max_rewrites: 3
+
