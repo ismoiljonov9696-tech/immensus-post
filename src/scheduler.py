@@ -41,8 +41,8 @@ def generate_times(cfg: dict) -> list[str]:
 
     Standart hisob: chiqish vaqtidan
         preview_minutes + generate_buffer_minutes
-    daqiqa oldin. Ya'ni 09:00 chiqadigan post 08:45 da tayyorlana boshlaydi,
-    rasm va ovoz bilan ~08:47 da sizga yetib boradi va ko'rish uchun
+    daqiqa oldin. Ya'ni 07:00 chiqadigan post 06:45 da tayyorlana boshlaydi,
+    rasm va ovoz bilan ~06:47 da sizga yetib boradi va ko'rish uchun
     10 daqiqadan ko'proq vaqt qoladi.
 
     schedule.generate_times berilgan bo'lsa — o'sha ishlatiladi.
