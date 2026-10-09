@@ -26,6 +26,14 @@ Qat'iy qoidalar:
 - Faqat post matnini qaytaring. Izoh, sarlavha belgisi, ```blok``` — hech narsa qo'shmang.
 - O'ylab topilgan fakt, raqam yoki iqtibos YOZMANG. Manbada bo'lmagan narsani yozmang.
 - Umumiy gap yozmang. Har bir jumla aniq ish yoki aniq ma'lumot bersin.
+- Postni telefonda birinchi marta xarid qilayotgan oddiy odam uchun yozing.
+- 3–5 ta qisqa qadam yetarli. Bir qadamda bitta amal bo'lsin.
+- Sodda kundalik so'zlardan foydalaning; professional savdo va logistika
+  terminlarini ishlatmang.
+- Immensus Post donalik, mayda va kichik hajmdagi shaxsiy buyurtmalar uchun.
+  Katta partiya, zavod, MOQ muzokarasi, konteyner, packing list, broker,
+  bojxona, sertifikat, import hujjati va hajmli vazn mavzularini yozmang.
+- Asosiy platformalar: Pinduoduo, Taobao, 1688 va Poizon (Dewu).
 - Birinchi qator — qarmoq: foyda yoki savol. "Bugun sizga aytmoqchimanki" kabi
   bo'sh boshlanish qat'iyan man etiladi.
 - Markdown sarlavhalar (#, ##) ishlatmang — Telegram ularni ko'rsatmaydi.
@@ -78,11 +86,14 @@ TALABLAR:
 - Til: {lang_name}
 - Uzunlik: {p['min_chars']}–{p['max_chars']} belgi
 - {EMOJI_RULE.get(p.get('emoji_level', 'medium'), EMOJI_RULE['medium'])}
+- Matn juda sodda bo'lsin: yangi foydalanuvchi bir marta o'qib telefonda
+  takrorlay olsin. Murakkab tahlil, uzun kirish va biznes tili bo'lmasin.
+- Faqat donalik yoki kichik savat bilan xarid qilish holatini tasvirlang.
 - Tuzilishi:
   1) Qarmoq — bitta kuchli qator
   2) Muammo yoki kontekst — 1-2 qator
-  3) Maslahatning o'zi — aniq qadamlar yoki ro'yxat
-  4) Amaliy misol yoki natija
+  3) Maslahatning o'zi — 3–5 ta qisqa qadam
+  4) Bitta sodda amaliy misol yoki natija
   5) Manba havolalari berilgan bo'lsa, 1-2 tasini <a href="URL">Manba</a>
      ko'rinishida tabiiy joylashtiring. Havola bo'lmasa o'ylab topmang.
   6) CTA quyidagi matn bilan aynan tugasin: {p.get('cta', '')}
@@ -107,3 +118,4 @@ def run(cfg: dict, rubric: dict, topic: dict, api_key: str,
             text = text[len(prefix):].strip()
     LOG.info("Post yozildi: %d belgi", len(text))
     return text
+
