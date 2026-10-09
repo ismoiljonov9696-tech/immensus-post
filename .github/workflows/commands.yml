@@ -1,7 +1,7 @@
 name: Buyruqlarni o'qish
 
 # ============================================================
-#  "Postlarni vaqtida chiqarish" 09:00 va 19:00 atrofida ishlaydi.
+#  "Postlarni vaqtida chiqarish" 07:00, 13:00 va 19:00 atrofida ishlaydi.
 #  Shu oraliqlardan tashqarida yozilgan /balans, /holat, /pauza
 #  kabi buyruqlar keyingi kuzatuvgacha
 #  javobsiz qolib ketardi.
@@ -61,3 +61,4 @@ jobs:
           git commit -m "buyruq/navbat $(date -u +%Y-%m-%dT%H:%M)"
           git pull --rebase --autostash origin ${{ github.ref_name }} || true
           git push
+
