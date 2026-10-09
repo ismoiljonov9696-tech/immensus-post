@@ -9,21 +9,22 @@ channel:
   language: "uz"          # uz | ru | en
   timezone: "Asia/Tashkent"
 
-# Rubrikalar. Har safar navbatdagisi olinadi (rotation).
-# Bittasini qoldirsangiz — doim shu ishlatiladi.
+# Rubrikalar weight nisbatida tanlanadi va kunlar bo'ylab bir tekis tarqatiladi.
+# 80+11+3+3+3=100 — har 100 postlik siklda ulush aynan shu nisbatda bo'ladi.
 rubrics:
-  - name: "Xitoydan onlayn buyurtma va foydali maslahatlar"
+  - name: "Donalik va kichik buyurtmalar"
+    weight: 80
     brief: >
       Immensus Post — Xitoydan DONALIK, MAYDA va KICHIK HAJMDAGI buyurtmalar
       qiladigan oddiy xaridorlar uchun kanal. Asosiy platformalar: Pinduoduo,
-      Taobao, 1688 va Poizon (Dewu). Alibaba, katta ulgurji savdo va biznes
+      Taobao, 1688, Poizon (Dewu) va Tmall. Alibaba, katta ulgurji savdo va biznes
       importi asosiy mavzu emas.
 
-      Kontent faqat kundalik onlayn xaridni juda sodda tushuntirsin: ilovani
-      o'rnatish, ro'yxatdan o'tish, mahsulot topish, rasm bilan qidirish,
-      rang/o'lcham/son tanlash, sharh va real rasmlarni ko'rish, savatchaga
-      qo'shish, kupon ishlatish, Xitoy ombori manzilini kiritish, to'lash,
-      buyurtma holatini ko'rish, trek-kodni topish, bekor qilish va refund.
+      Kontent kundalik donalik xaridga bag'ishlansin: foydali mayda mahsulotlar,
+      rang/o'lcham/son tanlash, sharh va real rasmlarni tekshirish, sotuvchi va
+      narxni solishtirish, kupon, kichik posilka vaznini asrash, sifatsiz tovar,
+      bekor qilish va refunddagi oddiy xatolar. To'liq platforma qo'llanmasiga
+      aylanib ketmasin — u alohida 11 foizlik rubrikaga tegishli.
       1688 haqida yozilganda ham katta partiya emas, 1 dona yoki kichik savat
       bilan xarid qilishga mos imkoniyat tanlansin. Poizon'da krossovka,
       kiyim va aksessuar tanlash, o'lcham va autentifikatsiya jarayoni sodda
@@ -32,6 +33,11 @@ rubrics:
       Har post bitta juda oddiy savolga javob bersin va 3–5 qisqa qadamdan
       oshmasin. O'quvchi postni bir marta o'qib, telefonda darhol takrorlay
       olishi kerak.
+
+      Auditoriyaning 75 foizi ayollar. Kiyim, poyabzal, sumka va aksessuar,
+      uy-ro'zg'or, bolalar mahsulotlari, sovg'a va kundalik ehtiyojlar kabi
+      foydali misollarni ko'proq tanlang. Biroq stereotip ishlatmang va kanalni
+      faqat ayollarga qaratmang.
 
       QAT'IY CHEKLOV: Immensus Cargo kontentiga o'xshamang. Konteyner,
       katta partiya, zavod qidirish, MOQ muzokarasi, packing list, bojxona,
@@ -46,11 +52,106 @@ rubrics:
       uning o'rniga jarayonni va nimaga e'tibor berishni tushuntiring.
     audience: >
       Xitoydan o'zi va oilasi uchun 1 dona yoki kichik savat bilan buyurtma
-      beradigan yangi boshlovchilar. Murakkab termin ishlatmang; 12–14 yoshli
-      o'quvchi ham tushunadigan sodda va qisqa o'zbek tilida yozing.
+      beradigan yangi boshlovchilar; ularning 75 foizi ayollar. Murakkab termin
+      ishlatmang; 12–14 yoshli o'quvchi ham tushunadigan sodda o'zbek tilida yozing.
+    slot_content:
+      "09:00": >
+        KUNDUZGI FOYDALI MASLAHAT. Donalik xaridda mahsulot, o'lcham, sharh,
+        sotuvchi, narx, kupon yoki kichik vazndan bittasini sodda misol bilan
+        tushuntiring. Platforma nomi sarlavhada aniq bo'lsin.
+      "19:00": >
+        KECHKI FOYDALI MASLAHAT. Donalik xaridda o'lcham, real suratli sharh,
+        kupon, sotuvchi, bekor qilish yoki refunddan faqat bittasini sodda
+        hayotiy misol bilan tushuntiring.
     # 1-agent faqat shu domenlardan izlaydi. Bo'sh qoldirsangiz — cheklovsiz.
     # Kargo/bojxona mavzusi uchun cheklovsiz qoldirish tavsiya etiladi:
     # o'zbek tilidagi manbalar oz, tor ro'yxat mavzu topilmasligiga olib keladi.
+    allowed_domains: []
+
+  - name: "Platforma qo'llanmalari"
+    weight: 11
+    brief: >
+      Pinduoduo, Taobao, 1688, Poizon (Dewu) yoki Tmall'dan foydalanishni
+      o'zbek yangi boshlovchisiga bosqichma-bosqich o'rgating. Ro'yxatdan
+      o'tish, akkauntni sozlash, rasm yoki kalit so'z bilan qidirish, filtr,
+      rang/o'lcham tanlash, savatcha, Xitoy ombori manzili, to'lov, buyurtma
+      holati, trek-kod, bekor qilish yoki refund kabi BITTA vazifani boshidan
+      oxirigacha to'liq tushuntiring. Menyu va tugma nomlarini ekranda qanday
+      ko'rinsa shunday yozing va ularning o'zbekcha ma'nosini ayting.
+
+      Bitta postga butun ilovani sig'dirmang. Har post — ketma-ket darslar
+      turkumidagi bitta tugallangan vazifa. 3–6 aniq qadam bo'lsin; o'quvchi
+      telefonda postga qarab amalni takrorlay olsin. 1688 ham faqat 1 dona yoki
+      kichik savat uchun tushuntirilsin. Katta ulgurji savdo va professional
+      logistika mavzulari bo'lmasin.
+    audience: >
+      Xitoy ilovalarini birinchi marta ishlatayotgan o'zbeklar; auditoriyaning
+      75 foizi ayollar. Juda sodda o'zbek tilida, ekrandagi amallarga tayangan
+      holda yozing; stereotip ishlatmang.
+    slot_content:
+      "09:00": >
+        Platformadagi bitta vazifani boshidan oxirigacha 3–6 bosqichda
+        tushuntiring. Platforma nomi va dars raqami sarlavhada bo'lsin.
+      "19:00": >
+        Platformadagi muhim bitta funksiya yoki xatoni to'liq amaliy yo'riqnoma
+        shaklida tushuntiring. Tugma nomlari va ularning ma'nosini ko'rsating.
+    allowed_domains: []
+
+  - name: "Kichik budjet bilan Xitoydan biznes"
+    weight: 3
+    brief: >
+      $100–$500 budjet bilan Pinduoduo, Taobao, 1688, Poizon yoki Tmall orqali
+      O'zbekistonda juda kichik savdoni sinab ko'rish haqida yozing. Bitta
+      mahsulot yo'nalishini tanlash, 1–5 turdagi mahsulotdan kichik test savati,
+      xarid va yetkazish xarajatini oldindan yozish, talabni tekshirish,
+      buyurtma asosida sotish va foydani qayta aylantirish kabi amaliy qadamlar
+      bo'lsin. Kafolatlangan foyda, tez boyish, qarz olish, yirik ulgurji savdo,
+      zavod, MOQ, bojxona va professional logistika haqida yozmang.
+    audience: >
+      Uyidan yoki qo'shimcha daromad sifatida kichik savdoni sinamoqchi bo'lgan
+      yangi boshlovchilar; auditoriyaning 75 foizi ayollar. Misollar ayollar
+      orasida talab bo'lishi mumkin bo'lgan mahsulotlardan ko'proq olinsin,
+      lekin stereotipsiz va barcha uchun foydali bo'lsin.
+    slot_content:
+      "09:00": >
+        $100–$500 bilan boshlashning bitta aniq bosqichini sodda hisob yoki
+        kichik tekshiruv ro'yxati bilan tushuntiring.
+      "19:00": >
+        Kichik budjetni asrashga yordam beradigan bitta xato va uning amaliy
+        yechimini yozing. Foydani kafolatlamang.
+    allowed_domains: []
+
+  - name: "Motivatsion biznes statistikasi"
+    weight: 3
+    brief: >
+      Kichik biznes, ayollar tadbirkorligi, onlayn savdo yoki xaridor odatlari
+      haqidagi bitta ishonchli va ruhlantiruvchi statistikani toping. Raqamning
+      manbasi, hududi va yili aniq bo'lsin. Uni O'zbekistonlik yangi boshlovchi
+      uchun sodda sharhlang va bugun bajariladigan 2–4 kichik amalga aylantiring.
+      Uydirma raqam, eskirgan ma'lumotni bugungi faktdek ko'rsatish, tez boyish
+      va'dasi yoki quruq shior bo'lmasin. Mahalliy raqam topilmasa, statistika
+      qaysi mamlakat yoki bozorga tegishli ekanini ochiq ayting.
+    audience: >
+      Kichik qadam bilan boshlayotgan yangi tadbirkorlar; auditoriyaning 75
+      foizi ayollar. Ayollar biznesiga oid ishonchli statistika ustuvor, lekin
+      ohang barcha uchun foydali, qo'llab-quvvatlovchi va amaliy bo'lsin.
+    slot_content: {}
+    allowed_domains: []
+
+  - name: "Biznes kitobidan kanalga mos g'oya"
+    weight: 3
+    brief: >
+      Ishonchli biznes kitobidan bitta g'oyani tanlang, muallif va kitob nomini
+      aniq ko'rsating, g'oyani o'z so'zingiz bilan juda qisqa bayon qiling va
+      uni Xitoy platformalaridan donalik yoki kichik savat bilan xarid qilish,
+      $100–$500 bilan kichik savdoni sinash yoki mijozga xizmat ko'rsatishga
+      tatbiq eting. Uzun ko'chirma, uydirma iqtibos va kitobga aloqasiz umumiy
+      motivatsiya bo'lmasin. Mualliflik huquqiga hurmat qiling.
+    audience: >
+      Sodda tilda biznes fikrlashni o'rganayotgan yangi boshlovchilar;
+      auditoriyaning 75 foizi ayollar. Har post yakunida bugun bajariladigan
+      bitta kichik mashq bo'lsin.
+    slot_content: {}
     allowed_domains: []
 
 post:
@@ -151,6 +252,7 @@ image:
       "1688": "https://www.1688.com/favicon.ico"
       poizon: "https://www.poizon.com/favicon.ico"
       dewu: "https://www.poizon.com/favicon.ico"
+      tmall: "https://www.tmall.com/favicon.ico"
 
 audio:
   # O'CHIRILGAN. Azure Speech ishlatilmaydi — post rasm va matn bilan chiqadi.
