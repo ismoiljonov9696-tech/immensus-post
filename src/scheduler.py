@@ -51,6 +51,15 @@ def generate_times(cfg: dict) -> list[str]:
     if sch.get("generate_times"):
         return list(sch["generate_times"])
 
+    if sch.get("generate_lead_hours") is not None:
+        lead = int(sch["generate_lead_hours"]) * 60
+        out: list[str] = []
+        for hhmm in sch.get("publish_times") or ["09:00"]:
+            hh, _, mm = hhmm.partition(":")
+            t = (datetime(2000, 1, 2, int(hh), int(mm or 0)) - timedelta(minutes=lead)).time()
+            out.append(f"{t.hour:02d}:{t.minute:02d}")
+        return out
+
     ap = cfg.get("approval", {})
     lead = int(ap.get("preview_minutes", 10)) + int(ap.get("generate_buffer_minutes", 5))
 
@@ -125,3 +134,4 @@ def run() -> int:
 
 if __name__ == "__main__":
     sys.exit(run())
+
