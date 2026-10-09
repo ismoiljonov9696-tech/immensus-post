@@ -1,29 +1,26 @@
 name: Postlarni tayyorlash
 
-# Kuniga 2 post: 09:00 va 19:00 (Asia/Tashkent).
-# 20:17 Toshkentda ertangi ikki post oldindan tayyorlanadi.
-# 07:37 va 08:17 dagi zaxira ishlar navbat yetishmasa uni 2 taga to'ldiradi.
+# Kuniga 3 post: 07:00, 13:00 va 19:00 (Asia/Tashkent).
+# 20:17 Toshkentda ertangi uch post oldindan tayyorlanadi.
+# 04:37 va 05:17 dagi zaxira ishlar navbat yetishmasa uni 3 taga to'ldiradi.
 # Daqiqalar ataylab :00 emas — GitHub Actions soat boshida ko'proq kechikadi.
 on:
-  push:
-    paths:
-      - "data/generate-trigger.txt"
   schedule:
     - cron: "17 15 * * *"      # 20:17 Toshkent — ertangi 2 post
-    - cron: "37 2 * * *"       # 07:37 Toshkent — zaxira
-    - cron: "17 3 * * *"       # 08:17 Toshkent — ikkinchi zaxira
+    - cron: "37 23 * * *"      # 04:37 Toshkent — zaxira
+    - cron: "17 0 * * *"       # 05:17 Toshkent — ikkinchi zaxira
   workflow_dispatch:
     inputs:
       count:
         description: "Nechta post tayyorlansin"
         type: string
-        default: "2"
+        default: "3"
       force:
         description: "Sifat nazoratidan o'tmasa ham davom etsinmi"
         type: boolean
         default: false
       content_slot:
-        description: "Namuna uchun kontent turi: 09:00 yoki 19:00 (ixtiyoriy)"
+        description: "Namuna uchun kontent turi: 07:00, 13:00 yoki 19:00 (ixtiyoriy)"
         type: string
         default: ""
 
@@ -60,13 +57,13 @@ jobs:
           CONTENT_SLOT: ${{ inputs.content_slot }}
         run: |
           if [ "$CRON" = "17 15 * * *" ]; then
-            FLAGS="--count 2"
-            echo "Asosiy ish: ertangi 2 ta post tayyorlanadi"
-          elif [ "$CRON" = "37 2 * * *" ] || [ "$CRON" = "17 3 * * *" ]; then
-            FLAGS="--top-up 2"
-            echo "Zaxira ish: navbat 2 taga to'ldiriladi"
+            FLAGS="--count 3"
+            echo "Asosiy ish: ertangi 3 ta post tayyorlanadi"
+          elif [ "$CRON" = "37 23 * * *" ] || [ "$CRON" = "17 0 * * *" ]; then
+            FLAGS="--top-up 3"
+            echo "Zaxira ish: navbat 3 taga to'ldiriladi"
           else
-            FLAGS="--count ${COUNT:-2}"
+            FLAGS="--count ${COUNT:-3}"
             echo "Qo'lda ishga tushirildi"
           fi
           if [ "$FORCE" = "true" ]; then
@@ -94,4 +91,5 @@ jobs:
           git diff --staged --quiet || git commit -m "postlar tayyorlandi $(date -u +%Y-%m-%d)"
           git pull --rebase --autostash origin ${{ github.ref_name }} || true
           git push
+
 
