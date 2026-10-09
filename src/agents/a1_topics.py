@@ -54,6 +54,19 @@ Internetdan qidiring va shu rubrikaga mos, HOZIR dolzarb bo'lgan aniq mavzularni
 Har bir mavzu bitta amaliy maslahatga aylantirilishi mumkin bo'lsin — umumiy
 "AI foydali" turidagi gaplar emas, balki o'quvchi bugun qo'llay oladigan narsa.
 
+MAJBURIY YO'NALISH:
+- Avvalo Pinduoduo, Taobao, 1688 yoki Poizon (Dewu) ichidagi oddiy xarid amalini tanlang.
+- Foydalanuvchi 1 dona yoki kichik savat bilan o'zi/oilasi uchun xarid qilyapti.
+- Mavzu 3–5 sodda qadamda tushuntiriladigan darajada oson bo'lsin.
+- Ro'yxatdan o'tish, qidirish, rang/o'lcham, savatcha, kupon, manzil, to'lov,
+  buyurtma holati, trek-kod, bekor qilish yoki refund kabi kundalik amallarni afzal ko'ring.
+
+TAQIQLANGAN YO'NALISH:
+- Immensus Cargo'ga o'xshash professional logistika kontenti;
+- katta partiya, zavod, MOQ muzokarasi, konteyner, packing list, broker,
+  bojxona, sertifikat, import hujjati, hajmli vazn yoki biznes importi;
+- marketplace sotuvchilari va ulgurji tadbirkorlar uchun murakkab maslahatlar.
+
 QUYIDAGI MAVZULAR ALLAQACHON YOZILGAN — ularni va ularga juda yaqin variantlarni TAKLIF QILMANG:
 {avoid_block}
 
@@ -66,7 +79,7 @@ QUYIDAGI MAVZULAR ALLAQACHON YOZILGAN — ularni va ularga juda yaqin variantlar
 Javobni oddiy ro'yxat ko'rinishida bering."""
 
 
-def _rank_prompt(raw: str, avoid: list[str], lang_name: str) -> str:
+def _rank_prompt(raw: str, avoid: list[str], lang_name: str, rubric: dict) -> str:
     avoid_block = "\n".join(f"- {t}" for t in avoid[-60:]) or "(bo'sh)"
     return f"""Quyidagi tadqiqot natijasidan mavzularni ajratib oling va JSON qiling.
 
@@ -78,6 +91,14 @@ Talablar:
 - angle: qaysi burchakdan yoritiladi (1-2 jumla)
 - why_now: nega hozir dolzarb (1 jumla)
 - value_score: 1–10 oralig'ida butun son, o'quvchi uchun amaliy foydasi
+- Faqat Pinduoduo, Taobao, 1688 yoki Poizon'da donalik/kichik xarid qiladigan
+  yangi boshlovchiga mos mavzularni qoldiring.
+- Zavod, katta partiya, MOQ, konteyner, bojxona, sertifikat, import hujjati,
+  hajmli vazn va professional logistika mavzularini TASHLAB YUBORING.
+- Eng sodda, telefonda darhol bajariladigan mavzularga yuqori ball bering.
+
+KANAL YO'NALISHI:
+{rubric.get('brief', '').strip()}
 
 Quyidagilar bilan bir xil yoki juda yaqin mavzularni TASHLAB YUBORING:
 {avoid_block}
@@ -100,7 +121,8 @@ def run(cfg: dict, rubric: dict, api_key: str) -> dict:
     LOG.info("Qidiruv tugadi, %d manba topildi", len(sources))
 
     data = generate_json(
-        _rank_prompt(research, avoid, lang_name), api_key, SCHEMA, model=model, temperature=0.3
+        _rank_prompt(research, avoid, lang_name, rubric), api_key, SCHEMA,
+        model=model, temperature=0.3
     )
     topics = data.get("topics") or []
     if not topics:
@@ -123,3 +145,4 @@ def run(cfg: dict, rubric: dict, api_key: str) -> dict:
         "Barcha topilgan mavzular arxivda bor. Rubrikani kengaytiring yoki "
         "data/archive.json dagi eski yozuvlarni tozalang."
     )
+
