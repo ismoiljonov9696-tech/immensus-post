@@ -145,9 +145,8 @@ qilsagina rad eting. Did masalasi yoki "men boshqacha yozardim" — rad etish
 sababi emas.
 
 RUXSAT ETILGAN, rad etish sababi BO'LMAGAN narsalar:
-- Xitoycha, inglizcha yoki ruscha atamalar va nomlar: 1688, 义乌, Futian,
-  MOQ, Alibaba, WeChat, packing list va shu kabilar. Bu auditoriya uchun
-  tanish so'zlar — ularni olib tashlashni talab qilmang.
+- Xitoycha, inglizcha yoki ruscha tugma va platforma nomlari: 1688,
+  Pinduoduo, Taobao, Poizon/Dewu, 退款, 购物车 va shu kabilar.
 - Xitoy iyeroglifi bilan yozilgan sayt, bozor, tovar yoki hujjat nomlari.
   Bir necha o'nlab iyeroglif bo'lsa ham — bu normal holat, rad etmang.
 - Kompaniya kontakt ma'lumotlari va o'z xizmatiga qisqa taklif.
@@ -175,6 +174,14 @@ Quyidagilarni tekshiring:
    yetkazadi. Umumiy metodika (masalan, hajmli vaznni hisoblash formulasi)
    bunga kirmaydi — cheklov rasmiy stavka va limitlarga tegishli.
 2. FOYDA — o'quvchi postni o'qib bugun aniq nima qila oladi? Javob noaniq bo'lsa — rad eting.
+2a. YO'NALISH — post donalik yoki kichik hajmdagi shaxsiy onlayn xarid haqida
+   bo'lishi shart. Katta partiya, zavod, MOQ muzokarasi, konteyner, packing
+   list, broker, bojxona, sertifikat, import hujjati, hajmli vazn yoki
+   professional logistika bo'lsa — rad eting.
+2b. SODDALIK — yangi boshlovchi telefonda takrorlay oladigan 3–5 qisqa qadam
+   bormi? Keraksiz termin, murakkab tahlil yoki biznes tili bo'lsa — rad eting.
+2c. PLATFORMALAR — asosiy e'tibor Pinduoduo, Taobao, 1688 yoki Poizon/Dewu'ga
+   qaratilsin. Kargo mavzusi faqat yakuniy xizmat taklifida qisqa bo'lsin.
 3. QARMOQ — birinchi qator to'xtatib qoladimi yoki bo'sh gapmi?
 4. STIL — etalon namunalarga ohangi va tuzilishi mos keladimi?
 5. TIL — o'zbek tilida tabiiy jumlalarmi, tarjima hidi kelmayaptimi?
@@ -243,3 +250,4 @@ def run(cfg: dict, topic: dict, text: str, api_key: str,
     for pr in problems:
         LOG.info("  · %s", pr)
     return result
+
