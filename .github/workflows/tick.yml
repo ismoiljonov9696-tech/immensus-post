@@ -2,15 +2,15 @@ name: Postlarni vaqtida chiqarish
 
 # Immensus Cargo'dagi ishonchli usul:
 # GitHub jadvali post vaqtining o'zida emas, 1-2 soat oldin ishga tushadi.
-# Runner har 60 soniyada vaqtni tekshiradi va postni aynan 09:00/19:00 da chiqaradi.
+# Runner har 60 soniyada vaqtni tekshiradi va postni aynan 07:00/13:00/19:00 da chiqaradi.
 # Birinchi cron o'tkazib yuborilsa, ikkinchisi zaxira bo'ladi.
-# Vaqtlar UTC: 09:00 Toshkent = 04:00 UTC, 19:00 = 14:00 UTC.
+# Vaqtlar UTC: 07:00 = 02:00, 13:00 = 08:00, 19:00 = 14:00.
 on:
   push:
     paths:
       - "data/publish-trigger.txt"
   schedule:
-    - cron: "0 2,3,12,13 * * *"
+    - cron: "0 0,1,6,7,12,13 * * *"
   workflow_dispatch:
 
 concurrency:
