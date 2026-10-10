@@ -1,21 +1,5 @@
 [
   {
-    "id": "20261007-134639",
-    "rubric": "Xitoydan onlayn buyurtma va foydali maslahatlar",
-    "title": "Kargo to‘lovida kutilmagan xarajat: Tovarni vakuumlash",
-    "kind": "photo",
-    "file_id": null,
-    "media_path": "/home/runner/work/immensus-post/immensus-post/.work/20261007-134639/image.png",
-    "qc_score": 10,
-    "soft_pass": false,
-    "rewrites": 0,
-    "publish_at": "2026-10-07T22:03:23.189928+08:00",
-    "created_at": "2026-10-07T21:48:23+08:00",
-    "est_cost_usd": 0.0918,
-    "status": "cancelled",
-    "cancel_reason": "media_file_id_missing"
-  },
-  {
     "id": "20261007-135530",
     "rubric": "Xitoydan onlayn buyurtma va foydali maslahatlar",
     "title": "Avia-kargoda batareya va magnit tekshiruvi",
