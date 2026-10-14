@@ -1,14 +1,10 @@
 {
-  "last_publish_at": "2026-10-14T04:50:27+00:00",
-  "last_publish_id": "20261012-223259",
-  "last_publish_title": "Poizon: Bir xil krossovkadagi 3 xil narx siri",
-  "last_publish_cost": 0.0942,
-  "total_cost_usd": 1.7978,
-  "total_posts": 19,
-  "last_error": {
-    "stage": "mavzu izlash (1-agent)",
-    "message": "Gemini gemini-3.8-flash → HTTP 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
-    "at": "2026-10-14T04:52:37+00:00"
-  },
+  "last_publish_at": "2026-10-14T10:04:27+00:00",
+  "last_publish_id": "20261012-223447",
+  "last_publish_title": "\"Pre-sale\" (预售) tuzog‘i: Tovarni 20 kun kutmaslik yo‘li",
+  "last_publish_cost": 0.0953,
+  "total_cost_usd": 1.8931,
+  "total_posts": 20,
+  "last_error": null,
   "alerted_at": null
 }
