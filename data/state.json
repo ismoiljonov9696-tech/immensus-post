@@ -10,5 +10,5 @@
     "message": "Gemini gemini-3.8-flash → HTTP 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
     "at": "2026-10-15T04:37:42+00:00"
   },
-  "alerted_at": "2026-10-14T22:24:14+00:00"
+  "alerted_at": "2026-10-15T14:55:43+00:00"
 }
