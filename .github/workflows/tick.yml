@@ -1,16 +1,14 @@
 name: Postlarni vaqtida chiqarish
 
-# Immensus Cargo'dagi ishonchli usul:
-# GitHub ba'zan rejalashtirilgan ishni kechiktiradi. Shu sabab kuzatuvchi har
-# soatning :11 da uyg'onadi; yaqin 3 soatda post bo'lsa vaqtigacha kutadi.
-# Runner har 60 soniyada vaqtni tekshiradi va postni aynan 07:00/13:00/19:00 da chiqaradi.
-# Buyruqlar workflow'i ham alohida zaxira sifatida har 20 daqiqada tekshiradi.
+# Kuniga bitta Immensus Post 07:00 da chiqadi.
+# n8n kuzatuvchini 05:00 da uyg'otadi; GitHub cron 06:11 da zaxira sifatida
+# ishga tushadi. Runner har 60 soniyada vaqtni tekshiradi va 07:00 da chiqaradi.
 on:
   push:
     paths:
       - "data/publish-trigger.txt"
   schedule:
-    - cron: "11 * * * *"
+    - cron: "11 1 * * *"      # 06:11 Toshkent — n8n ishlamasa zaxira
   workflow_dispatch:
 
 concurrency:
