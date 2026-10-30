@@ -36,7 +36,7 @@ BANNED_PATTERNS = [
     (r"\[.*?\]\(.*?\)", "markdown havola — Telegram uni ko'rsatmaydi"),
     (r"\{\{.*?\}\}|\[TODO\]|\bLorem ipsum\b", "to'ldirilmagan shablon qolgan"),
     (r"XXXX|\bTBD\b", "to'ldirilmagan joy qolgan"),
-    (r"\bImmensus\s+Cargo\b|\bIpost\b|@immensus_cargoo", "eski yoki noto'g'ri brend nomi"),
+    (r"\bImmensus\s+Cargo\b|\bIpost\b|@immensus_cargoo|\b(?:avto|avia)\s+kargo\b", "Immensus Postga kargo mavzusi aralashgan"),
     (r"\$\s*6(?:\.0)?\s*/?\s*kg", "eski avto kargo narxi — $6.2/kg bo'lishi kerak"),
     (r"\$\s*9[.,]9\s*/?\s*kg", "avia kargo narxi yozilgan — xizmat hali ishga tushmagan"),
     (r"\+998\s*88\s*027\s*66\s*66", "eski telefon raqami qolgan"),
@@ -126,11 +126,6 @@ def _mechanical(cfg: dict, text: str) -> list[str]:
         problems.append("Immensus Post brend nomi yozilmagan")
     if "$6.2/kg" not in text:
         problems.append("Tasdiqlangan avto kargo narxi $6.2/kg yozilmagan")
-    if re.search(r"\bavia\b", text, flags=re.I) and not re.search(
-        r"avia\s+kargo\s*[—-]\s*tez\s+kunda", text, flags=re.I
-    ):
-        problems.append("Avia kargo faqat 'Avia kargo — tez kunda' deb yozilishi mumkin")
-
     return problems
 
 
@@ -203,7 +198,7 @@ Quyidagilarni tekshiring:
 5. TIL — o'zbek tilida tabiiy jumlalarmi, tarjima hidi kelmayaptimi?
 6. HAJM — {p['min_chars']}–{p['max_chars']} belgi oralig'idami?
 7. TAKROR — bir xil fikr bir necha marta aytilmaganmi?
-8. BREND — faqat Immensus Post, avto kargo $6.2/kg; avia faqat "tez kunda".
+8. BREND — faqat Immensus Post. Immensus Cargo, avto/avia kargo va professional logistika mavzusi bo'lmasin. Yakuniy CTA'da yetkazish narxi $6.2/kg bo'lsin.
 9. MANBA — tekshirilgan havola berilgan bo'lsa postga tabiiy qo'shilganmi?
 
 score: 1–10, quyidagicha:
