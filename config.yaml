@@ -39,12 +39,13 @@ rubrics:
       foydali misollarni ko'proq tanlang. Biroq stereotip ishlatmang va kanalni
       faqat ayollarga qaratmang.
 
-      QAT'IY CHEKLOV: Immensus Cargo kontentiga o'xshamang. Konteyner,
-      katta partiya, zavod qidirish, MOQ muzokarasi, packing list, bojxona,
-      sertifikat, broker, import hujjatlari, tijoriy logistika, hajmli vazn,
-      qadoqlash texnologiyasi va katta sotuvchilar uchun biznes maslahatlari
-      mavzu bo'lmasin. Kargo faqat yakuniy CTA'da kichik yukni O'zbekistonga
-      yetkazish xizmati sifatida qisqa tilga olinsin.
+      QAT'IY CHEKLOV: Immensus Post va Immensus Cargo — ikki alohida kanal.
+      Bu kanal postlarida Immensus Cargo nomini, avto/avia kargoni, professional
+      logistika xizmatini, konteynerni, katta partiyani, zavod qidirishni, MOQ
+      muzokarasini, packing listni, bojxonani, sertifikatni, brokerni, import
+      hujjatlarini, hajmli vaznni yoki qadoqlash texnologiyasini UMUMAN YOZMANG.
+      Mavzu faqat oddiy xaridorning Xitoy ilovasidan donalik yoki kichik savat
+      bilan onlayn xarid qilishiga yordam bersin.
 
       MUHIM CHEKLOV: bojxona stavkalari, limitlar, soliq foizlari va rasmiy
       talablar tez-tez o'zgaradi. Aniq raqam faqat manbada bo'lsa yoziladi va
@@ -179,9 +180,8 @@ post:
   max_chinese_chars: 40
   max_chinese_ratio: 0.15
   cta: >
-    📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
-    🚗 Avto kargo: $6.2/kg
-    ✈️ Avia kargo — tez kunda
+    🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
+    📦 O'zbekistonga yetkazish narxi: $6.2/kg
   hashtags: ["#ImmensusPost", "#XitoydanBuyurtma", "#FoydaliMaslahat"]
 
 image:
@@ -208,13 +208,13 @@ image:
 
   # REALISTIK FOTOSURAT. Illyustratsiya, klipart yoki 3D render emas.
   style: >
-    Realistic documentary photograph, shot on a full-frame camera with a
-    35mm or 50mm lens. Natural available light, believable shadows, real
-    materials and honest textures — kraft cardboard, steel, packing tape,
-    worn concrete, dusty fabric, scuffed floors. Shallow but not extreme
-    depth of field. Slight imperfection is good: it should look like a real
-    moment someone photographed, not a staged studio shot and not a
-    render or illustration. No plastic-smooth surfaces, no glossy CGI look.
+    Realistic lifestyle photograph for a personal online-shopping guide,
+    shot on a full-frame camera with a 35mm or 50mm lens. Show an ordinary
+    shopper at home using a smartphone, or one clear consumer product such
+    as clothing, shoes, a bag, an accessory, a children's item or a useful
+    household item. Natural daylight, believable hands and honest materials.
+    Do not show warehouses, cargo workers, trucks, containers, pallets,
+    industrial packing scenes or piles of shipping boxes. No glossy CGI look.
 
   # Logotip. Rasm chizilgach ustiga QO'YILADI — AI ga chizdirilmaydi,
   # chunki u har safar buzuq va boshqacha chiqadi.
