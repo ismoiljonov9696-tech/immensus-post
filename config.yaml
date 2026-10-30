@@ -295,8 +295,8 @@ llm:
   qc_last_chance: 7
 
 schedule:
-  # Post chiqish vaqtlari (Toshkent vaqti). Kuniga 3 ta post.
-  publish_times: ["07:00", "13:00", "19:00"]
+  # Post chiqish vaqti (Toshkent vaqti). Kuniga faqat 1 ta post.
+  publish_times: ["07:00"]
 
   # Har vaqt uchun alohida muharrirlik vazifasi.
   slot_content:
