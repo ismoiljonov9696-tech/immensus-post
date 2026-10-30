@@ -27,7 +27,8 @@ Repository'ni private qiling va loyiha fayllarini uning ildiziga joylang.
 
 - `TELEGRAM_BOT_TOKEN` — BotFather bergan yangi token
 - `TELEGRAM_ADMIN_CHAT_ID` — post chiqqani haqida xabar oladigan shaxsiy chat ID
-- `GEMINI_API_KEY` — Google AI Studio API kaliti
+- `OPENAI_API_KEY` — OpenAI Platform API kaliti
+- `GEMINI_API_KEY` — ixtiyoriy vaqtinchalik zaxira
 
 Muhim: oldin chatda yuborilgan Telegram tokenini BotFather'da `/revoke` qiling.
 Yangi tokenni kodga yoki chatga yozmang.
@@ -48,7 +49,7 @@ Shaxsiy xabar olishingiz uchun botga avval `/start` yuboring.
 ## Bot buyruqlari
 
 - `/holat` — navbat, oxirgi post va keyingi chiqish vaqti
-- `/balans 10` — Gemini uchun ajratilgan balansni kuzatish
+- `/balans 10` — AI API uchun ajratilgan balansni kuzatish
 - `/pauza` — nashrni vaqtincha to'xtatish
 - `/davom` — nashrni qayta yoqish
 - `/yordam` — buyruqlar ro'yxati
@@ -60,7 +61,7 @@ python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 $env:TELEGRAM_BOT_TOKEN = "YANGI_TOKEN"
 $env:TELEGRAM_ADMIN_CHAT_ID = "SIZNING_CHAT_ID"
-$env:GEMINI_API_KEY = "GEMINI_KALITI"
+$env:OPENAI_API_KEY = "OPENAI_KALITI"
 .venv\Scripts\python -m src.main check
 ```
 
