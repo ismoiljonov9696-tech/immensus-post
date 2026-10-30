@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       count:
-        description: "Nechta post tayyorlansin"
+        description: "Moslik uchun: tizim har doim 1 ta post tayyorlaydi"
         type: string
         default: "1"
       force:
@@ -63,8 +63,8 @@ jobs:
             FLAGS="--top-up 1"
             echo "Zaxira ish: bo'sh navbat 1 taga to'ldiriladi"
           else
-            FLAGS="--count ${COUNT:-1}"
-            echo "Qo'lda ishga tushirildi"
+            FLAGS="--count 1"
+            echo "Qo'lda yoki n8n orqali ishga tushirildi: qat'iy 1 ta post"
           fi
           if [ "$FORCE" = "true" ]; then
             FLAGS="$FLAGS --force"
