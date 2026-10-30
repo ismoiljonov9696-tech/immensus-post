@@ -1,5 +1,5 @@
 {
-  "name": "Immensus Post — kuniga 1 ta post",
+  "name": "Immensus — Post va Cargo, har biri kuniga 1 ta",
   "nodes": [
     {
       "parameters": {
@@ -120,6 +120,86 @@
           "name": "GitHub Actions Token"
         }
       }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/ismoiljonov9696-tech/TG-Immensus_cargo/actions/workflows/generate.yml/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "{\"ref\":\"main\",\"inputs\":{\"count\":\"1\",\"force\":false}}",
+        "options": {}
+      },
+      "id": "7fe112c5-dce0-40f2-bb63-c83ded4bc239",
+      "name": "Immensus Cargo — 1 ta post tayyorlash",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -180,
+        -20
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_N8N_CREDENTIAL_ID",
+          "name": "GitHub Actions Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/ismoiljonov9696-tech/TG-Immensus_cargo/actions/workflows/tick.yml/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "{\"ref\":\"main\"}",
+        "options": {}
+      },
+      "id": "79896180-8874-46e8-8237-986b36920f5b",
+      "name": "Immensus Cargo — 07:00 kuzatuvchisi",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -180,
+        260
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_N8N_CREDENTIAL_ID",
+          "name": "GitHub Actions Token"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -131,6 +211,11 @@
             "node": "Immensus Post — 1 ta post tayyorlash",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Immensus Cargo — 1 ta post tayyorlash",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -140,6 +225,11 @@
         [
           {
             "node": "Immensus Post — 07:00 kuzatuvchisi",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Immensus Cargo — 07:00 kuzatuvchisi",
             "type": "main",
             "index": 0
           }
