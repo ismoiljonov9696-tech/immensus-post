@@ -1,12 +1,12 @@
 name: Postlarni tayyorlash
 
-# Kuniga 3 post: 07:00, 13:00 va 19:00 (Asia/Tashkent).
-# 20:17 Toshkentda ertangi uch post oldindan tayyorlanadi.
-# 04:37 va 05:17 dagi zaxira ishlar navbat yetishmasa uni 3 taga to'ldiradi.
+# Kuniga 1 post: 07:00 (Asia/Tashkent).
+# 20:17 Toshkentda ertangi bitta post oldindan tayyorlanadi.
+# 04:37 va 05:17 dagi zaxira ishlar navbat yetishmasa uni 1 taga to'ldiradi.
 # Daqiqalar ataylab :00 emas — GitHub Actions soat boshida ko'proq kechikadi.
 on:
   schedule:
-    - cron: "17 15 * * *"      # 20:17 Toshkent — ertangi 2 post
+    - cron: "17 15 * * *"      # 20:17 Toshkent — ertangi 1 post
     - cron: "37 23 * * *"      # 04:37 Toshkent — zaxira
     - cron: "17 0 * * *"       # 05:17 Toshkent — ikkinchi zaxira
   workflow_dispatch:
@@ -14,13 +14,13 @@ on:
       count:
         description: "Nechta post tayyorlansin"
         type: string
-        default: "3"
+        default: "1"
       force:
         description: "Sifat nazoratidan o'tmasa ham davom etsinmi"
         type: boolean
         default: false
       content_slot:
-        description: "Namuna uchun kontent turi: 07:00, 13:00 yoki 19:00 (ixtiyoriy)"
+        description: "Namuna uchun kontent turi: 07:00 (ixtiyoriy)"
         type: string
         default: ""
 
@@ -58,13 +58,13 @@ jobs:
           CONTENT_SLOT: ${{ inputs.content_slot }}
         run: |
           if [ "$CRON" = "17 15 * * *" ]; then
-            FLAGS="--count 3"
-            echo "Asosiy ish: ertangi 3 ta post tayyorlanadi"
+            FLAGS="--top-up 1"
+            echo "Asosiy ish: navbat ertangi 1 ta postga to'ldiriladi"
           elif [ "$CRON" = "37 23 * * *" ] || [ "$CRON" = "17 0 * * *" ]; then
-            FLAGS="--top-up 3"
-            echo "Zaxira ish: navbat 3 taga to'ldiriladi"
+            FLAGS="--top-up 1"
+            echo "Zaxira ish: navbat 1 taga to'ldiriladi"
           else
-            FLAGS="--count ${COUNT:-3}"
+            FLAGS="--count ${COUNT:-1}"
             echo "Qo'lda ishga tushirildi"
           fi
           if [ "$FORCE" = "true" ]; then
