@@ -185,15 +185,12 @@ post:
   hashtags: ["#ImmensusPost", "#XitoydanBuyurtma", "#FoydaliMaslahat"]
 
 image:
-  # DIQQAT: rasm modellari matn modellaridan boshqacha nomlanadi.
-  # "gemini-3.6-flash-image" kabi nom YO'Q — faqat quyidagilar mavjud.
-  model: "gemini-3.1-flash-image"
-  # Asosiy model 404 bersa, shu ro'yxatdan navbat bilan sinaladi.
-  # Bitta noto'g'ri nom butun rasmni yo'qotmasligi uchun.
+  # OpenAI GPT Image: tez, yuqori sifatli kundalik rasm generatsiyasi.
+  model: "gpt-image-2.5-flare"
+  # Asosiy model ishlamasa, zaxira ro'yxati navbat bilan sinaladi.
   fallback_models:
-    - "gemini-3.1-flash-lite-image"
-    - "gemini-3-pro-image"
-    - "gemini-2.5-flash-image"
+    - "gpt-image-2"
+    - "gpt-image-1.5"
   aspect_ratio: "4:5"               # 1:1 | 4:5 | 16:9
 
   # Sahnada odam bo'lsinmi: never | sometimes | often
@@ -283,9 +280,8 @@ video:
 
 llm:
   # Matn agentlari (1, 2, 5) uchun model.
-  # gemini-2.5-flash eskirgan va 404 qaytaradi — 3.6 yoki 3.7 ishlating.
-  model: "gemini-3.8-flash"
-  qc_model: "gemini-3.8-flash"
+  model: "gpt-5.4-mini"
+  qc_model: "gpt-5.4-mini"
   max_rewrites: 2          # 5-agent rad etsa, 2-agent necha marta qayta yozadi
 
   # Sifat chegaralari (1–10).
