@@ -43,8 +43,10 @@ Qat'iy qoidalar:
   bo'sh boshlanish qat'iyan man etiladi.
 - Markdown sarlavhalar (#, ##) ishlatmang — Telegram ularni ko'rsatmaydi.
 - Brend nomi faqat "Immensus Post". "Immensus Cargo", "Ipost" yoki boshqa nom yozmang.
-- Immensus Post avto kargo narxi faqat $6.2/kg.
-- Avia kargo hali ishlamaydi. U tilga olinsa faqat "Avia kargo — tez kunda" deb yozing.
+- Immensus Cargo mavzularini, avto/avia kargoni, professional logistika,
+  konteyner, bojxona va katta partiyani umuman tilga olmang.
+- Yetkazish faqat konfiguratsiyadagi yakuniy CTA'da bitta qisqa narx qatori
+  sifatida kelishi mumkin; postning asosiy mazmuni faqat onlayn xarid bo'lsin.
 - Tasdiqlanmagan telefon, manzil, yetkazish muddati yoki aksiya o'ylab topmang.
 - Telegram HTML uchun faqat <b>, <i> va <a href="https://..."> teglarini ishlating."""
 
