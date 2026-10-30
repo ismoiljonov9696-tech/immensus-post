@@ -18,9 +18,8 @@ Rasmdagi bosh narx siz tanlagan rang yoki o‘lchamga tegishli bo‘lmasligi mum
 
 💡 Tanlangan variant rasmi mahsulot rasmiga mos kelmasa, to‘lovni shoshirmang.
 
-📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
-🚗 Avto kargo: $6.2/kg
-✈️ Avia kargo — tez kunda
+🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
+📦 O'zbekistonga yetkazish narxi: $6.2/kg
 
 #ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat
 
@@ -37,9 +36,8 @@ Mahsulot nomini xitoycha bilmasangiz ham, uning rasmi orqali o‘xshash variantl
 
 ✅ Birinchi chiqqan mahsulotni darhol olmang. Kamida 2–3 variantni ko‘rib, sizga mosini tanlang.
 
-📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
-🚗 Avto kargo: $6.2/kg
-✈️ Avia kargo — tez kunda
+🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
+📦 O'zbekistonga yetkazish narxi: $6.2/kg
 
 #ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat
 
@@ -57,9 +55,8 @@ Poizon’da buyurtma berishda faqat odatda kiyadigan raqamingizga tayanmang. Tur
 
 💡 Ikki o‘lcham orasida qolsangiz, to‘lovdan oldin jadvalni yana bir marta tekshiring.
 
-📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
-🚗 Avto kargo: $6.2/kg
-✈️ Avia kargo — tez kunda
+🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
+📦 O'zbekistonga yetkazish narxi: $6.2/kg
 
 #ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat
 
