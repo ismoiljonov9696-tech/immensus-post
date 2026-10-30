@@ -1,27 +1,27 @@
-# Immensus Post — n8n ulash
+# Immensus autopost — n8n ulash
 
-Bu workflow faqat **Immensus Post** kanalini boshqaradi. Immensus Cargo bilan
-hech qanday aloqa yoki node yo'q.
+Bu workflow ikki kanalni alohida boshqaradi. Ularning mavzulari va Telegram
+kanallari bir-biriga aralashmaydi.
 
 ## Jadval (Asia/Tashkent)
 
-- 20:00 — ertangi 07:00 uchun 1 ta rasmli post tayyorlanadi.
-- 05:00 — GitHub kuzatuvchisi uyg'onadi.
-- 07:00 — tayyor post Telegram kanaliga chiqariladi.
+- 20:00 — Immensus Post uchun 1 ta va Immensus Cargo uchun 1 ta ertangi post tayyorlanadi.
+- 05:00 — ikkala kanalning alohida 07:00 kuzatuvchisi ishga tushadi.
+- 07:00 — har bir kanalga o'z mavzusidagi bittadan post chiqadi.
 
-GitHub'dagi 06:11 ishga tushish faqat n8n ishlamasa zaxira hisoblanadi.
-Navbat `--top-up 1` bilan to'ldirilgani sabab bir kunda ortiqcha post
-tayyorlanmaydi.
+Immensus Post faqat donalik va kichik onlayn xarid, Pinduoduo, Taobao, 1688,
+Poizon/Dewu va Tmall qo'llanmalari haqida yozadi. Immensus Cargo professional
+kargo mavzularini faqat o'z kanalida yozadi.
 
 ## GitHub token
 
-Fine-grained GitHub token yarating:
+GitHub'da fine-grained personal access token yarating:
 
-- Repository access: faqat `immensus-post`.
+- Repository access: `immensus-post` va `TG-Immensus_cargo`.
 - Repository permissions → Actions: **Read and write**.
 - Metadata: **Read-only**.
 
-Tokenni JSON fayliga yoki chatga yozmang.
+Tokenni chatga yoki JSON fayliga yozmang.
 
 ## n8n credential
 
@@ -31,13 +31,13 @@ n8n'da **Credentials → New credential → Header Auth**:
 - Name: `Authorization`
 - Value: `Bearer YOUR_GITHUB_FINE_GRAINED_TOKEN`
 
-## Import va yoqish
+## Import va faollashtirish
 
-1. **Workflows → Import from file** orqali
-   `immensus-autopost-orchestrator.json` faylini import qiling.
-2. Ikkala HTTP Request node'iga `GitHub Actions Token` credentialini ulang.
-3. Workflow timezone `Asia/Tashkent` ekanini tekshiring.
-4. HTTP node'larni bir martadan **Execute step** bilan sinang.
-5. **Save**, so'ng **Publish/Active** qiling.
+1. **Workflows → Import from file** orqali `immensus-autopost-orchestrator.json` faylini import qiling.
+2. To'rtta HTTP Request node'iga `GitHub Actions Token` credentialini tanlang.
+3. Timezone `Asia/Tashkent` ekanini tekshiring.
+4. Har bir HTTP node'ni **Execute step** bilan bir marta sinang.
+5. GitHub Actions'da yangi run paydo bo'lsa, workflowni **Save** va **Publish/Active** qiling.
 
-`OPENAI_API_KEY`, Telegram tokeni va kanal ID GitHub Secrets ichida qoladi.
+OpenAI va Telegram kalitlari n8n'ga ko'chirilmaydi; ular tegishli GitHub
+reposining Secrets bo'limida qoladi.
