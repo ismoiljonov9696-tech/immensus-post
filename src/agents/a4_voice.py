@@ -57,4 +57,3 @@ def run(cfg: dict, post_text: str, out_path: Path,
     out_path.write_bytes(audio)
     LOG.info("Audio saqlandi: %s (%.0f KB)", out_path.name, len(audio) / 1024)
     return out_path, spoken
-

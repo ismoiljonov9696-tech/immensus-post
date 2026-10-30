@@ -19,8 +19,8 @@ BASE = "https://api.openai.com/v1"
 TIMEOUT = 240
 
 # Faqat ichki taxminiy xarajat hisoboti uchun. Haqiqiy summa OpenAI billingda.
-PRICE_TEXT_IN = 0.75 / 1_000_000
-PRICE_TEXT_OUT = 4.50 / 1_000_000
+PRICE_TEXT_IN = 1.00 / 1_000_000
+PRICE_TEXT_OUT = 5.00 / 1_000_000
 EST_IMAGE_COST = 0.05
 
 _usage: list[dict] = []
@@ -154,7 +154,7 @@ def _input(prompt: str, system: str | None) -> list[dict]:
     return messages
 
 
-def generate_text(prompt: str, api_key: str, model: str = "gpt-5.4-mini", *,
+def generate_text(prompt: str, api_key: str, model: str = "gpt-6.1-terra", *,
                   system: str | None = None, json_schema: dict | None = None,
                   temperature: float = 0.8) -> str:
     del temperature  # GPT-5 oilasida standart sozlama barqarorroq.
@@ -189,7 +189,7 @@ def generate_json(prompt: str, api_key: str, schema: dict, **kwargs) -> Any:
         return json.loads(cleaned)
 
 
-def generate_grounded(prompt: str, api_key: str, model: str = "gpt-5.4-mini", *,
+def generate_grounded(prompt: str, api_key: str, model: str = "gpt-6.1-terra", *,
                       system: str | None = None,
                       temperature: float = 0.7) -> tuple[str, list[dict]]:
     del temperature
@@ -201,15 +201,12 @@ def generate_grounded(prompt: str, api_key: str, model: str = "gpt-5.4-mini", *,
         "include": ["web_search_call.action.sources"],
         "store": False,
     }
-    try:
-        data = _request_json("POST", "/responses", api_key, json=payload, retries=2)
-        _track_text(model, data)
-        text = _response_text(data)
-        if text:
-            return text, _response_sources(data)
-    except OpenAIError as exc:
-        LOG.warning("OpenAI web search ishlamadi (%s); qidiruvsiz davom etaman", exc)
-    return generate_text(prompt, api_key, model=model, system=system), []
+    data = _request_json("POST", "/responses", api_key, json=payload, retries=3)
+    _track_text(model, data)
+    text = _response_text(data)
+    if not text:
+        raise OpenAIError("OpenAI web search bo'sh javob qaytardi")
+    return text, _response_sources(data)
 
 
 def _image_size(aspect_ratio: str) -> str:
@@ -282,4 +279,3 @@ def edit_image(prompt: str, images: list[bytes], api_key: str,
             last = exc
             LOG.warning("OpenAI rasm tahriri ishlamadi: %s", str(exc)[:160])
     raise OpenAIError(f"Rasmni tahrirlab bo'lmadi: {last}")
-

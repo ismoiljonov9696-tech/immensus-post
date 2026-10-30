@@ -39,13 +39,12 @@ rubrics:
       foydali misollarni ko'proq tanlang. Biroq stereotip ishlatmang va kanalni
       faqat ayollarga qaratmang.
 
-      QAT'IY CHEKLOV: Immensus Post va Immensus Cargo — ikki alohida kanal.
-      Bu kanal postlarida Immensus Cargo nomini, avto/avia kargoni, professional
-      logistika xizmatini, konteynerni, katta partiyani, zavod qidirishni, MOQ
-      muzokarasini, packing listni, bojxonani, sertifikatni, brokerni, import
-      hujjatlarini, hajmli vaznni yoki qadoqlash texnologiyasini UMUMAN YOZMANG.
-      Mavzu faqat oddiy xaridorning Xitoy ilovasidan donalik yoki kichik savat
-      bilan onlayn xarid qilishiga yordam bersin.
+      QAT'IY CHEKLOV: Immensus Cargo kontentiga o'xshamang. Konteyner,
+      katta partiya, zavod qidirish, MOQ muzokarasi, packing list, bojxona,
+      sertifikat, broker, import hujjatlari, tijoriy logistika, hajmli vazn,
+      qadoqlash texnologiyasi va katta sotuvchilar uchun biznes maslahatlari
+      mavzu bo'lmasin. Kargo xizmati, narxi va logistika reklamasi CTA'da ham
+      tilga olinmasin.
 
       MUHIM CHEKLOV: bojxona stavkalari, limitlar, soliq foizlari va rasmiy
       talablar tez-tez o'zgaradi. Aniq raqam faqat manbada bo'lsa yoziladi va
@@ -68,8 +67,7 @@ rubrics:
         kupon, sotuvchi, bekor qilish yoki refunddan faqat bittasini sodda
         hayotiy misol bilan tushuntiring.
     # 1-agent faqat shu domenlardan izlaydi. Bo'sh qoldirsangiz — cheklovsiz.
-    # Kargo/bojxona mavzusi uchun cheklovsiz qoldirish tavsiya etiladi:
-    # o'zbek tilidagi manbalar oz, tor ro'yxat mavzu topilmasligiga olib keladi.
+    # Tor ro'yxat mavzu topilmasligiga olib kelishi mumkin.
     allowed_domains: []
 
   - name: "Platforma qo'llanmalari"
@@ -180,8 +178,8 @@ post:
   max_chinese_chars: 40
   max_chinese_ratio: 0.15
   cta: >
-    🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
-    📦 O'zbekistonga yetkazish narxi: $6.2/kg
+    📌 Foydali bo'lsa, postni saqlab qo'ying va yaqinlaringizga ulashing.
+    🔔 Xitoy platformalari bo'yicha sodda qo'llanmalar — @immensuspost
   hashtags: ["#ImmensusPost", "#XitoydanBuyurtma", "#FoydaliMaslahat"]
 
 image:
@@ -208,13 +206,13 @@ image:
 
   # REALISTIK FOTOSURAT. Illyustratsiya, klipart yoki 3D render emas.
   style: >
-    Realistic lifestyle photograph for a personal online-shopping guide,
-    shot on a full-frame camera with a 35mm or 50mm lens. Show an ordinary
-    shopper at home using a smartphone, or one clear consumer product such
-    as clothing, shoes, a bag, an accessory, a children's item or a useful
-    household item. Natural daylight, believable hands and honest materials.
-    Do not show warehouses, cargo workers, trucks, containers, pallets,
-    industrial packing scenes or piles of shipping boxes. No glossy CGI look.
+    Realistic documentary photograph, shot on a full-frame camera with a
+    35mm or 50mm lens. Natural available light, believable shadows, real
+    materials and honest textures — kraft cardboard, steel, packing tape,
+    worn concrete, dusty fabric, scuffed floors. Shallow but not extreme
+    depth of field. Slight imperfection is good: it should look like a real
+    moment someone photographed, not a staged studio shot and not a
+    render or illustration. No plastic-smooth surfaces, no glossy CGI look.
 
   # Logotip. Rasm chizilgach ustiga QO'YILADI — AI ga chizdirilmaydi,
   # chunki u har safar buzuq va boshqacha chiqadi.
@@ -280,8 +278,8 @@ video:
 
 llm:
   # Matn agentlari (1, 2, 5) uchun model.
-  model: "gpt-5.4-mini"
-  qc_model: "gpt-5.4-mini"
+  model: "gpt-6.1-terra"
+  qc_model: "gpt-6.1-terra"
   max_rewrites: 2          # 5-agent rad etsa, 2-agent necha marta qayta yozadi
 
   # Sifat chegaralari (1–10).
@@ -294,8 +292,13 @@ llm:
   qc_min_score: 8
   qc_last_chance: 7
 
+research:
+  # Har bir post majburiy web search qiladi. Shuncha ishonchli HTTPS manba
+  # topilmasa post tayyorlanmaydi va adminga xato xabari yuboriladi.
+  min_sources: 2
+
 schedule:
-  # Post chiqish vaqti (Toshkent vaqti). Kuniga faqat 1 ta post.
+  # Post chiqish vaqti (Toshkent vaqti). Kuniga 1 ta post.
   publish_times: ["07:00"]
 
   # Har vaqt uchun alohida muharrirlik vazifasi.
@@ -307,17 +310,6 @@ schedule:
       kiritish, to'lash, trek-kodni topish yoki refund. 3–5 qisqa qadamda
       aynan qayerni bosishni ayting. Katta savdo va murakkab logistika yo'q.
       Platforma nomi sarlavhada aniq bo'lsin.
-    "13:00": >
-      KUNDUZGI AMALIY POST. Donalik yoki kichik buyurtma uchun mahsulot tanlash,
-      sharh, sotuvchi, narx, kupon, o'lcham yoki kichik vazndan bitta foydali
-      mavzuni sodda misol va qisqa ro'yxat bilan tushuntiring.
-    "19:00": >
-      KECHKI SODDA MASLAHAT. Donalik yoki kichik buyurtma qiladigan odam uchun
-      Pinduoduo, Taobao, 1688, Poizon yoki Tmall'dagi bitta foydali imkoniyatni
-      tushuntiring: o'lcham adashmaslik, real suratli sharh topish, kupon,
-      sotuvchini tekshirish, buyurtmani bekor qilish yoki pulni qaytarish.
-      Oddiy hayotiy misol va 3–5 qisqa qadam bo'lsin. Zavod, katta partiya,
-      bojxona, hujjat va professional kargo mavzularini yozmang.
 
   # --- Quyidagilar faqat ichki jadval (src.scheduler) uchun ---
   # Post chiqishidan necha soat oldin tayyorlansin va tasdiqqa yuborilsin.
@@ -356,4 +348,3 @@ approval:
   # 2-marta bosilganda tizim mavzuni ham almashtiradi — demak muammo
   # matnda emas, mavzuning o'zida.
   max_rewrites: 3
-

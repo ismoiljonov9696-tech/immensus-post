@@ -1231,4 +1231,3 @@ cmd_publish = cmd_tick
 
 if __name__ == "__main__":
     sys.exit(main())
-

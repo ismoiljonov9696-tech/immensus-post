@@ -18,7 +18,7 @@ def _model(model: str, kind: str = "text") -> str:
     """Config OpenAI'ga o'tgan bo'lsa ham eski Gemini zaxirasini ishlatadi."""
     if provider_name() == "openai":
         if model.startswith("gemini-"):
-            return "gpt-image-2.5-flare" if kind == "image" else "gpt-5.4-mini"
+            return "gpt-image-2.5-flare" if kind == "image" else "gpt-6.1-terra"
         return model
     if model.startswith("gpt-image-"):
         return "gemini-3.1-flash-image"
@@ -40,7 +40,7 @@ def usage_breakdown() -> list[dict]:
     return _backend().usage_breakdown()
 
 
-def generate_text(prompt: str, api_key: str, model: str = "gpt-5.4-mini", **kwargs):
+def generate_text(prompt: str, api_key: str, model: str = "gpt-6.1-terra", **kwargs):
     return _backend().generate_text(prompt, api_key, model=_model(model), **kwargs)
 
 
@@ -50,7 +50,7 @@ def generate_json(prompt: str, api_key: str, schema: dict, **kwargs):
     return _backend().generate_json(prompt, api_key, schema, **kwargs)
 
 
-def generate_grounded(prompt: str, api_key: str, model: str = "gpt-5.4-mini", **kwargs):
+def generate_grounded(prompt: str, api_key: str, model: str = "gpt-6.1-terra", **kwargs):
     return _backend().generate_grounded(prompt, api_key, model=_model(model), **kwargs)
 
 
@@ -68,4 +68,3 @@ def edit_image(prompt: str, images: list[bytes], api_key: str,
     return _backend().edit_image(
         prompt, images, api_key, model=_model(model, "image"), **kwargs
     )
-

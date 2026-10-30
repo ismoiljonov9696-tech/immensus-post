@@ -38,4 +38,3 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           POST_ID: ${{ inputs.post_id }}
         run: python -m src.main repost --id "$POST_ID"
-

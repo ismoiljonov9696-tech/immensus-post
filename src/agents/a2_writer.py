@@ -43,10 +43,7 @@ Qat'iy qoidalar:
   bo'sh boshlanish qat'iyan man etiladi.
 - Markdown sarlavhalar (#, ##) ishlatmang — Telegram ularni ko'rsatmaydi.
 - Brend nomi faqat "Immensus Post". "Immensus Cargo", "Ipost" yoki boshqa nom yozmang.
-- Immensus Cargo mavzularini, avto/avia kargoni, professional logistika,
-  konteyner, bojxona va katta partiyani umuman tilga olmang.
-- Yetkazish faqat konfiguratsiyadagi yakuniy CTA'da bitta qisqa narx qatori
-  sifatida kelishi mumkin; postning asosiy mazmuni faqat onlayn xarid bo'lsin.
+- Postni kargo xizmati, logistika narxi yoki yetkazish reklamasi bilan aralashtirmang.
 - Tasdiqlanmagan telefon, manzil, yetkazish muddati yoki aksiya o'ylab topmang.
 - Telegram HTML uchun faqat <b>, <i> va <a href="https://..."> teglarini ishlating."""
 
@@ -102,8 +99,8 @@ TALABLAR:
   3) Amaliy yechim — qo'llanma bo'lsa 3–5 qisqa qadam; motivatsiya yoki
      kitob g'oyasi bo'lsa 2–4 aniq amal
   4) Bitta sodda amaliy misol yoki natija
-  5) Manba havolalari berilgan bo'lsa, 1-2 tasini <a href="URL">Manba</a>
-     ko'rinishida tabiiy joylashtiring. Havola bo'lmasa o'ylab topmang.
+  5) Kamida 2 ta tekshirilgan havolani <a href="URL">Manba</a>
+     ko'rinishida tabiiy joylashtiring. Yangi havola o'ylab topmang.
   6) CTA quyidagi matn bilan aynan tugasin: {p.get('cta', '')}
   7) Oxirgi qator: {hashtags}
 {fb}
@@ -126,4 +123,3 @@ def run(cfg: dict, rubric: dict, topic: dict, api_key: str,
             text = text[len(prefix):].strip()
     LOG.info("Post yozildi: %d belgi", len(text))
     return text
-

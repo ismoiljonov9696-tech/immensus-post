@@ -1,14 +1,14 @@
 # Immensus Post — avtomatik Telegram kontent tizimi
 
-Bu loyiha `@immensuspost` kanaliga har kuni Toshkent vaqti bilan **07:00**,
-**13:00** va **19:00** da post chiqaradi.
+Bu loyiha `@immensuspost` kanaliga har kuni Toshkent vaqti bilan **07:00** da
+bitta rasmli post chiqaradi.
 
 Jarayon:
 
-1. Agent internetdan Taobao, 1688, Pinduoduo, Alibaba va AliExpress bo'yicha
-   foydali, takrorlanmagan mavzu izlaydi.
+1. Tadqiqot agenti OpenAI Web Search orqali foydali, takrorlanmagan mavzu
+   izlaydi va kamida 2 ta ishonchli HTTPS manba bilan tekshiradi.
 2. Yozuvchi agent `style/examples.md` uslubida o'zbekcha post yozadi.
-3. Nano Banana 4:5 formatda rasm yaratadi.
+3. OpenAI GPT Image mavzuga mos 4:5 formatdagi rasm yaratadi.
 4. Haqiqiy `assets/logo.png` rasmning pastki o'ng burchagiga qo'yiladi.
 5. Sifat agenti fakt, til, brend, narx, havola va formatni tekshiradi.
 6. Post belgilangan vaqtda kanalga chiqadi va bot adminga xabar beradi.
@@ -16,8 +16,7 @@ Jarayon:
 Doimiy brend qoidalari:
 
 - Brend: **Immensus Post**
-- Avto kargo: **$6.2/kg**
-- Avia kargo: **tez kunda** — faol xizmat yoki narx sifatida ko'rsatilmaydi
+- Immensus Cargo kontenti va kargo narxlari bu kanalga aralashtirilmaydi
 - Kanal: **@immensuspost**
 
 ## GitHub sozlamasi
@@ -41,10 +40,10 @@ Shaxsiy xabar olishingiz uchun botga avval `/start` yuboring.
 1. GitHub'da `Actions → Tekshirish → Run workflow` ni ishga tushiring.
 2. Barcha tekshiruvlar muvaffaqiyatli bo'lsa, `Actions → Postlarni tayyorlash`
    ichida workflow'ni qo'lda ishga tushiring.
-3. `data/pending.json` ichida 3 ta tayyor post paydo bo'ladi.
+3. `data/pending.json` ichida 1 ta tayyor post paydo bo'ladi.
 4. Sinov postini darhol chiqarish kerak bo'lsa botga `/holat` yuboring yoki
    `Postlarni vaqtida chiqarish` workflow'ini ishga tushiring. Oddiy rejimda
-   ular 07:00, 13:00 va 19:00 ni kutadi.
+   u 07:00 ni kutadi.
 
 ## Bot buyruqlari
 
@@ -72,8 +71,7 @@ Secretlarni `.env` faylida ishlatsangiz, bu faylni GitHub'ga yuklamang.
 - `config.yaml` — kanal, narx, jadval, model va vizual sozlamalar
 - `style/examples.md` — Immensus Post yozish uslubi
 - `assets/logo.png` — yuborilgan Immensus Post logosi
-- `.github/workflows/generate.yml` — kunlik 3 post tayyorlash
-- `.github/workflows/tick.yml` — 07:00, 13:00 va 19:00 da nashr qilish
+- `.github/workflows/generate.yml` — kunlik 1 post tayyorlash
+- `.github/workflows/tick.yml` — 07:00 da nashr qilish
 - `data/` — mavzu arxivi va navbat
-
 

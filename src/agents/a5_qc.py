@@ -14,6 +14,7 @@ import re
 
 from ..config import style_examples
 from ..ai import generate_json
+from ..research import verified_sources
 
 LOG = logging.getLogger("agent5")
 
@@ -36,9 +37,8 @@ BANNED_PATTERNS = [
     (r"\[.*?\]\(.*?\)", "markdown havola — Telegram uni ko'rsatmaydi"),
     (r"\{\{.*?\}\}|\[TODO\]|\bLorem ipsum\b", "to'ldirilmagan shablon qolgan"),
     (r"XXXX|\bTBD\b", "to'ldirilmagan joy qolgan"),
-    (r"\bImmensus\s+Cargo\b|\bIpost\b|@immensus_cargoo|\b(?:avto|avia)\s+kargo\b", "Immensus Postga kargo mavzusi aralashgan"),
-    (r"\$\s*6(?:\.0)?\s*/?\s*kg", "eski avto kargo narxi — $6.2/kg bo'lishi kerak"),
-    (r"\$\s*9[.,]9\s*/?\s*kg", "avia kargo narxi yozilgan — xizmat hali ishga tushmagan"),
+    (r"\bImmensus\s+Cargo\b|\bIpost\b|@immensus_cargoo", "eski yoki noto'g'ri brend nomi"),
+    (r"\$\s*\d+(?:[.,]\d+)?\s*/?\s*kg", "kargo narxi yozilgan — Immensus Post kontentiga aralashtirmang"),
     (r"\+998\s*88\s*027\s*66\s*66", "eski telefon raqami qolgan"),
 ]
 
@@ -124,8 +124,7 @@ def _mechanical(cfg: dict, text: str) -> list[str]:
 
     if "Immensus Post" not in text:
         problems.append("Immensus Post brend nomi yozilmagan")
-    if "$6.2/kg" not in text:
-        problems.append("Tasdiqlangan avto kargo narxi $6.2/kg yozilmagan")
+
     return problems
 
 
@@ -198,7 +197,7 @@ Quyidagilarni tekshiring:
 5. TIL — o'zbek tilida tabiiy jumlalarmi, tarjima hidi kelmayaptimi?
 6. HAJM — {p['min_chars']}–{p['max_chars']} belgi oralig'idami?
 7. TAKROR — bir xil fikr bir necha marta aytilmaganmi?
-8. BREND — faqat Immensus Post. Immensus Cargo, avto/avia kargo va professional logistika mavzusi bo'lmasin. Yakuniy CTA'da yetkazish narxi $6.2/kg bo'lsin.
+8. BREND — faqat Immensus Post; Immensus Cargo, kargo narxi va logistika reklamasi bo'lmasin.
 9. MANBA — tekshirilgan havola berilgan bo'lsa postga tabiiy qo'shilganmi?
 
 score: 1–10, quyidagicha:
@@ -221,6 +220,9 @@ def run(cfg: dict, topic: dict, text: str, api_key: str,
     chiqmay qolishi mumkin.
     """
     mech = _mechanical(cfg, text)
+    minimum = int(cfg.get("research", {}).get("min_sources", 2))
+    if len(verified_sources(topic.get("sources"))) < minimum:
+        mech.append(f"Kamida {minimum} ta tekshirilgan web manba yo'q")
 
     verdict = generate_json(
         _content_prompt(cfg, topic, text, rubric),
@@ -261,4 +263,3 @@ def run(cfg: dict, topic: dict, text: str, api_key: str,
     for pr in problems:
         LOG.info("  · %s", pr)
     return result
-

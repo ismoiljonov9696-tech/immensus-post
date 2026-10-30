@@ -1,14 +1,13 @@
 name: Postlarni tayyorlash
 
 # Kuniga 1 post: 07:00 (Asia/Tashkent).
-# 20:17 Toshkentda ertangi bitta post oldindan tayyorlanadi.
-# 04:37 va 05:17 dagi zaxira ishlar navbat yetishmasa uni 1 taga to'ldiradi.
+# 20:17 Toshkentda ertangi post oldindan tayyorlanadi.
+# 05:17 dagi zaxira ish navbat bo'sh bo'lsa uni to'ldiradi.
 # Daqiqalar ataylab :00 emas — GitHub Actions soat boshida ko'proq kechikadi.
 on:
   schedule:
-    - cron: "17 15 * * *"      # 20:17 Toshkent — ertangi 1 post
-    - cron: "37 23 * * *"      # 04:37 Toshkent — zaxira
-    - cron: "17 0 * * *"       # 05:17 Toshkent — ikkinchi zaxira
+    - cron: "17 15 * * *"      # 20:17 Toshkent — ertangi post
+    - cron: "17 0 * * *"       # 05:17 Toshkent — zaxira
   workflow_dispatch:
     inputs:
       count:
@@ -58,11 +57,11 @@ jobs:
           CONTENT_SLOT: ${{ inputs.content_slot }}
         run: |
           if [ "$CRON" = "17 15 * * *" ]; then
+            FLAGS="--count 1"
+            echo "Asosiy ish: ertangi 1 ta post tayyorlanadi"
+          elif [ "$CRON" = "17 0 * * *" ]; then
             FLAGS="--top-up 1"
-            echo "Asosiy ish: navbat ertangi 1 ta postga to'ldiriladi"
-          elif [ "$CRON" = "37 23 * * *" ] || [ "$CRON" = "17 0 * * *" ]; then
-            FLAGS="--top-up 1"
-            echo "Zaxira ish: navbat 1 taga to'ldiriladi"
+            echo "Zaxira ish: bo'sh navbat 1 taga to'ldiriladi"
           else
             FLAGS="--count ${COUNT:-1}"
             echo "Qo'lda ishga tushirildi"
@@ -92,5 +91,4 @@ jobs:
           git diff --staged --quiet || git commit -m "postlar tayyorlandi $(date -u +%Y-%m-%d)"
           git pull --rebase --autostash origin ${{ github.ref_name }} || true
           git push
-
 

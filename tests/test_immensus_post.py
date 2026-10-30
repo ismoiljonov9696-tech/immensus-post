@@ -12,6 +12,7 @@ from src.branding import apply_logo
 from src.config import ROOT, load_config
 from src.scheduler import generate_times
 from src.main import weighted_rubric_sequence
+from src.research import require_sources, verified_sources
 
 
 class ImmensusConfigTests(unittest.TestCase):
@@ -23,7 +24,7 @@ class ImmensusConfigTests(unittest.TestCase):
         self.assertEqual(self.cfg["channel"]["id"], "@immensuspost")
         self.assertEqual(
             self.cfg["schedule"]["publish_times"],
-            ["07:00", "13:00", "19:00"],
+            ["07:00"],
         )
         self.assertEqual(self.cfg["image"]["aspect_ratio"], "4:5")
         self.assertTrue((ROOT / "assets" / "logo.png").exists())
@@ -31,11 +32,11 @@ class ImmensusConfigTests(unittest.TestCase):
     def test_generate_times_honours_lead_hours(self) -> None:
         cfg = {
             "schedule": {
-                "publish_times": ["07:00", "13:00", "19:00"],
+                "publish_times": ["07:00"],
                 "generate_lead_hours": 13,
             }
         }
-        self.assertEqual(generate_times(cfg), ["18:00", "00:00", "06:00"])
+        self.assertEqual(generate_times(cfg), ["18:00"])
 
     def test_rubric_distribution_is_exact(self) -> None:
         self.assertEqual(
@@ -53,8 +54,7 @@ class ImmensusConfigTests(unittest.TestCase):
         )
         problems = " ".join(a5_qc._mechanical(self.cfg, bad))
         self.assertIn("noto'g'ri brend", problems)
-        self.assertIn("eski avto kargo", problems)
-        self.assertIn("avia kargo narxi", problems)
+        self.assertIn("kargo narxi", problems)
 
     def test_writer_receives_verified_source_links(self) -> None:
         topic = {
@@ -65,7 +65,17 @@ class ImmensusConfigTests(unittest.TestCase):
         prompt = a2_writer._prompt(self.cfg, self.cfg["rubrics"][0], topic, None)
         self.assertIn("https://example.com/help", prompt)
         self.assertIn("Immensus Post", prompt)
-        self.assertIn("$6.2/kg", prompt)
+
+    def test_research_requires_two_trustworthy_sources(self) -> None:
+        sources = [
+            {"title": "Official help", "url": "https://example.com/help"},
+            {"title": "Second guide", "url": "https://docs.example.org/guide#part"},
+            {"title": "Social post", "url": "https://t.me/not-a-source"},
+        ]
+        self.assertEqual(len(verified_sources(sources)), 2)
+        self.assertEqual(len(require_sources(sources, 2)), 2)
+        with self.assertRaises(RuntimeError):
+            require_sources(sources[:1], 2)
 
     def test_real_logo_is_applied(self) -> None:
         with tempfile.TemporaryDirectory() as folder:
@@ -80,5 +90,4 @@ class ImmensusConfigTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
 

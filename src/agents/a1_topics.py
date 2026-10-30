@@ -9,6 +9,7 @@ import logging
 
 from .. import store
 from ..ai import generate_grounded, generate_json
+from ..research import require_sources
 
 LOG = logging.getLogger("agent1")
 
@@ -53,6 +54,15 @@ AUDITORIYA: {rubric.get('audience', '').strip()}
 Internetdan qidiring va shu rubrikaga mos, HOZIR dolzarb bo'lgan aniq mavzularni toping.
 Har bir mavzu bitta amaliy maslahatga aylantirilishi mumkin bo'lsin — umumiy
 "AI foydali" turidagi gaplar emas, balki o'quvchi bugun qo'llay oladigan narsa.
+
+FAKT TEKSHIRUVI:
+- Har bir muhim faktni kamida 2 ta ishonchli sahifa bilan solishtiring.
+- Platformaning rasmiy yordam markazi va rasmiy e'loni birinchi tanlov.
+- Sana, narx, funksiya yoki qoida o'zgargan bo'lishi mumkin: eng yangi holatni
+  tekshiring va qaysi sana/bozorga tegishli ekanini yozing.
+- Ikki manba bir-biriga zid bo'lsa, o'sha fakt va mavzuni ishlatmang.
+- Tasdiqlanmagan narx, vazn, muddat, chegirma yoki tibbiy va'da yozmang.
+- Yakunda foydalanilgan kamida 2 ta manbaning nomi va URL manzilini ko'rsating.
 
 MAJBURIY YO'NALISH:
 - Aynan yuqorida berilgan RUBRIKA tavsifiga amal qiling. Boshqa rubrikaga
@@ -122,7 +132,9 @@ def run(cfg: dict, rubric: dict, api_key: str) -> dict:
     research, sources = generate_grounded(
         _search_prompt(rubric, avoid, lang_name), api_key, model=model, temperature=0.9
     )
-    LOG.info("Qidiruv tugadi, %d manba topildi", len(sources))
+    minimum = int(cfg.get("research", {}).get("min_sources", 2))
+    sources = require_sources(sources, minimum)
+    LOG.info("Qidiruv tugadi, %d ta tekshirilgan manba topildi", len(sources))
 
     data = generate_json(
         _rank_prompt(research, avoid, lang_name, rubric), api_key, SCHEMA,
@@ -149,4 +161,3 @@ def run(cfg: dict, rubric: dict, api_key: str) -> dict:
         "Barcha topilgan mavzular arxivda bor. Rubrikani kengaytiring yoki "
         "data/archive.json dagi eski yozuvlarni tozalang."
     )
-

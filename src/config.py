@@ -125,4 +125,3 @@ def style_examples() -> str:
     if "<!-- NAMUNALAR -->" in text:
         text = text.split("<!-- NAMUNALAR -->", 1)[1].strip()
     return text
-

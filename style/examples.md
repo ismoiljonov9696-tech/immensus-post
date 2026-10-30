@@ -18,8 +18,9 @@ Rasmdagi bosh narx siz tanlagan rang yoki o‘lchamga tegishli bo‘lmasligi mum
 
 💡 Tanlangan variant rasmi mahsulot rasmiga mos kelmasa, to‘lovni shoshirmang.
 
-🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
-📦 O'zbekistonga yetkazish narxi: $6.2/kg
+📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
+📌 Foydali bo'lsa, postni saqlab qo'ying va yaqinlaringizga ulashing.
+🔔 Xitoy platformalari bo'yicha sodda qo'llanmalar — @immensuspost
 
 #ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat
 
@@ -36,8 +37,9 @@ Mahsulot nomini xitoycha bilmasangiz ham, uning rasmi orqali o‘xshash variantl
 
 ✅ Birinchi chiqqan mahsulotni darhol olmang. Kamida 2–3 variantni ko‘rib, sizga mosini tanlang.
 
-🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
-📦 O'zbekistonga yetkazish narxi: $6.2/kg
+📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
+📌 Foydali bo'lsa, postni saqlab qo'ying va yaqinlaringizga ulashing.
+🔔 Xitoy platformalari bo'yicha sodda qo'llanmalar — @immensuspost
 
 #ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat
 
@@ -55,8 +57,8 @@ Poizon’da buyurtma berishda faqat odatda kiyadigan raqamingizga tayanmang. Tur
 
 💡 Ikki o‘lcham orasida qolsangiz, to‘lovdan oldin jadvalni yana bir marta tekshiring.
 
-🛍 Xitoydan donalik buyurtmangizni Immensus Post orqali qiling.
-📦 O'zbekistonga yetkazish narxi: $6.2/kg
+📦 Xitoydan buyurtmalaringizni Immensus Post orqali yetkazing.
+📌 Foydali bo'lsa, postni saqlab qo'ying va yaqinlaringizga ulashing.
+🔔 Xitoy platformalari bo'yicha sodda qo'llanmalar — @immensuspost
 
 #ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat
-
