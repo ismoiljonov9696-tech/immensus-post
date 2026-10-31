@@ -7,8 +7,8 @@
   "total_posts": 20,
   "last_error": {
     "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 8/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Keltirilgan havolalar kiyimni savatchaga qo‘shish bo‘yicha tadqiqotda ko‘rsatilgan manbaga mos emas; ikkinchi havola tadqiqot materialida yo‘q.\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-10-31T09:39:11+00:00"
+    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • Tadqiqot rasmli qidiruvni tasdiqlaydi, ammo kamera belgisi qidiruv qatorida joylashganini tasdiqlamaydi. Material postni chiqarishdan oldin interfeysni telefonda tekshirishni talab qiladi.\n  • Sumka suratini yuklab o‘xshashlarini topish fikri qadamlardan keyin takrorlangan.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-10-31T09:44:11+00:00"
   },
   "alerted_at": "2026-10-31T05:25:19+00:00"
 }
