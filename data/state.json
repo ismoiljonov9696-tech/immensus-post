@@ -6,9 +6,9 @@
   "total_cost_usd": 1.8931,
   "total_posts": 20,
   "last_error": {
-    "stage": "mavzu izlash (1-agent)",
-    "message": "Gemini gemini-3.8-flash → HTTP 402: {\n  \"error\": {\n    \"code\": 402,\n    \"message\": \"Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. \",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n",
-    "at": "2026-10-31T05:38:56+00:00"
+    "stage": "sifat nazorati (5-agent)",
+    "message": "Nazoratchi bahosi: 8/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Keltirilgan havolalar kiyimni savatchaga qo‘shish bo‘yicha tadqiqotda ko‘rsatilgan manbaga mos emas; ikkinchi havola tadqiqot materialida yo‘q.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-10-31T09:39:11+00:00"
   },
   "alerted_at": "2026-10-31T05:25:19+00:00"
 }
