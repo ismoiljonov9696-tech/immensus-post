@@ -1,14 +1,10 @@
 {
-  "last_publish_at": "2026-10-14T10:04:27+00:00",
-  "last_publish_id": "20261012-223447",
-  "last_publish_title": "\"Pre-sale\" (预售) tuzog‘i: Tovarni 20 kun kutmaslik yo‘li",
-  "last_publish_cost": 0.0953,
-  "total_cost_usd": 1.8931,
-  "total_posts": 20,
-  "last_error": {
-    "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Rasm orqali qidirish bo‘limini qanday topish ko‘rsatilmagan. Yangi boshlovchi ikkinchi qadamni mustaqil bajara olmasligi mumkin; tadqiqot ham qadamlarni chop etishdan oldin ilovada sinashni talab qiladi.\n  • Sumka rasmi orqali o‘xshash mahsulot izlash fikri takrorlangan. Ikkinchi havolaning aynan rasm orqali qidirishga aloqasi tadqiqotda ko‘rsatilmagan.\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-10-31T15:01:45+00:00"
-  },
-  "alerted_at": "2026-10-31T19:52:13+00:00"
+  "last_publish_at": "2026-11-01T02:00:56+00:00",
+  "last_publish_id": "20261031-192149",
+  "last_publish_title": "Taobao, 1-dars: Sumkani rasm orqali topish",
+  "last_publish_cost": 0.1427,
+  "total_cost_usd": 2.0358,
+  "total_posts": 21,
+  "last_error": null,
+  "alerted_at": null
 }
