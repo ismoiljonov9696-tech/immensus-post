@@ -7,8 +7,8 @@
   "total_posts": 21,
   "last_error": {
     "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 8/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Poizon havolasi sumka haqidagi mavzuga aloqasiz va tadqiqot materialida berilmagan; uni olib tashlash maqsadga muvofiq.\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-11-01T15:01:44+00:00"
+    "message": "Nazoratchi bahosi: 9/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-01T19:46:07+00:00"
   },
   "alerted_at": null
 }
