@@ -64,10 +64,13 @@ def prepare(cfg):
     from .config import WORK, load_secrets
     from .telegram import Bot
     campaign_ids = {c[0] for c in CARDS}
+    if store.meta().get("prepared_guides_202611_done"):
+        return any(p["id"] in campaign_ids for p in store.queued())
     seen = {p["id"] for p in store.pending()}
     seen.update(p.get("post_id") for p in store.archive())
     missing = [c for c in CARDS if c[0] not in seen]
     if not missing:
+        store.set_meta(prepared_guides_202611_done=True)
         return any(p["id"] in campaign_ids for p in store.queued())
     secrets = load_secrets(strict=False)
     bot = Bot(secrets.telegram_token)
@@ -93,4 +96,5 @@ def prepare(cfg):
         store.remember(post["title"], post["rubric"], post_id, [])
         if not store.sync_to_remote("tayyor post navbati: " + post_id):
             raise RuntimeError("Post navbati saqlanmadi; qayta tekshirish kerak")
+    store.set_meta(prepared_guides_202611_done=True)
     return True
