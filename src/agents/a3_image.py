@@ -40,7 +40,7 @@ Yaxshi rasm bitta aniq g'oyani ko'rsatadi: tomoshabin post matnini o'qimasdan
 ham mavzuni taxmin qila olishi kerak. Kutilmaganlik hech qachon mavzuning
 aniqligidan ustun emas.
 
-Odatda matn, harf, raqam, iyeroglif va logotip so'ramang. Faqat post aynan
+Infografikada qisqa o‘zbekcha sarlavha va yorliqlar mumkin. Faqat postdagi tasdiqlangan ma’lumotdan foydalaning. Faqat post aynan
 Alipay, Taobao, 1688, Pinduoduo, Poizon/Dewu, Tmall yoki boshqa platforma haqida bo'lsa,
 shu platformaning tanish ilova belgisi yoki interfeysini tahririy kontekstda
 ko'rsatish mumkin. Boshqa tasodifiy brendlar va logolar bo'lmasin."""
@@ -48,10 +48,10 @@ ko'rsatish mumkin. Boshqa tasodifiy brendlar va logolar bo'lmasin."""
 # Kompozitsiya uslublari — har post uchun bittasi tanlanadi.
 # Shuning uchun kanal lentasi bir xil rasmlar qatoriga aylanmaydi.
 COMPOSITIONS = [
-    "extreme close-up on the key object, shallow depth of field, the rest softly blurred",
+    "educational infographic with 3 clear visual steps and short Uzbek labels",
     "isometric 3/4 view of a small diorama-like scene, clean drop shadows",
-    "wide establishing shot of the environment, one human figure small in frame for scale",
-    "top-down flat-lay of the objects arranged neatly on a surface",
+    "friendly editorial cartoon showing one practical shopping mistake and its solution",
+    "clean comparison card with product illustrations; no invented prices or weights",
     "split composition contrasting two states side by side, clear visual divide",
     "over-the-shoulder view of hands working with the objects, face out of frame",
     "single bold symbolic object centered on a clean background, generous negative space",
@@ -211,9 +211,9 @@ prompt uchun talablar:
 - Uslub: {img.get('style', '').strip()}
 - Ranglar: {img.get('brand_colors', '')}
 - Odamlar: {people}
-- Rasmda o'qiladigan matn, raqam, iyeroglif, bayroq yoki watermark bo'lmasin.
-  Faqat mavzuda nomi aniq aytilgan platformaning ilova belgisi/UI bundan
-  mustasno; boshqa logolar bo'lmasin.
+- Infografikada qisqa o‘zbekcha sarlavha va 2–5 yorliq mumkin. Raqam faqat
+  post matnida tasdiqlangan bo‘lsa ishlatilsin. Tarif, kurs, ish vaqti va
+  real yuk holatini o‘ylab topmang. Boshqa kompaniya logosi bo‘lmasin.
 - Pastki o'ng burchakda logotip uchun toza joy qoldiring"""
 
     data = generate_json(prompt, api_key, IDEA_SCHEMA, model=model,
