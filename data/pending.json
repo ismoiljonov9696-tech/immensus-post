@@ -45,7 +45,8 @@
     "created_at": "2026-11-02T05:25:57+00:00",
     "est_cost_usd": 0,
     "rewrites": 0,
-    "status": "ready"
+    "status": "cancelled",
+    "cancel_reason": "User clarified examples are recurring content-plan references, not fixed posts"
   },
   {
     "id": "post-cost-02",
@@ -59,7 +60,8 @@
     "created_at": "2026-11-02T05:26:00+00:00",
     "est_cost_usd": 0,
     "rewrites": 0,
-    "status": "ready"
+    "status": "cancelled",
+    "cancel_reason": "User clarified examples are recurring content-plan references, not fixed posts"
   },
   {
     "id": "post-track-03",
@@ -73,6 +75,7 @@
     "created_at": "2026-11-02T05:26:03+00:00",
     "est_cost_usd": 0,
     "rewrites": 0,
-    "status": "ready"
+    "status": "cancelled",
+    "cancel_reason": "User clarified examples are recurring content-plan references, not fixed posts"
   }
 ]
