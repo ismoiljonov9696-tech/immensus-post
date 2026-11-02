@@ -1,14 +1,10 @@
 {
-  "last_publish_at": "2026-11-01T02:00:56+00:00",
-  "last_publish_id": "20261031-192149",
-  "last_publish_title": "Taobao, 1-dars: Sumkani rasm orqali topish",
-  "last_publish_cost": 0.1427,
-  "total_cost_usd": 2.0358,
-  "total_posts": 21,
-  "last_error": {
-    "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 9/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-11-01T19:46:07+00:00"
-  },
+  "last_publish_at": "2026-11-02T02:00:50+00:00",
+  "last_publish_id": "20261101-060139",
+  "last_publish_title": "Tmall: Kupon tanlangan rangga ham ishlaydimi?",
+  "last_publish_cost": 0.1343,
+  "total_cost_usd": 2.1701,
+  "total_posts": 22,
+  "last_error": null,
   "alerted_at": null
 }
