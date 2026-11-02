@@ -60,5 +60,19 @@
     "est_cost_usd": 0,
     "rewrites": 0,
     "status": "ready"
+  },
+  {
+    "id": "post-track-03",
+    "title": "Trek raqami. Mahsulot nomi. Tayyor.",
+    "rubric": "Immensus Post — foydali yo‘riqnoma",
+    "text": "Trek qo‘shishda ikki ma’lumot kerak:\n1. Trek raqami.\n2. Mahsulot nomi.\n\nMasalan: «Bolalar krossovkasi». Yuklaringizni shu nom bilan oson topasiz.\n\nTrek qo‘shilgan, ammo omborga hali kelmaganmi? U kutilayotgan yuk sifatida turadi. Qabul qilingach holati yangilanadi.\n\n@immensuspost",
+    "kind": "photo",
+    "file_id": "AgACAgUAAxkDAAIBL2roHuxApQzNjg4hZXv5sVqf_iLIAAJwFWsbBHRBV3Neyn9embn0AQADAgADdwADPQQ",
+    "media_path": "/home/runner/work/immensus-post/immensus-post/.work/post-track-03/image.png",
+    "publish_at": "2026-11-05T07:00:00+05:00",
+    "created_at": "2026-11-02T05:26:03+00:00",
+    "est_cost_usd": 0,
+    "rewrites": 0,
+    "status": "ready"
   }
 ]
