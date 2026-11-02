@@ -32,5 +32,19 @@
     "status": "published",
     "updated_at": "2026-11-02T02:00:49+00:00",
     "published_at": "2026-11-02T02:00:49+00:00"
+  },
+  {
+    "id": "post-stages-01",
+    "title": "Yukingiz qaysi bosqichda?",
+    "rubric": "Immensus Post — foydali yo‘riqnoma",
+    "text": "Yukingiz qayerda? Mini App → Yuklarim bo‘limidagi ✓ belgilar orqali bosqichlarni kuzating.\n\nYashil belgi — qayd etilgan bosqich, to‘q sariq chegara — joriy holat. Omborga kelish va mijozga topshirish alohida bosqichlardir. Olib ketish bo‘yicha operator xabarini kuting.\n\n@immensuspost",
+    "kind": "photo",
+    "file_id": "AgACAgUAAxkDAAIBLWroHuc9a636ORIpK5mtBtta5fMKAAJuFWsbBHRBV-HPN9AwGezmAQADAgADdwADPQQ",
+    "media_path": "/home/runner/work/immensus-post/immensus-post/.work/post-stages-01/image.png",
+    "publish_at": "2026-11-03T07:00:00+05:00",
+    "created_at": "2026-11-02T05:25:57+00:00",
+    "est_cost_usd": 0,
+    "rewrites": 0,
+    "status": "ready"
   }
 ]
