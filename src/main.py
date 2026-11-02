@@ -586,11 +586,6 @@ def cmd_generate(cfg: dict, force: bool = False, now_flag: bool = False,
         LOG.warning("Tizim pauzada — post tayyorlanmadi (/davom bilan yoqing)")
         return 0
 
-    from .prepared_campaign import prepare
-    if not MOCK and prepare(cfg):
-        LOG.info("Tayyor Post yo‘riqnomalari navbatda — AI xarajati yo‘q")
-        return 0
-
     if if_empty and not top_up:
         top_up = 1
 
