@@ -46,5 +46,19 @@
     "est_cost_usd": 0,
     "rewrites": 0,
     "status": "ready"
+  },
+  {
+    "id": "post-cost-02",
+    "title": "Faqat tovar narxiga qaramang.",
+    "rubric": "Immensus Post — foydali yo‘riqnoma",
+    "text": "Arzon mahsulot har doim ham arzon xarid degani emas.\n\nBuyurtmadan oldin tovar narxi, tashish haqi va zarur qadoqlash xarajatini birga hisoblang. Katta yoki nozik mahsulot bo‘lsa, qadoqlangan vazn va o‘lchamlarni sotuvchidan so‘rang.\n\nAniq hisob uchun shu ma’lumotlarni operatorga yuboring.\n\n@immensuspost",
+    "kind": "photo",
+    "file_id": "AgACAgUAAxkDAAIBLmroHunNrBJPMYxclFZV7OwYzHR7AAJvFWsbBHRBVwGnK0LF4JdUAQADAgADdwADPQQ",
+    "media_path": "/home/runner/work/immensus-post/immensus-post/.work/post-cost-02/image.png",
+    "publish_at": "2026-11-04T07:00:00+05:00",
+    "created_at": "2026-11-02T05:26:00+00:00",
+    "est_cost_usd": 0,
+    "rewrites": 0,
+    "status": "ready"
   }
 ]
