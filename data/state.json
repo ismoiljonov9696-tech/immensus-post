@@ -5,7 +5,11 @@
   "last_publish_cost": 0.1402,
   "total_cost_usd": 2.3103,
   "total_posts": 23,
-  "last_error": null,
+  "last_error": {
+    "stage": "sifat nazorati (5-agent)",
+    "message": "Nazoratchi bahosi: 5/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Tadqiqot materialida ekran yo‘lini nashrdan oldin telefonda tekshirish talab qilingan, postda esa u tasdiqlanmagani aytilgan.\n  • Rang va o‘lchamni tanlash uchun ekrandagi tugma yoki menyu nomi ko‘rsatilmagan; yangi boshlovchi amalni takrorlashda qiynalishi mumkin.\n  • Ikkinchi «Manba» havolasi tadqiqot materialida keltirilmagan va post mazmunini tasdiqlashi ko‘rsatilmagan.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-03T15:02:07+00:00"
+  },
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
