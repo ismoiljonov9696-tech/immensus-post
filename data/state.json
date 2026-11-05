@@ -5,7 +5,11 @@
   "last_publish_cost": 0.1456,
   "total_cost_usd": 2.8573,
   "total_posts": 27,
-  "last_error": null,
+  "last_error": {
+    "stage": "sifat nazorati (5-agent)",
+    "message": "Nazoratchi bahosi: 5/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Tadqiqot materialida Tmall’dagi ustidan chizilgan narx va uni avvalgi narx bilan solishtirish haqidagi ma’lumot to‘liq berilmagan. Ikkinchi havola ham materialda yo‘q.\n  • Saqlangan rasmdagi narx yakuniy to‘lov bo‘lmasligi mumkin. Uni hozirgi yakuniy to‘lov bilan solishtirib, farqni aniq tejam deb ko‘rsatish chalg‘itadi.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-05T21:31:19+00:00"
+  },
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
