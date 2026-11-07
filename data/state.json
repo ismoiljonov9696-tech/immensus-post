@@ -5,7 +5,11 @@
   "last_publish_cost": 0.1485,
   "total_cost_usd": 3.3058,
   "total_posts": 30,
-  "last_error": null,
+  "last_error": {
+    "stage": "sifat nazorati (5-agent)",
+    "message": "Nazoratchi bahosi: 9/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-07T15:01:44+00:00"
+  },
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
