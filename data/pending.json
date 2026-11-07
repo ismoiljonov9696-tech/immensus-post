@@ -388,7 +388,8 @@
     "publish_at": "2026-11-07T07:00:00+05:00",
     "created_at": "2026-11-06T06:44:39+00:00",
     "est_cost_usd": 0.1485,
-    "status": "ready"
+    "status": "publishing",
+    "updated_at": "2026-11-07T02:00:58+00:00"
   },
   {
     "id": "20261106-150011",
