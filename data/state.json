@@ -5,7 +5,11 @@
   "last_publish_cost": 0.136,
   "total_cost_usd": 4.3072,
   "total_posts": 37,
-  "last_error": null,
+  "last_error": {
+    "stage": "kanalga chiqarish (6-agent)",
+    "message": "sendPhoto: tarmoq xatosi (javob kelmadi, qayta yuborilmadi — takror chiqishning oldini olish uchun): ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "at": "2026-11-11T16:03:26+00:00"
+  },
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
