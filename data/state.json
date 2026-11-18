@@ -5,7 +5,11 @@
   "last_publish_cost": 0.155,
   "total_cost_usd": 5.9924,
   "total_posts": 48,
-  "last_error": null,
+  "last_error": {
+    "stage": "sifat nazorati (5-agent)",
+    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Birinchi «Manba» havolasi tadqiqot materialida berilmagan; uning postdagi ma’lumotni tasdiqlashi tekshirilmagan.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-18T15:04:01+00:00"
+  },
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
