@@ -7,8 +7,8 @@
   "total_posts": 51,
   "last_error": {
     "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • to'ldirilmagan joy qolgan\n  • Immensus Post brend nomi yozilmagan\n  • Tugmalar va qadamlar telefonda qayta tekshirilmagan. Tadqiqot materialida bu tekshiruv postni tayyorlashdan oldin bajarilishi shartligi aytilgan; ogohlantirish tekshiruv o‘rnini bosmaydi.\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-11-20T15:02:52+00:00"
+    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • Ikkinchi «Manba» havolasi tadqiqot materialida keltirilmagan; uning postdagi ma’lumotni tasdiqlashi ham berilgan material asosida tekshirilmagan.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-20T22:17:43+00:00"
   },
   "alerted_at": null,
   "prepared_guides_202611_done": true
