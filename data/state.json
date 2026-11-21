@@ -5,7 +5,11 @@
   "last_publish_cost": 0.1446,
   "total_cost_usd": 6.5544,
   "total_posts": 52,
-  "last_error": null,
+  "last_error": {
+    "stage": "sifat nazorati (5-agent)",
+    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • 5-dars uchun berilgan tadqiqot havolasi o‘rniga boshqa havolalar qo‘yilgan; Tmall havolasi tadqiqot materialida yo‘q.\n  • Tadqiqotda tugmalar yo‘lini nashrdan oldin telefonda tekshirish talab qilingan, ammo bu tekshiruv bajarilgani tasdiqlanmagan.\n  • Buyumni keyin ko‘rib chiqish fikri takrorlangan.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-21T07:07:19+00:00"
+  },
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
