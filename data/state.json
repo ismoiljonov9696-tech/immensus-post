@@ -7,8 +7,8 @@
   "total_posts": 52,
   "last_error": {
     "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • 5-dars uchun berilgan tadqiqot havolasi o‘rniga boshqa havolalar qo‘yilgan; Tmall havolasi tadqiqot materialida yo‘q.\n  • Tadqiqotda tugmalar yo‘lini nashrdan oldin telefonda tekshirish talab qilingan, ammo bu tekshiruv bajarilgani tasdiqlanmagan.\n  • Buyumni keyin ko‘rib chiqish fikri takrorlangan.\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-11-21T07:07:19+00:00"
+    "message": "Nazoratchi bahosi: 6/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n  • 2-qadamda rang va o‘lcham variantlarini ochish uchun qaysi tugma yoki maydon bosilishi ko‘rsatilmagan. Yangi boshlovchi amalni telefonda takrorlashda qiynalishi mumkin.\n  • Tadqiqot amallarni nashrdan oldin telefonda qayta sinashni talab qiladi, ammo bu tekshiruv o‘tkazilgani tasdiqlanmagan.\n\nChegara: llm.qc_min_score = 8",
+    "at": "2026-11-21T15:02:07+00:00"
   },
   "alerted_at": null,
   "prepared_guides_202611_done": true
