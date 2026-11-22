@@ -1,15 +1,11 @@
 {
-  "last_publish_at": "2026-11-22T03:00:10+00:00",
-  "last_publish_id": "20261121-205521",
-  "last_publish_title": "Taobao, 5-dars: Kiyim rangi va o‘lchamini tanlash",
-  "last_publish_cost": 0.1443,
-  "total_cost_usd": 6.6987,
-  "total_posts": 53,
-  "last_error": {
-    "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 10/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-11-22T06:47:47+00:00"
-  },
+  "last_publish_at": "2026-11-22T17:02:46+00:00",
+  "last_publish_id": "20261122-150011",
+  "last_publish_title": "Taobao: Sharf tarkibida qancha jun bor?",
+  "last_publish_cost": 0.1585,
+  "total_cost_usd": 6.8572,
+  "total_posts": 54,
+  "last_error": null,
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
