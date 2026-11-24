@@ -1,15 +1,11 @@
 {
-  "last_publish_at": "2026-11-23T02:00:21+00:00",
-  "last_publish_id": "20261122-210537",
-  "last_publish_title": "Taobao: Sotuvchi alohida pul o‘tkazishni so‘rasa-chi?",
-  "last_publish_cost": 0.1654,
-  "total_cost_usd": 7.0226,
-  "total_posts": 55,
-  "last_error": {
-    "stage": "sifat nazorati (5-agent)",
-    "message": "Nazoratchi bahosi: 9/10\nKamchiliklar:\n  • Immensus Post brend nomi yozilmagan\n\nChegara: llm.qc_min_score = 8",
-    "at": "2026-11-24T09:56:23+00:00"
-  },
-  "alerted_at": "2026-11-24T05:56:12+00:00",
+  "last_publish_at": "2026-11-24T17:31:39+00:00",
+  "last_publish_id": "20261124-150014",
+  "last_publish_title": "Taobao: Rezinkali choyshab matrasga mosmi?",
+  "last_publish_cost": 0.1687,
+  "total_cost_usd": 7.1913,
+  "total_posts": 56,
+  "last_error": null,
+  "alerted_at": null,
   "prepared_guides_202611_done": true
 }
