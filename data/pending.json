@@ -49,5 +49,321 @@
     "status": "published",
     "updated_at": "2026-11-26T02:00:32+00:00",
     "published_at": "2026-11-26T02:00:32+00:00"
+  },
+  {
+    "id": "20261126-081453",
+    "rubric": "Platforma qo'llanmalari",
+    "title": "Taobao, 6-dars: Mahsulotni savatchaga qo‘shish",
+    "text": "🛒 <b>TAOBAO, 6-DARS: MAHSULOTNI SAVATCHAGA QO‘SHISH</b>\n\nImmensus Post bilan yoqqan buyumni keyinroq ko‘rish uchun savatchaga qo‘shing. Uni darhol sotib olish shart emas.\n\n<b>Ekranda tekshiring:</b>\n1️⃣ Uy-ro‘zg‘or buyumi sahifasini oching.\n2️⃣ Kerakli variantni tanlang.\n3️⃣ <b>加入购物车</b> — «savatchaga qo‘shish»ni bosing.\n4️⃣ <b>购物车</b> — «savatcha»ni ochib, buyum va tanlangan variantni tekshiring.\n\nMasalan, uy buyumini savatchada qoldirib, keyinroq ko‘rib chiqishingiz mumkin.\n\nTugmalar joyi ilova versiyasiga qarab farq qilishi mumkin.\n\n<a href=\"https://developer.alibaba.com/docs/doc.htm?articleId=119062&amp;docType=1&amp;treeId=696\">Manba</a> | <a href=\"https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html\">Manba</a>\n\n📌 Foydali bo'lsa, postni saqlab qo'ying va yaqinlaringizga ulashing. 🔔 Xitoy platformalari bo'yicha sodda qo'llanmalar — @immensuspost\n\n#ImmensusPost #XitoydanBuyurtma #FoydaliMaslahat",
+    "kind": "photo",
+    "file_id": "AgACAgUAAxkDAAIBoWsH6zOXSZ36snHjgnOm75fvuBgKAALTE2sbYB1AVKOMDxHsZb7YAQADAgADeQADPQQ",
+    "media_path": "/home/runner/work/immensus-post/immensus-post/.work/20261126-081453/image.png",
+    "topic": {
+      "title": "Taobao, 6-dars: Mahsulotni savatchaga qo‘shish",
+      "angle": "Ekranli tekshiruv ro‘yxati: uy-ro‘zg‘or buyumini ochish → variantni tanlash → 加入购物车 («savatchaga qo‘shish»)ni bosish → 购物车 («savatcha»)da tekshirish.",
+      "why_now": "Mahsulotni darhol sotib olmasdan, keyinroq ko‘rib chiqish uchun savatchada saqlash mumkin.",
+      "research": "Quyidagi mavzular Taobao’ning Xitoy bozoriga mo‘ljallangan interfeysi uchun tanlandi. Ular mavsumiy yangilik emas: **bugun xarid qilayotgan boshlovchiga kerak bo‘ladigan doimiy qo‘llanmalar**.\n\n**Tekshiruv chegarasi:** 2026-yil 26-noyabr holatiga rasmiy sahifalarda funksiyalar solishtirildi, ammo barcha tugmalarning aynan hozirgi mobil versiyadagi joylashuvini ikki rasmiy manba bilan tasdiqlash imkoni bo‘lmadi. Shu sababli quyidagilar — **post nomzodlari**; e’lon qilishdan oldin yo‘nalishlarni ilovada tekshirish kerak.\n\n1. **Taobao, 6-dars: Mahsulotni savatchaga qo‘shish**\n   - **Burchak:** Uy-ro‘zg‘or buyumi sahifasini ochish → kerakli variantni belgilash → **加入购物车** («savatchaga qo‘shish») → **购物车** («savatcha»)da tekshirish. Format: ekranli tekshiruv ro‘yxati.\n   - **Nega hozir:** Biror mahsulotni darhol sotib olmasdan, keyinroq ko‘rib chiqish uchun foydali.\n   - **Baho:** 10/10. Savatchaga qo‘shish funksiyasi rasmiy hujjatlarda ko‘rsatilgan. ([developer.alibaba.com](https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=696&utm_source=openai))\n\n2. **Taobao, 7-dars: Yoqgan mahsulotni saqlab qo‘yish**\n   - **Burchak:** Aksessuar sahifasini ochish → **收藏** («saqlash»)ni tanlash → **收藏夹** («saqlanganlar»)ga kirish → mahsulotni qayta topish. Format: sodda infografika.\n   - **Nega hozir:** Qaror qilishdan oldin yoqqan variantni yo‘qotmaslikka yordam beradi.\n   - **Baho:** 9/10. Mahsulotni saqlash va saqlanganlarni boshqarish funksiyalari rasmiy manbalarda qayd etilgan. ([developer.alibaba.com](https://developer.alibaba.com/docs/doc.htm?articleId=118389&docType=1&treeId=634&utm_source=openai))\n\n3. **Taobao, 8-dars: Do‘konga mahsulot haqida savol berish**\n   - **Burchak:** Uy buyumi sahifasini ochish → do‘kon bilan chatni ochish → masalan, material haqida qisqa savol yuborish → **消息** («xabarlar»)da javobni tekshirish. Format: savol namunasi bilan illyustratsiya.\n   - **Nega hozir:** Buyurtmadan oldin mahsulot tavsifidagi tushunarsiz joyni aniqlashtirish mumkin.\n   - **Baho:** 9/10. Taobao rasmiy hujjatlarida do‘kon chati va do‘kon xabarlari ko‘rsatilgan; chatni ochish tugmasining joriy nomi post tayyorlashda tekshirilishi kerak. ([developer.alibaba.com](https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=696&utm_source=openai))\n\n4. **Taobao, 9-dars: Buyurtma holatini tekshirish**\n   - **Burchak:** **我的淘宝** («mening Taobao’m») → buyurtmalar ro‘yxati → kerakli buyurtma → undagi holatni o‘qish. Format: holatlar ma’nosi berilgan kichik taqqoslash jadvali.\n   - **Nega hozir:** Xariddan keyin buyurtma qaysi bosqichda ekanini tushunishga yordam beradi.\n   - **Baho:** 10/10. Rasmiy manbalarda buyurtmalar va ularning holatlarini ko‘rish imkoniyati qayd etilgan; mobil menyu yo‘li alohida tekshirilsin. ([terms.alicdn.com](https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?external=true&utm_source=openai))\n\n5. **Taobao, 10-dars: Buyurtmaning yo‘lini ko‘rish**\n   - **Burchak:** **我的淘宝** («mening Taobao’m») → kerakli buyurtma → **查看物流** («yetkazilish ma’lumotini ko‘rish») → ko‘rsatilgan yangilanishlarni o‘qish. Format: o‘qli infografika.\n   - **Nega hozir:** Xaridor jo‘natilgan buyurtmasini ilovaning o‘zidan kuzata oladi.\n   - **Baho:** 9/10. Alipay yordam markazida buyurtmaning yetkazilish holatini tekshirish mavzusi mavjud; Taobao ilovasi bo‘yicha rasmli yo‘riqnomada ham ushbu tugma ko‘rsatilgan. ([help.alipay.com](https://help.alipay.com/lab/cateQuestion.htm?cateId=237810&pageNo=7&pcateId=237328&utm_source=openai))\n\n6. **Taobao, 11-dars: Yuborilmagan buyurtma uchun pulni qaytarishni so‘rash**\n   - **Burchak:** Buyurtmani topish → hali yuborilmaganini tekshirish → mavjud qaytarish tugmasini ochish → sababni ko‘rsatib, so‘rovni yuborish. Format: bosqichma-bosqich tekshiruv ro‘yxati.\n   - **Nega hozir:** Noto‘g‘ri buyurtma berilganda o‘quvchi qaysi amaldan boshlashni biladi.\n   - **Baho:** 10/10. Rasmiy manbalar yuborilmagan buyurtma uchun qaytari",
+      "sources": [
+        {
+          "title": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237810&pageNo=7&pcateId=237328",
+          "url": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237810&pageNo=7&pcateId=237328"
+        },
+        {
+          "title": "https://help.alipay.com/support/help_detail.htm?help_id=430037&info_type=9&sh=Y",
+          "url": "https://help.alipay.com/support/help_detail.htm?help_id=430037&info_type=9&sh=Y"
+        },
+        {
+          "title": "https://help.alipay.com/support/help_detail.htm?help_id=429853",
+          "url": "https://help.alipay.com/support/help_detail.htm?help_id=429853"
+        },
+        {
+          "title": "https://help.alipay.com/support/common_question.htm",
+          "url": "https://help.alipay.com/support/common_question.htm"
+        },
+        {
+          "title": "https://help.alipay.com/lab/cateQuestion.htm?cateId=210440&pcateId=150006",
+          "url": "https://help.alipay.com/lab/cateQuestion.htm?cateId=210440&pcateId=150006"
+        },
+        {
+          "title": "https://help.alipay.com/support/help_detail.htm?help_id=429826",
+          "url": "https://help.alipay.com/support/help_detail.htm?help_id=429826"
+        },
+        {
+          "title": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237810&pageNo=5&pcateId=237328",
+          "url": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237810&pageNo=5&pcateId=237328"
+        },
+        {
+          "title": "https://help.alipay.com/support/help_detail.htm?help_id=398657",
+          "url": "https://help.alipay.com/support/help_detail.htm?help_id=398657"
+        },
+        {
+          "title": "https://help.alipay.com/enterprise/knowledgeDetail.htm?knowledgeId=201603401913",
+          "url": "https://help.alipay.com/enterprise/knowledgeDetail.htm?knowledgeId=201603401913"
+        },
+        {
+          "title": "https://help.alipay.com/support/help_detail.htm?help_id=398661",
+          "url": "https://help.alipay.com/support/help_detail.htm?help_id=398661"
+        },
+        {
+          "title": "https://help.alipay.com/lab/cateQuestion.htm?cateId=210461",
+          "url": "https://help.alipay.com/lab/cateQuestion.htm?cateId=210461"
+        },
+        {
+          "title": "https://help.alipay.com/support/help_detail.htm?help_id=397772",
+          "url": "https://help.alipay.com/support/help_detail.htm?help_id=397772"
+        },
+        {
+          "title": "https://cschannel.alipay.com/mobile/helpDetail.htm?help_id=212428",
+          "url": "https://cschannel.alipay.com/mobile/helpDetail.htm?help_id=212428"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=103477&docType=1&treeId=47",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=103477&docType=1&treeId=47"
+        },
+        {
+          "title": "https://www.ityesok.com/a/taobao-refund-return-guide",
+          "url": "https://www.ityesok.com/a/taobao-refund-return-guide"
+        },
+        {
+          "title": "https://www.php.cn/faq/2020427.html",
+          "url": "https://www.php.cn/faq/2020427.html"
+        },
+        {
+          "title": "https://jingyan.baidu.com/article/29697b9146a292ea21de3c72.html",
+          "url": "https://jingyan.baidu.com/article/29697b9146a292ea21de3c72.html"
+        },
+        {
+          "title": "https://crossborder.kca.go.kr/download/china_taobao.pdf",
+          "url": "https://crossborder.kca.go.kr/download/china_taobao.pdf"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119275&docType=1&treeId=776",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119275&docType=1&treeId=776"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=102594&docType=1&source=search&treeId=1",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=102594&docType=1&source=search&treeId=1"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=102594&docType=1",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=102594&docType=1"
+        },
+        {
+          "title": "https://www.php.cn/faq/2973289.html",
+          "url": "https://www.php.cn/faq/2973289.html"
+        },
+        {
+          "title": "https://www.php.cn/faq/2246691.html",
+          "url": "https://www.php.cn/faq/2246691.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?external=true",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?external=true"
+        },
+        {
+          "title": "https://meest.cn/documents/493/Guide_Taobao_EN.pdf",
+          "url": "https://meest.cn/documents/493/Guide_Taobao_EN.pdf"
+        },
+        {
+          "title": "https://pdf.dfcfw.com/pdf/H3_AP202407301638458587_1.pdf",
+          "url": "https://pdf.dfcfw.com/pdf/H3_AP202407301638458587_1.pdf"
+        },
+        {
+          "title": "https://www.thepaper.cn/newsDetail_forward_25830630",
+          "url": "https://www.thepaper.cn/newsDetail_forward_25830630"
+        },
+        {
+          "title": "https://jd.sicfl.edu.cn/_upload/article/files/33/24/fd769146414fbaf3d39339d07824/d43f4855-6e3e-4615-b382-da87a89a0df3.pdf",
+          "url": "https://jd.sicfl.edu.cn/_upload/article/files/33/24/fd769146414fbaf3d39339d07824/d43f4855-6e3e-4615-b382-da87a89a0df3.pdf"
+        },
+        {
+          "title": "https://ceshiren.com/uploads/short-url/a0KAK32XzLJCvfNFFHF50Y0VyjS.pdf",
+          "url": "https://ceshiren.com/uploads/short-url/a0KAK32XzLJCvfNFFHF50Y0VyjS.pdf"
+        },
+        {
+          "title": "https://source.ckcloud.busionline.com/2025-01-07_677ceb67cf08a.pdf",
+          "url": "https://source.ckcloud.busionline.com/2025-01-07_677ceb67cf08a.pdf"
+        },
+        {
+          "title": "https://www.reddit.com/r/taobao/comments/xle1e6",
+          "url": "https://www.reddit.com/r/taobao/comments/xle1e6"
+        },
+        {
+          "title": "https://www.reddit.com/r/taobao/comments/1l8a5p1/help_with_cancel_order_before_shipping/",
+          "url": "https://www.reddit.com/r/taobao/comments/1l8a5p1/help_with_cancel_order_before_shipping/"
+        },
+        {
+          "title": "https://www.reddit.com/r/taobao/comments/k1rr63",
+          "url": "https://www.reddit.com/r/taobao/comments/k1rr63"
+        },
+        {
+          "title": "https://www.youtube.com/watch?v=JnBRaaThnR8",
+          "url": "https://www.youtube.com/watch?v=JnBRaaThnR8"
+        },
+        {
+          "title": "https://www.youtube.com/watch?v=xpleoIFUHZA",
+          "url": "https://www.youtube.com/watch?v=xpleoIFUHZA"
+        },
+        {
+          "title": "https://www.reddit.com/r/askSingapore/comments/iqmnyc",
+          "url": "https://www.reddit.com/r/askSingapore/comments/iqmnyc"
+        },
+        {
+          "title": "https://www.reddit.com/r/taobao/comments/1kbvitz",
+          "url": "https://www.reddit.com/r/taobao/comments/1kbvitz"
+        },
+        {
+          "title": "https://www.reddit.com/r/taobao/comments/ctjhgm",
+          "url": "https://www.reddit.com/r/taobao/comments/ctjhgm"
+        },
+        {
+          "title": "https://www.reddit.com/r/taobao/comments/o9d3hi",
+          "url": "https://www.reddit.com/r/taobao/comments/o9d3hi"
+        },
+        {
+          "title": "https://www.reddit.com/r/taobao/comments/g96err",
+          "url": "https://www.reddit.com/r/taobao/comments/g96err"
+        },
+        {
+          "title": "https://www.reddit.com/r/China_irl/comments/18s108x",
+          "url": "https://www.reddit.com/r/China_irl/comments/18s108x"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111819_38335.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111819_38335.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_b2b/suit_bu1_b2b202112291649_55170.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_b2b/suit_bu1_b2b202112291649_55170.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002_19_0_4635.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002_19_0_4635.html"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=696",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=696"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=785",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=785"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119275&docType=1&treeId=785",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119275&docType=1&treeId=785"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201801311156_17123.html?share_target=copy_text",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201801311156_17123.html?share_target=copy_text"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=118389&docType=1&treeId=634",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=118389&docType=1&treeId=634"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201908300941_47093.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201908300941_47093.html"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119272&docType=1&source=search&treeId=785",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119272&docType=1&source=search&treeId=785"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119266&docType=1&treeId=732",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119266&docType=1&treeId=732"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/c_end_product_protocol/20230824104320918/20230824104320918.pdf",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/c_end_product_protocol/20230824104320918/20230824104320918.pdf"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/b_end_product_protocol/20230602182505155/20230602182505155_2_3_20161.pdf",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/b_end_product_protocol/20230602182505155/20230602182505155_2_3_20161.pdf"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/common_platform_service/20230829105036263/20230829105036263.pdf",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/common_platform_service/20230829105036263/20230829105036263.pdf"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other201908122148_76955.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other201908122148_76955.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/privacy_policy_text/20221013104857208/20221013104857208.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/privacy_policy_text/20221013104857208/20221013104857208.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other201903051859_43484.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other201903051859_43484.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201801031144_60809.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_tmall/suit_bu1_tmall201801031144_60809.html"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other202103081640_50589.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other202103081640_50589.html"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119661&docType=1&treeId=1",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119661&docType=1&treeId=1"
+        },
+        {
+          "title": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237814&pageNo=4&pcateId=237810",
+          "url": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237814&pageNo=4&pcateId=237810"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119661&docType=1&treeId=780",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119661&docType=1&treeId=780"
+        },
+        {
+          "title": "https://developer.alibaba.com/doc2/apiDetail.htm?apiId=52",
+          "url": "https://developer.alibaba.com/doc2/apiDetail.htm?apiId=52"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/privacy_policy_full/20260429195358782/20260429195358782.html",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/privacy_policy_full/20260429195358782/20260429195358782.html"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=696&utm_source=openai",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=119062&docType=1&treeId=696&utm_source=openai"
+        },
+        {
+          "title": "https://developer.alibaba.com/docs/doc.htm?articleId=118389&docType=1&treeId=634&utm_source=openai",
+          "url": "https://developer.alibaba.com/docs/doc.htm?articleId=118389&docType=1&treeId=634&utm_source=openai"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?external=true&utm_source=openai",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?external=true&utm_source=openai"
+        },
+        {
+          "title": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237810&pageNo=7&pcateId=237328&utm_source=openai",
+          "url": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237810&pageNo=7&pcateId=237328&utm_source=openai"
+        },
+        {
+          "title": "https://cschannel.alipay.com/mobile/helpDetail.htm?help_id=212428&utm_source=openai",
+          "url": "https://cschannel.alipay.com/mobile/helpDetail.htm?help_id=212428&utm_source=openai"
+        },
+        {
+          "title": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237814&pageNo=4&pcateId=237810&utm_source=openai",
+          "url": "https://help.alipay.com/lab/cateQuestion.htm?cateId=237814&pageNo=4&pcateId=237810&utm_source=openai"
+        },
+        {
+          "title": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?utm_source=openai",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?utm_source=openai"
+        }
+      ]
+    },
+    "qc_score": 8,
+    "soft_pass": false,
+    "rewrites": 0,
+    "publish_at": "2026-11-27T07:00:00+05:00",
+    "created_at": "2026-11-26T08:17:53+00:00",
+    "est_cost_usd": 0.1507,
+    "status": "ready"
   }
 ]
