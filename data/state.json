@@ -8,7 +8,7 @@
   "last_error": {
     "stage": "mavzu izlash (1-agent)",
     "message": "OpenAI /responses → HTTP 429: {\n  \"error\": {\n    \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n    \"type\": \"insufficient_quota\",\n    \"param\": null,\n    \"code\": \"credit_balance_exhausted\"\n  }\n}",
-    "at": "2026-11-27T15:00:31+00:00"
+    "at": "2026-11-27T23:31:33+00:00"
   },
   "alerted_at": null,
   "prepared_guides_202611_done": true
