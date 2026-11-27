@@ -5,7 +5,11 @@
   "last_publish_cost": 0.1507,
   "total_cost_usd": 7.6122,
   "total_posts": 59,
-  "last_error": null,
+  "last_error": {
+    "stage": "mavzu izlash (1-agent)",
+    "message": "OpenAI /responses → HTTP 429: {\n  \"error\": {\n    \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n    \"type\": \"insufficient_quota\",\n    \"param\": null,\n    \"code\": \"credit_balance_exhausted\"\n  }\n}",
+    "at": "2026-11-27T08:29:33+00:00"
+  },
   "alerted_at": null,
   "prepared_guides_202611_done": true
 }
